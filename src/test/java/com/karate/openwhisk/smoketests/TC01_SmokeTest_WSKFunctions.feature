@@ -5,7 +5,7 @@
 
 
 
-Feature:  This feature file will test all the wsk functions.It will use guest NS credentails
+Feature:  This feature file will test all the wsk functions.It will use guest NS credentails 
 
   Background:
 * configure ssl = true
@@ -24,8 +24,9 @@ Feature:  This feature file will test all the wsk functions.It will use guest NS
   * def uuid = getNSCreds.response.namespaces[*]
   * def result = uuid[0].uuid+':'+uuid[0].key
   * def Auth = base64encoding(result)
+  * print "Got the Creds for the guest user"
   
- # Create an Action 
+ # Create an Action .Create an action for the above defined guest name
      * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
      * def actionName = createAction.actName
      * print actName
