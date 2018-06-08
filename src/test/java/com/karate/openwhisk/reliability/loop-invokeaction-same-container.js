@@ -25,7 +25,7 @@ function(path2feature,loopcount,nameSpace,Auth){
 	    java.lang.Thread.sleep(10000);
 	    
 	    
-	    var res2 = karate.call('classpath:com/adobe/karate/openwhisk/test-same-action-same-container.feature',{ activationId: res1.activationId ,Auth:Auth});
+	    var res2 = karate.call('classpath:com/karate/openwhisk/test-same-action-same-container.feature',{ activationId: res1.activationId ,Auth:Auth});
 	    console.log('I am printing'+i);
 	    
 	  }

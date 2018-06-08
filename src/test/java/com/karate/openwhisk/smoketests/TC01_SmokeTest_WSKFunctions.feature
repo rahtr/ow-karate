@@ -5,7 +5,7 @@
 
 
 
-Feature:  This feature file will test all the wsk functions.It will use adobe NS credentails
+Feature:  This feature file will test all the wsk functions.It will use guest NS credentails
 
   Background:
 * configure ssl = true
