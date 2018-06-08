@@ -9,7 +9,7 @@ Feature:  This feature file will download a large image from cc storage
 
   Background:
 * configure ssl = true
-* def nameSpace = 'adobe'
+* def nameSpace = 'guest'
 * def params = '?blocking=true&result=true'
 * def scriptcode = call read('classpath:com/karate/openwhisk/functions/getAssetContent.js')
 * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
@@ -41,7 +41,7 @@ Feature:  This feature file will download a large image from cc storage
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * print "Successfully deleted the action"
      
-//Call smoke test file again.
+#Call smoke test file again.
      
 
  

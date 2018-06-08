@@ -15,7 +15,7 @@ function() {
 
   }
  
-	    config.BaseUrl="https://172.17.0.1:443",
+	    config.BaseUrl="https://localhost:443",
 	    
 	    //Bot  Details
 	    config.NS_botTester1="tester1",
@@ -40,7 +40,7 @@ function() {
 	    config.Auth_botTester10="Basic YTczNTViMDctY2U1OS00Y2E0LThmYjYtNmUxYzAzNmQ3MTE2OkRMeU1RTjlXeTBPOE5NeGRNandJV3NlV0U2WWUzUGthY1BGU2V2M252Qko1TWNYQXhBbW81U3AxdWNmVFBWRVo=" 
 
 	 	//Admin Config	
-	 	config.AdminBaseUrl="http://172.17.0.1:5984",
+	 	config.AdminBaseUrl="http://localhost:5984",
 	    config.AdminAuth="Basic " +adminauth
 	    	
 	 		
