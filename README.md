@@ -12,8 +12,8 @@ The project structure is divided into the following packages:
 
 
 ### How to run the test
-1. Pick up the suite to run.Say for example Reliability Test
-2. Use the following command to run the above selected suite: `mvn test -Dadminauth=$adminauth -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner` (This will run all the tests in com.karate.openwhisk.smoketests package)
+1. Pick up the suite to run.Say for example Smoke Test
+2. Use the following command to run the above selected suite: `mvn test -Dadminauth=$adminauth -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner` (This will run all the tests in com.karate.openwhisk.smoketests package.Remember to pass the admin auth (-Dadminauth=$adminauth))
 
 
 ### How to add more tests

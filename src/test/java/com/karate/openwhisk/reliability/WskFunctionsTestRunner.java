@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.karate.openwhisk.s;
+package com.karate.openwhisk.reliability;
 import com.intuit.karate.cucumber.CucumberRunner;
 import com.intuit.karate.cucumber.KarateStats;
 import com.intuit.karate.junit4.Karate;
