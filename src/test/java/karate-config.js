@@ -1,21 +1,40 @@
 function() {    
   var env = karate.env; // get system property 'karate.env'
   var adminauth = karate.properties['adminauth'];
-  var stack = karate.properties['stack'];
+  var adminbaseurl = karate.properties['adminbaseurl'];
+  var baseurl = karate.properties['baseurl'];
+  
   karate.log('karate.env system property was:', env);
   
-  if (!env) {
+  if (!adminauth) {
     
-    adminauth='d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA=='
+    adminauth='d2hpc2tfYWRtaW46YmxhZGVydW5PcHM='
     
   }
+  
+  if (!adminbaseurl) {
+	    
+	  adminbaseurl='http://localhost:5984'
+	  adminbaseurl='https://whisk-couchdb-rtops-ue1-b.dev.runtime.adobe.io:443'
+		  
+	    
+	  }
+  if (!baseurl) {
+	    
+	  baseurl='https://localhost:443'
+		 
+	    
+	  }
+
   var config = {
     env: env,
-    adminauth:adminauth
+    adminauth:adminauth,
+    baseurl:baseurl,
+    adminbaseurl:adminbaseurl
+    
 
   }
  
-	    config.BaseUrl="https://localhost:443",
 	    
 	    //Bot  Details
 	    config.NS_botTester1="tester1",
@@ -39,11 +58,11 @@ function() {
 	    config.NS_botTester10="tester10",
 	    config.Auth_botTester10="Basic YTczNTViMDctY2U1OS00Y2E0LThmYjYtNmUxYzAzNmQ3MTE2OkRMeU1RTjlXeTBPOE5NeGRNandJV3NlV0U2WWUzUGthY1BGU2V2M252Qko1TWNYQXhBbW81U3AxdWNmVFBWRVo=" 
 
-	 	//Admin Config	
-	 	config.AdminBaseUrl="http://localhost:5984",
-	    config.AdminAuth="Basic " +adminauth
-	    	
-	 		
+	 	//Admin Config	s
+	    config.AdminAuth="Basic " +adminauth,
+	    config.AdminBaseUrl=adminbaseurl,
+	    config.BaseUrl=baseurl
+	    	 		
 
   return config;
 }
