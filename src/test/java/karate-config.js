@@ -15,7 +15,7 @@ function() {
   if (!adminbaseurl) {
 	    
 	  adminbaseurl='http://localhost:5984'
-	  adminbaseurl='https://whisk-couchdb-rtops-ue1-b.dev.runtime.adobe.io:443'
+	 
 		  
 	    
 	  }

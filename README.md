@@ -13,7 +13,8 @@ The project structure is divided into the following packages:
 
 ### How to run the test
 1. Pick up the suite to run.Say for example Smoke Test
-2. Use the following command to run the above selected suite: `mvn test -Dadminauth=$adminauth -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner` (This will run all the tests in com.karate.openwhisk.smoketests package.Remember to pass the admin auth (-Dadminauth=$adminauth))
+2. Use the following command to run the above selected suite: `mvn test -Dadminauth=<base64-enconded-admin-auth> -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dadminbaseurl=<Admin/CouchDB URL> -Dbaseurl=<Base Url of Controlled>` (This will run all the tests in com.karate.openwhisk.smoketests package.
+Example : `mvn test -Dadminauth='d2hpc2tfYWRtaW5PcHM=' -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dadminbaseurl=https://whisk-couchdb.test.com:443 -Dbaseurl=https://controller-test.com`
 
 
 ### How to add more tests
@@ -31,7 +32,8 @@ The variables in karate.config
 
 * env-->Environment Name
 * adminauth-->Admin Auth,Used for Admin API's
-* BaseUrl-->Target URL(SUT)
+* baseurl-->Target URL(SUT)
+* adminbaseurl-->CouchDB Url
 * NS_botTester[i]=Namespace of the bot testers
 * Auth_botTester[i]=Auth of the bot testers(Base64 decode of the credentials)
 * MarathonAPIURL=URL of the environment where marathon is hosted.
