@@ -39,7 +39,11 @@ public class SmokeTestRunner {
 	        Configuration config = new Configuration(new File("target"), "openwhisk");
 	        ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
 	        reportBuilder.generateReports();        
+	        String dir = System.getProperty("user.dir");
+		  //  System.out.print("Enter the file to use: "+dir/target/cucumber-html-reports/);
+	          
 	    }
+	    
 	  
 	  
 }

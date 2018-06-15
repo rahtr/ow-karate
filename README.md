@@ -1,5 +1,5 @@
 # openwhisk
-This repository contains all the Test Cases needed to do various forms of automated test on the BR/OW environments.
+This repository contains all the Test Cases needed to do various forms of automated test on the OW environments.
 It is based of karate (https://github.com/intuit/karate) framework. 
 
 ### Structure

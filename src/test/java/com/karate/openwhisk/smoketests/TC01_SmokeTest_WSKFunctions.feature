@@ -42,6 +42,7 @@ Background:
   * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
   * def actID = invokeAction.activationId
   * print  = "Successfully invoked the action"
+  * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
   
  #Get Activation details
   * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}

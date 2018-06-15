@@ -58,7 +58,7 @@ function() {
 	    config.NS_botTester10="tester10",
 	    config.Auth_botTester10="Basic YTczNTViMDctY2U1OS00Y2E0LThmYjYtNmUxYzAzNmQ3MTE2OkRMeU1RTjlXeTBPOE5NeGRNandJV3NlV0U2WWUzUGthY1BGU2V2M252Qko1TWNYQXhBbW81U3AxdWNmVFBWRVo=" 
 
-	 	//Admin Config	s
+	 	//Admin Config	
 	    config.AdminAuth="Basic " +adminauth,
 	    config.AdminBaseUrl=adminbaseurl,
 	    config.BaseUrl=baseurl
