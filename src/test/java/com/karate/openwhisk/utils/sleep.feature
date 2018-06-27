@@ -1,8 +1,8 @@
 @ignore
 Feature: Used to Sleep between tests. sheepCount to (default 60 sec, pass '-1' to avoid) sleep as many seconds
 
- Background: 
- * def sleep =
+  Background: 
+    * def sleep =
       """
       function() {
         var seconds = karate.get('sheepCount');
@@ -18,13 +18,13 @@ Feature: Used to Sleep between tests. sheepCount to (default 60 sec, pass '-1' t
         karate.log("Sleeping for " + seconds );
         for(i = 1; i <= seconds; i++) {
           java.lang.Thread.sleep(1*1000);
- //karate.log("counting sheep - " + i);
- //karate.log("Done sleeping, back to work...");
+      //karate.log("counting sheep - " + i);
+      //karate.log("Done sleeping, back to work...");
         }
        
       }
-      """ 
+      """
 
-Scenario: This line is required please do not delete - or the functions cannot be called
- * print "I cam here"
- * call sleep
+  Scenario: This line is required please do not delete - or the functions cannot be called
+    * print "I cam here"
+    * call sleep

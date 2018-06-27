@@ -9,12 +9,18 @@ Background:
   Scenario: Get NS credentials
     Given url AdminBaseUrl
     * print "I am here in create-user"
-   And path '/local_subjects/'+nameSpace
-   #  And path '/whisk_dev_subjects/'+nameSpace
+    And path '/whisk_local_subjects/'+nameSpace
     And header Authorization = AdminAuth
     And header Content-Type = 'application/json'
     When method get
     Then status 200
     And string NScreds = response
+   * def uuid = $response.namespaces[*].uuid
+   * def key = $response.namespaces[*].key
+   * def result = uuid[0]+':'+ key[0]
+    #* def uuid = $response.namespaces[*].uuid
+    * print result
+    
+    
 
  
