@@ -36,7 +36,7 @@ function() {
   }
  
 	    
-	    //Bot  Details
+	    // Bot Details
 	    config.NS_botTester1="tester1",
 	    config.Auth_botTester1="Basic ODg5M2Q5YjYtY2E1Yy00OTQ1LTk2Y2EtZDJmY2MxMDQzM2ZkOmFBNzc3ZkZ6NURoaUt3dnVwVndtT05XckozYlpMb0ZZMVJHekQwUkVvYXJVUXBTcURBT3BTV092bTM5Y2dVRjg=",
 	    config.NS_botTester2="tester2",
@@ -58,11 +58,14 @@ function() {
 	    config.NS_botTester10="tester10",
 	    config.Auth_botTester10="Basic YTczNTViMDctY2U1OS00Y2E0LThmYjYtNmUxYzAzNmQ3MTE2OkRMeU1RTjlXeTBPOE5NeGRNandJV3NlV0U2WWUzUGthY1BGU2V2M252Qko1TWNYQXhBbW81U3AxdWNmVFBWRVo=" 
 
-	 	//Admin Config	
-	    config.AdminAuth="Basic " +adminauth,
-	    config.AdminBaseUrl=adminbaseurl,
-	    config.BaseUrl=baseurl
+	 	// Admin Config
+	   // config.AdminAuth="Basic " +adminauth,
+	 // config.AdminBaseUrl=adminbaseurl,
+	// config.BaseUrl=baseurl
 	    	 		
+	    	config.AdminAuth="Basic d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA==",
+	   	    config.AdminBaseUrl="http://172.17.0.1:5984",
+	   	    config.BaseUrl="https://172.17.0.1:443"
 
   return config;
 }
