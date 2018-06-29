@@ -29,17 +29,18 @@ Feature: Create an Action
     When method put
     * def responseStatusCode = responseStatus
     * print 'The value of responseStatusCode is:',responseStatusCode
-    * eval 
+    * eval
     """
-    function() {
-    if(responseStatusCode==200) 
-    	 console.log("Action Created");
-    else if(responseStatusCode == 409)
-       console.log("Duplicate Action");
+    if(responseStatusCode == 200) {
+    	 karate.log("Action Created");
+    	 }
+    else if(responseStatusCode == 409){
+       karate.log("Duplicate Action");
        }
     """
     #* match responseStatusCode == 200
-    * def actName = response.name
+    * eval if(responseStatusCode == 200) karate.set('actName', response.name )
+    #* def actName = response.name
     * print 'Action name for the created action ' + actName
     
     
