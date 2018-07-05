@@ -14,7 +14,17 @@ Feature:  Delete the action on the basis of the ActionName
     And header Authorization = Auth
     And header Content-Type = 'application/json'
     When method delete
-    Then status 200
+    * def responseStatusCode = responseStatus
+    * print 'The value of responseStatusCode is:',responseStatusCode
+    * eval 
+    """
+    if(responseStatusCode==200){
+    	 karate.log("Action got deleted");
+    	 }
+    else if(responseStatusCode == 404){
+       karate.log("The requested Action does not exist");
+       }
+    """
 
 
    
