@@ -9,7 +9,8 @@ Background:
   Scenario: Get NS credentials
     Given url AdminBaseUrl
     * print "I am here in get-user"
-    And path '/whisk_local_subjects/'+nameSpace
+  #  And path '/whisk_local_subjects/'+nameSpace
+  And path '/local_subjects/'+nameSpace
     And header Authorization = AdminAuth
     And header Content-Type = 'application/json'
     When method get
