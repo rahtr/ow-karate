@@ -12,7 +12,7 @@ Feature: Create an Action
   Scenario: As a user I want to create an action
     
  #Create an Action
- 		 * eval
+ 		* eval
  		 """
 					if (typeof actionName == 'undefined') {
 					    karate.set('actionName', 'Testing'+java.util.UUID.randomUUID());
@@ -20,8 +20,8 @@ Feature: Create an Action
 							karate.set('actionName', actionName);
 					}
  		 """
-     * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'}}
-     * string payload = requestBody
+    * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'}}
+    * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'
     And header Authorization = Auth
     And header Content-Type = 'application/json'
@@ -40,7 +40,6 @@ Feature: Create an Action
     """
     #* match responseStatusCode == 200
     * eval if(responseStatusCode == 200) karate.set('actName', response.name )
-    #* def actName = response.name
     * print 'Action name for the created action ' + actName
     
     

@@ -17,8 +17,22 @@ Feature:  Invoke action and return activation ID
     And header Content-Type = 'application/json'
     And request payload
     When method post
-    And def activationId = response.activationId
-     * print 'Activation ID for the Invoke action ' + activationId
+    * def responseStatusCode = responseStatus
+    * print 'The value of responseStatusCode is:',responseStatusCode
+    
+    * eval 
+    """
+    if(responseStatusCode==200){
+    	 karate.log("Action got invoked");
+    	 karate.set('activationId', response.activationId);
+    	 }
+    else if(responseStatusCode == 404){
+       karate.log("The requested Action does not exist");
+       }
+    """
+    #And def activationId = response.activationId
+    * print 'Activation ID for the Invoke action ' + activationId
     #* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+    
    
    
