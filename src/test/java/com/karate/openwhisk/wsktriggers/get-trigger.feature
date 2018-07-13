@@ -19,7 +19,7 @@ Feature: Get a Trigger details
     * eval 
     """
     if(responseStatusCode==200){
-    	 karate.log("Got the action details");
+    	 karate.log("Got the rule details");
     	 karate.set('trigger_details', response)
     	 }
     else if(responseStatusCode == 404){

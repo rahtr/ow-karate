@@ -12,7 +12,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js') 
 	
-	#@ignore
+	@ignore
 	Scenario: As a user i want to verify create, update, get, fire, list and delete trigger
 		* print "Test case started --> verify create, update, get, fire, list and delete trigger"
 		# Get User Auth
@@ -39,12 +39,12 @@ Feature: This feature contains basic test cases of openwhisks triggers
     
     #update the trigger
     * def updateTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/update-trigger.feature') {triggerName:'#(triggerName)',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = updateTrigger.actName
-    * print actionName
+    * def triggerName = updateTrigger.trgrName
+    * print triggerName
     * print "Successfully updated the trigger"
     
     # List Triggers
-    * def listActions = call read('classpath:com/karate/openwhisk/wsktriggers/list-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def listRules = call read('classpath:com/karate/openwhisk/wsktriggers/list-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * print "Successfully pulled up the list of triggers"
     
     #Delete the trigger
@@ -52,7 +52,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
   	*  print "Trigger got deleted"
   	* print "Test case completed --> verify create, update, get, fire, list and delete trigger"
   	
-  #@ignore  
+  @ignore  
 	Scenario: As user i want to verify create a trigger with a name that contains spaces
 		* print "Test case started --> verify create a trigger with a name that contains spaces"
 		# Get User Auth
@@ -69,7 +69,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def triggerName = createTrigger.trgrName
     * match triggerName == "Trigger "+ UUID
     * print "Successfully Created an trigger"
-  #@ignore  
+  @ignore  
   Scenario: As a user i want to verify reject creation of duplicate triggers
     * print "Test case started --> verify reject creation of duplicate triggers"
 		# Get User Auth
@@ -103,7 +103,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #delete the trigger
     * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
 	 	* print "Test case completed --> verify reject delete of trigger that does not exist"
-	#@ignore 	
+	@ignore 	
 	Scenario: As a user i want to verify reject get of trigger that does not exist
     * print "Test case started --> verify reject get of trigger that does not exist" 
     # Get User Auth
@@ -117,7 +117,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #get the trigger details
     * def triggerDetails = call read('classpath:com/karate/openwhisk/wsktriggers/get-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * print "Test case completed --> verify reject get of trigger that does not exist"
-  #@ignore
+  @ignore
   Scenario: As a user i want to verify reject firing of a trigger that does not exist
     * print "Test case started --> verify reject firing of a trigger that does not exist" 
     # Get User Auth
@@ -131,7 +131,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #fire the trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * print "Test case completed --> verify reject firing of a trigger that does not exist"
-    
+  @ignore  
   Scenario: As a user i want to verify create and fire a trigger with a rule
     * print "Test case started --> verify create and fire a trigger with a rule" 
     # Get User Auth
@@ -154,12 +154,101 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def actName = '/'+nameSpace +'/'+actionName
     * def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * match createRule.responseStatusCode == 200
-    * print 'successfully created the trigger'
+    * print 'successfully created the rule'
     #fire the trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * def actID = fireTrigger.activationId
     * print  = "Successfully fired the trigger"
     * print 'Test Case completed--> verify create and fire a trigger with a rule'
+  @ignore  
+  Scenario: As a user i want to verify create and fire a trigger with a rule whose action has been deleted
+    * print "Test case started --> verify create and fire a trigger with a rule whose action has been deleted" 
+    # Get User Auth
+    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
+    * def result = getNSCreds.result
+    * def Auth = base64encoding(result)
+    * print "Got the Creds for the guest user"
+    * print Auth
+    #create a trigger
+    * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def triggerName = createTrigger.trgrName
+    * print "Successfully Created an trigger" 
+    #create a action
+    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def actionName = createAction.actName
+    * print "Successfully Created an action"
+    #create a rule
+    * def trgrName = '/'+nameSpace +'/'+triggerName
+    * def actName = '/'+nameSpace +'/'+actionName
+    * def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match createRule.responseStatusCode == 200
+    * print 'successfully created the rule'
+    # Delete Action
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * print 'successfully deleted the action'
+    #fire the trigger
+    * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+    * def actID = fireTrigger.activationId
+    * print  = "Successfully fired the trigger"
+    * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
+    #Get Activation details
+    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
+    * print "Successfully pulled the activation details"
+    * string log = getActivationDetails.activationDetails.logs
+    * print 'logs are: ' + log
+    * string error = "The requested resource does not exist."
+    * match log contains error
+    * print "Test case completed --> verify create and fire a trigger with a rule whose action has been deleted"
+    
+  Scenario: As a user i want to verify create and fire a trigger having an active rule and an inactive rule
+    * print "Test case started --> verify create and fire a trigger having an active rule and an inactive rule"
+    # Get User Auth
+    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
+    * def result = getNSCreds.result
+    * def Auth = base64encoding(result)
+    * print "Got the Creds for the guest user"
+    * print Auth
+    #create a trigger
+    * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def triggerName = createTrigger.trgrName
+    * print "Successfully Created an trigger" 
+    #create a action
+    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def actionName = createAction.actName
+    * print "Successfully Created an action"
+    #create a rule
+    * def trgrName = '/'+nameSpace +'/'+triggerName
+    * def actName = '/'+nameSpace +'/'+actionName
+    * def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match createRule.responseStatusCode == 200
+    * print 'successfully created the rule'
+     #create another rule to make it disable
+    * def trgrName = '/'+nameSpace +'/'+triggerName
+    * def actName = '/'+nameSpace +'/'+actionName
+    * def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match createRule.responseStatusCode == 200
+    * def ruleName = createRule.rulName
+    * print 'successfully created the rule'
+    #disable the rule
+    * def disableRule = call read('classpath:com/karate/openwhisk/wskrules/disable-rule.feature') {ruleName:'#(ruleName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match disableRule.responseStatusCode == 200
+    #fire the trigger
+    * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+    * def actID = fireTrigger.activationId
+    * print  = "Successfully fired the trigger"
+    * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
+    #Get Activation details
+    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
+    * print "Successfully pulled the activation details"
+    * string log = getActivationDetails.activationDetails.logs[1]
+    * print 'log is: ' + log
+    * string error = "Rule \'guest/" + ruleName + "\' is inactive"
+    * print "error message is: " + error
+    * match log contains error
+    * print "Test case completed --> verify create and fire a trigger having an active rule and an inactive rule"
+    
+    
+    
     
     	
 	 	

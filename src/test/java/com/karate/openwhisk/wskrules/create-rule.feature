@@ -26,6 +26,7 @@ Feature: Create a Rule
     And request payload
     When method put
     * def responseStatusCode = responseStatus
+    * def createRuleResponse = response
     * print 'The value of responseStatusCode is:',responseStatusCode
     * eval
     """
