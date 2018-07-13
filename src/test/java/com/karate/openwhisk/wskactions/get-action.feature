@@ -12,7 +12,17 @@ Background:
     And header Authorization = Auth
     And header Content-Type = 'application/json'
     When method get
-    Then status 200
-    And string action_details = response
-
- 
+    * def responseStatusCode = responseStatus
+    * print 'The value of responseStatusCode is:',responseStatusCode
+    * eval 
+    """
+    if(responseStatusCode==200){
+    	 karate.log("Got the action details");
+    	 karate.set('action_details', response)
+    	 }
+    else if(responseStatusCode == 404){
+       karate.log("The requested Action does not exist");
+       }
+    """
+    #Then status 200
+    #And string action_details = response

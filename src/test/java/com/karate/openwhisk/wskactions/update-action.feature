@@ -9,10 +9,9 @@ Feature: Update an action
 
 
   Scenario: As a user I want to update the action and give the updated response
-    
- #Update an Action
-     * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'}}
-     * string payload = requestBody
+    #Update an Action
+    * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'}}
+    * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=true'
     And header Authorization = Auth
     And header Content-Type = 'application/json'
