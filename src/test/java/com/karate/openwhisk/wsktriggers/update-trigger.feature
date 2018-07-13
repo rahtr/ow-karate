@@ -9,7 +9,7 @@ Feature: Update a Trigger details
 	* configure ssl = true
 	
 	Scenario: As a user i want to update a trigger
-	  #Update an Action
+	  #Update an trigger
     * def requestBody = {"name":"#(triggerName)"}
     * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName+'?overwrite=true'
