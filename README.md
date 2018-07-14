@@ -30,10 +30,10 @@ Example : `mvn test -Dadminauth='d2hpc2tfYWRtaW5PcHM=' -Dtest=com.karate.openwhi
 ### Pre-requisites to run the tests
 The variables in karate.config
 
-* env-->Environment Name
+* env-->Environment Name (Optional)
 * adminauth-->Admin Auth,Used for Admin API's
 * baseurl-->Target URL(SUT)
-* adminbaseurl-->CouchDB Url
+* adminbaseurl-->Database Url
 * NS_botTester[i]=Namespace of the bot testers
 * Auth_botTester[i]=Auth of the bot testers(Base64 decode of the credentials)
 * MarathonAPIURL=URL of the environment where marathon is hosted.
