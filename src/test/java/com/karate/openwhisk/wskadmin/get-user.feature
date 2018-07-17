@@ -15,7 +15,7 @@ Background:
    
     if (BaseUrl == 'https://controller-a-rtbetaa-ue1-b.runtime.adobe.io')
     {
-     DBpath = '/whisk_local_subjects/';
+     DBpath = '/whisk_dev_subjects/';
     }
     else{
      DBpath = '/local_subjects/';
