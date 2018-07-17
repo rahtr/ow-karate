@@ -13,7 +13,7 @@ Background:
     * def DBpath =
     """
    
-    if (BaseUrl == 'https://controller-a-rtbetaa-ue1-b.runtime.adobe.io')
+    if (BaseUrl.match (/*-rtbetaa-*/))
     {
      DBpath = '/whisk_dev_subjects/';
     }
