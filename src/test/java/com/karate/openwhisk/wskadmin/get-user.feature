@@ -6,11 +6,24 @@ Feature: Create Namespace
 Background:
 * configure ssl = true
  
+ 
   Scenario: Get NS credentials
     Given url AdminBaseUrl
     * print "I am here in get-user"
+    * def DBpath =
+    """
+   
+    if (BaseUrl == 'https://controller-a-rtbetaa-ue1-a.runtime.adobe.io')
+    {
+     DBpath = '/whisk_local_subjects/';
+    }
+    else{
+     DBpath = '/local_subjects/';
+    }
+    
+    """
     #And path '/whisk_local_subjects/'+nameSpace
-    And path '/local_subjects/'+nameSpace
+    And path DBpath+nameSpace
     And header Authorization = AdminAuth
     And header Content-Type = 'application/json'
     When method get
