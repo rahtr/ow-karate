@@ -13,7 +13,7 @@ Background:
     * def DBpath =
     """
    
-    if (BaseUrl == 'https://controller-a-rtbetaa-ue1-a.runtime.adobe.io')
+    if (BaseUrl == 'https://controller-a-rtbetaa-ue1-b.runtime.adobe.io')
     {
      DBpath = '/whisk_local_subjects/';
     }
