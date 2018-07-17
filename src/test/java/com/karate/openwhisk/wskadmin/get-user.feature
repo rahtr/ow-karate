@@ -13,7 +13,7 @@ Background:
     * def DBpath =
     """
    
-    if (BaseUrl.match (/*-rtbetaa-*/))
+    if (BaseUrl.match ('rtbetaa'))
     {
      DBpath = '/whisk_dev_subjects/';
     }
