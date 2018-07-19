@@ -1,7 +1,7 @@
 #Author: rtripath@adobe.com
 #Summary :This feature file will check for any erros in the logs
 @smoketests
-@ignore
+
 Feature: This feature file will test for the presence of any error in the logs pulled using the activationID
 
   Background: 
@@ -39,6 +39,6 @@ Feature: This feature file will test for the presence of any error in the logs p
     #Get Activation details
     * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
     * def activationResponse = getActivationDetails.response
-    * print activationResponse
-    And match activationResponse !contains {'stderr'}
+    * print activationResponse.logs
+    * match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
     * print "Successfully pulled the activation details"
