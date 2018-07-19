@@ -10,7 +10,7 @@ Feature: This feature contains basic test cases of openwhisks
     * def params = '?blocking=true&result=false'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
-    * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/param.js')
+    * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
   
    Scenario: As a user i want to verify rejection of unauthenticated user
    * print 'Test case started--> As a user i want to verify rejection of unauthenticated user'

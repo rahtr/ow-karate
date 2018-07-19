@@ -12,7 +12,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js') 
 	
-	#@ignore
+	@ignore
 	Scenario: As a user i want to verify create, update, get, fire, list and delete trigger
 		* print "Test case started --> verify create, update, get, fire, list and delete trigger"
 		# Get User Auth
@@ -25,12 +25,14 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200
     * print "Successfully Created an trigger"
     
     #fire a trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * def actID = fireTrigger.activationId
-    * print  = "Successfully fired the trigger"
+    * match fireTrigger.responseStatusCode == 202
+    * print "Successfully fired the trigger"
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     
    	#get trigger details
@@ -49,10 +51,11 @@ Feature: This feature contains basic test cases of openwhisks triggers
     
     #Delete the trigger
     * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+  	* match deleteTrigger.responseStatusCode == 200
   	*  print "Trigger got deleted"
   	* print "Test case completed --> verify create, update, get, fire, list and delete trigger"
   	
-  #@ignore  
+  @ignore  
 	Scenario: As user i want to verify create a trigger with a name that contains spaces
 		* print "Test case started --> verify create a trigger with a name that contains spaces"
 		# Get User Auth
@@ -67,6 +70,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def triggerNameWithSpce = 'Trigger%20'+ UUID
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', triggerName:'#(triggerNameWithSpce)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200
     * match triggerName == "Trigger "+ UUID
     * print "Successfully Created an trigger"
   #@ignore  
@@ -82,14 +86,16 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200 
     * print "Successfully Created an trigger"
     
     #Create the same trigger again
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', triggerName:'#(triggerName)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 409 
     * print "Successfully rejected for duplicate trigger"
     * print "Test case completed --> verify reject creation of duplicate triggers"
-  #@ignore  
+  @ignore  
 	Scenario: As a user i want to verify reject delete of trigger that does not exist
     * print "Test case started --> verify reject delete of trigger that does not exist" 
 		# Get User Auth
@@ -102,8 +108,9 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def triggerName = 'Trigger'+java.util.UUID.randomUUID()
     #delete the trigger
     * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+	 	* match deleteTrigger.responseStatusCode == 404
 	 	* print "Test case completed --> verify reject delete of trigger that does not exist"
-	#@ignore 	
+	@ignore 	
 	Scenario: As a user i want to verify reject get of trigger that does not exist
     * print "Test case started --> verify reject get of trigger that does not exist" 
     # Get User Auth
@@ -117,7 +124,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #get the trigger details
     * def triggerDetails = call read('classpath:com/karate/openwhisk/wsktriggers/get-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * print "Test case completed --> verify reject get of trigger that does not exist"
-  #@ignore
+  @ignore
   Scenario: As a user i want to verify reject firing of a trigger that does not exist
     * print "Test case started --> verify reject firing of a trigger that does not exist" 
     # Get User Auth
@@ -131,7 +138,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #fire the trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * print "Test case completed --> verify reject firing of a trigger that does not exist"
-  #@ignore  
+  @ignore  
   Scenario: As a user i want to verify create and fire a trigger with a rule
     * print "Test case started --> verify create and fire a trigger with a rule" 
     # Get User Auth
@@ -160,7 +167,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def actID = fireTrigger.activationId
     * print  = "Successfully fired the trigger"
     * print 'Test Case completed--> verify create and fire a trigger with a rule'
-  #@ignore  
+  @ignore  
   Scenario: As a user i want to verify create and fire a trigger with a rule whose action has been deleted
     * print "Test case started --> verify create and fire a trigger with a rule whose action has been deleted" 
     # Get User Auth
@@ -199,7 +206,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * string error = "The requested resource does not exist."
     * match log contains error
     * print "Test case completed --> verify create and fire a trigger with a rule whose action has been deleted"
-    
+  @ignore  
   Scenario: As a user i want to verify create and fire a trigger having an active rule and an inactive rule
     * print "Test case started --> verify create and fire a trigger having an active rule and an inactive rule"
     # Get User Auth
