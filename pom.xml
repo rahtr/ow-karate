@@ -106,7 +106,7 @@
 				<version>${gatling.plugin.version}</version>
 				<configuration>
 					<simulationsFolder>src/test/java</simulationsFolder>
-					<includes>com.karate.openwhisk.performance.BasicSimulation</includes>
+					<includes>com.karate.openwhisk.performance.SmokePerformanceTest</includes>
 				</configuration>
 			</plugin>
 		</plugins>
