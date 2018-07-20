@@ -1,6 +1,8 @@
 #Author: rtripath@adobe.com
 #Summary :This feature file will check for the containers
 @smoketests
+
+
 Feature: This feature file will test all the wsk functions
 
   Background: 

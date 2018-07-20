@@ -2,6 +2,8 @@
 #Summary :This feature file will check for any erros in the logs
 @smoketests
 
+
+
 Feature: This feature file will test for the presence of any error in the logs pulled using the activationID
 
   Background: 
@@ -11,7 +13,7 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
 
-  Scenario: TC03-As a user I want verify that there are no errors in the logs pulled using the ActivationID
+  Scenario: TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID
     # Get User Auth
     * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
     * def result = getNSCreds.result

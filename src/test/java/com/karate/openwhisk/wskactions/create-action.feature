@@ -1,4 +1,4 @@
-#Author: rtripath@adobe.com
+	#Author: rtripath@adobe.com
 # Summary :This feature file can be used to create actions
 @ignore
 
@@ -20,7 +20,17 @@ Feature: Create an Action
 							karate.set('actionName', actionName);
 					}
  		 """
-    * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'}}
+ 		 
+ 			* eval
+ 		 """
+					if (typeof webAction == 'undefined') {
+					    karate.set('webAction', 'false');
+					} else {
+							karate.set('webAction', 'true');
+					}
+ 		 """
+ 		 
+    * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
     * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'
     And header Authorization = Auth
