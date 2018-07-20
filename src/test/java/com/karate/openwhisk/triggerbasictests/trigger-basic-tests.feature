@@ -123,6 +123,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def triggerName = 'Trigger'+java.util.UUID.randomUUID()
     #get the trigger details
     * def triggerDetails = call read('classpath:com/karate/openwhisk/wsktriggers/get-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+    * match triggerDetails.triggerDetails == 404
     * print "Test case completed --> verify reject get of trigger that does not exist"
   @ignore
   Scenario: As a user i want to verify reject firing of a trigger that does not exist
@@ -137,6 +138,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def triggerName = 'Trigger'+java.util.UUID.randomUUID()
     #fire the trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+		* match fireTrigger.responseStatusCode == 404
     * print "Test case completed --> verify reject firing of a trigger that does not exist"
   @ignore  
   Scenario: As a user i want to verify create and fire a trigger with a rule
@@ -151,10 +153,12 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200
     * print "Successfully Created an trigger" 
     #create a action
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     #create a rule
     * def trgrName = '/'+nameSpace +'/'+triggerName
@@ -179,10 +183,12 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200
     * print "Successfully Created an trigger" 
     #create a action
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     #create a rule
     * def trgrName = '/'+nameSpace +'/'+triggerName
@@ -192,10 +198,12 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * print 'successfully created the rule'
     # Delete Action
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match deleteAction.responseStatusCode == 200
     * print 'successfully deleted the action'
     #fire the trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * def actID = fireTrigger.activationId
+    * match fireTrigger.responseStatusCode == 202
     * print  = "Successfully fired the trigger"
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     #Get Activation details
@@ -218,10 +226,12 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def triggerName = createTrigger.trgrName
+    * match createTrigger.responseStatusCode == 200
     * print "Successfully Created an trigger" 
     #create a action
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     #create a rule
     * def trgrName = '/'+nameSpace +'/'+triggerName
