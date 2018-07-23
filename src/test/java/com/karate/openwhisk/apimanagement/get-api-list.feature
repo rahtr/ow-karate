@@ -13,5 +13,5 @@ Feature: The feature gets the list of API's from the input base path.This Featur
      And header Content-Type = 'application/json'
      When method get
      And string ApiList = response
-     * print ApiList
      Then status 200
+     * print "Got the List of APIs Hurray!"
