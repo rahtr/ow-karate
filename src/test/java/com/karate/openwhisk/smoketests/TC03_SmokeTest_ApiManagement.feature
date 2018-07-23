@@ -2,6 +2,7 @@
 #Summary :This feature file will 1)Import the swagger file 2)Get the list of API's 3)Hit each API and assert on 200 OK
 @smoketests
 
+
 Feature: This feature file will test the basic API Management Functionality
 
   Background: 
@@ -15,7 +16,31 @@ Feature: This feature file will test the basic API Management Functionality
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
     * string raw_swagger = read('classpath:com/karate/openwhisk/utils/pet-store-swagger.json')
     * def webAction = 'true'
-
+       * table apis
+    | endpoint   | methodtype |
+    | '/apis/guest/v2/pet/test123'  | 'get'|
+    |'/apis/guest/v2/pet/test123'   |'post'|
+    |'/apis/guest/v2/pet/test123'   |'delete'|
+    |'/apis/guest/v2/pet'   |'post'|
+    |'/apis/guest/v2/pet'   |'put'|
+    |'/apis/guest/v2/pet/findByStatus'   |'get'|
+    |'/apis/guest/v2/store/order'        |'post'|
+    |'/apis/guest/v2/store/order/test234' |'get'|
+    |'/apis/guest/v2/store/order/test234' |'delete'|
+    |'/apis/guest/v2/user/logout'         |'get'|
+    |'/apis/guest/v2/user'                |'post'|
+    |'/apis/guest/v2/user/login'          |'get'|
+    |'/apis/guest/v2/pet/test123/uploadImage'  |'post'|
+    |'/apis/guest/v2/user/createWithArray'    |'post'|
+    |'/apis/guest/v2/pet/findByTags'          |'get'|
+    |'/apis/guest/v2/store/inventory'         |'get'|
+    |'/apis/guest/v2/user/createWithList'     |'post'|
+    |'/apis/guest/v2/user/tester'             |'get'|
+    |'/apis/guest/v2/user/tester'             |'put'|
+    |'/apis/guest/v2/user/tester'             |'delete'|
+    
+    
+    
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response
     
      # Get User Guid & Auth
@@ -38,8 +63,12 @@ Feature: This feature file will test the basic API Management Functionality
     #Call the get-api-list swagger to get the list of the imported swagger
     * def getSwaggerList = call read('classpath:com/karate/openwhisk/apimanagement/get-api-list.feature') {guid:'#(guid)' ,Auth:'#(Auth)'}
     * print  = "Successfully got the List of API's"
-    * def sleepsometime = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
-    
+    * def sleepsometime = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'5'}
+     * print "Got the List of APIs Hurray!"
+   
+   #Hit the imnported APIs and asset the response
+      * def result = callonce read('classpath:com/karate/openwhisk/apimanagement/hit-api.feature') apis
+   
    
       # Call the Delete API feature file to delete the imported API List
     * def deleteSwagger = call read('classpath:com/karate/openwhisk/apimanagement/delete-api-list.feature') {guid:'#(guid)' ,Auth:'#(Auth)'}
