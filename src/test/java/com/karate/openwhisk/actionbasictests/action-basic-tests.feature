@@ -23,11 +23,13 @@ Feature: This feature contains basic test cases of openwhisks actions
     #create action. Create an action for the above defined guest name
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     
     #recreate the duplicate action with the same name
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName:'#(actionName)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 409
     * match createAction.response.error == "resource already exists"
     
 		
@@ -51,6 +53,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     """
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName:'#(upperCaseName)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print actionName
     * print "Successfully Created an action"
     * match actionName == upperCaseName
@@ -59,6 +62,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     #create the same action with different case letter
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName:'#(lowerCaseName)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print actionName
     * print "Successfully Created an action"
     * match actionName == lowerCaseName
@@ -78,6 +82,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     #create action. Create an action for the above defined guest name
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     
     # Update Action
@@ -108,6 +113,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     
     # Delete Action
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * match deleteAction.responseStatusCode == 404
     * print "Test case completed --> Verify reject delete of action that does not exist"
     
     #@ignore
@@ -122,6 +128,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     * def actionName = 'Testing'+java.util.UUID.randomUUID()
     #Invoke the action
     * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
+    * match invokeAction.responseStatusCode == 404
     * print "Test case completed --> verify reject invocation of action that does not exist"
     
     
@@ -137,6 +144,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     * def actionName = 'Testing'+java.util.UUID.randomUUID()
     #Get action details
     * def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
+    * match actionDetails.responseStatusCode == 404
     * print "Test case completed --> verify reject get of an action that does not exist"
     
     #@ignore
@@ -151,11 +159,13 @@ Feature: This feature contains basic test cases of openwhisks actions
     # create action with param
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeWithParam)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * print "Successfully Created an action"
     
     # invoke the action with param
     * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
     * def actID = invokeAction.activationId
+    * match invokeAction.responseStatusCode == 200
     * print "Successfully invoked the action"
     * print "Test case completed --> verify create, and invoke an action using a parameter file"
     
@@ -172,6 +182,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     * def actionNameWithSpce = 'Testing%20'+ UUID
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {actionName:'#(actionNameWithSpce)', script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
+    * match createAction.responseStatusCode == 200
     * match actionName == 'Testing '+UUID
     * print 'asserted '+actionName+ ' with '+ 'Testing '+UUID
     * print "Successfully Created an action"
