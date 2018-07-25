@@ -12,6 +12,7 @@ Feature:  This feature file will test all the wsk functions.It will use User3 cr
 * def Auth = Auth_botTester3
 * def params = '?blocking=true&result=false'
 * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
+* def largeResponseAction = call read('classpath:com/karate/openwhisk/functions/largeResponse.js')
 
 
 
@@ -52,6 +53,14 @@ Feature:  This feature file will test all the wsk functions.It will use User3 cr
  # List Action
      * def listActions = call read('classpath:com/karate/openwhisk/wskactions/list-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
      * print "Successfully pulled up the list of actions"
+     
+  Scenario: Create and Invoke an Action which generates large JSON response
+  # Invoke Action
+	  * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(largeResponseAction)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+	  * def actionName = createAction.actName
+	  * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
+	  * def actID = invokeAction.activationId
+	  * print  = "Successfully invoked the action"
   
 
      
