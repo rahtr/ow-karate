@@ -31,7 +31,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     #fire a trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * def actID = fireTrigger.activationId
-    * match fireTrigger.responseStatusCode == 202
+    * match fireTrigger.responseStatusCode == 204
     * print "Successfully fired the trigger"
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     
