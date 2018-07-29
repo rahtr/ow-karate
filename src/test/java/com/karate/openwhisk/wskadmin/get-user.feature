@@ -20,7 +20,7 @@ Feature: Create Namespace
      DBpath = '/whisk_dev_subjects/';
     }
     else{
-     DBpath = '/whisk_local_subjects/';
+     DBpath = '/local_subjects/';
     }
     
     """
