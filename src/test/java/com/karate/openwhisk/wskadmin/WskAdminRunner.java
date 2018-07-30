@@ -32,11 +32,11 @@ import org.junit.runner.RunWith;
  */
 
 
-@RunWith(Karate.class)
+//@RunWith(Karate.class)
 @CucumberOptions(tags = {"~@ignore"})
-public class ActionRunner {
+public class WskAdminRunner {
 	 @Test
-	    public void actionRunner() {
+	    public void WskAdminRunner() {
 	      
 		    String karateOutputPath = "target/surefire-reports";
 	        KarateStats stats = CucumberRunner.parallel(getClass(), 5, karateOutputPath);

@@ -1,11 +1,11 @@
 #Author: rtripath@adobe.com
 # Summary :This feature file can be used to get action destils using action name
-@ignore
+@createNS
 Feature: Get User Credentials
 
 Background:
 * configure ssl = true
- 
+  @ignore
   Scenario: Get NS credentials
   
   #generate UUID
