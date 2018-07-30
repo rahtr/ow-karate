@@ -1,0 +1,2215 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#/*"
+      },
+      {
+        "line": 2,
+        "value": "#*  Copyright 2017-2018 Adobe."
+      },
+      {
+        "line": 3,
+        "value": "#*"
+      },
+      {
+        "line": 4,
+        "value": "#*  Licensed under the Apache License, Version 2.0 (the \"License\");"
+      },
+      {
+        "line": 5,
+        "value": "#*  you may not use this file except in compliance with the License."
+      },
+      {
+        "line": 6,
+        "value": "#*  You may obtain a copy of the License at"
+      },
+      {
+        "line": 7,
+        "value": "#*"
+      },
+      {
+        "line": 8,
+        "value": "#*          http://www.apache.org/licenses/LICENSE-2.0"
+      },
+      {
+        "line": 9,
+        "value": "#*"
+      },
+      {
+        "line": 10,
+        "value": "#*  Unless required by applicable law or agreed to in writing, software"
+      },
+      {
+        "line": 11,
+        "value": "#*  distributed under the License is distributed on an \"AS IS\" BASIS,"
+      },
+      {
+        "line": 12,
+        "value": "#*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied."
+      },
+      {
+        "line": 13,
+        "value": "#*  See the License for the specific language governing permissions and"
+      },
+      {
+        "line": 14,
+        "value": "#*  limitations under the License."
+      },
+      {
+        "line": 15,
+        "value": "#*/"
+      },
+      {
+        "line": 16,
+        "value": "#Author: rtripath@adobe.com"
+      },
+      {
+        "line": 17,
+        "value": "#Summary :This feature file will check for any erros in the logs"
+      }
+    ],
+    "line": 22,
+    "elements": [
+      {
+        "line": 24,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 687933352,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 25,
+              "value": "15:30:04.517 karate.env system property was: null \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 2320360,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "def nameSpace \u003d \u0027guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "nameSpace",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027guest\u0027",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 1941337,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "def params \u003d \u0027?blocking\u003dtrue\u0026result\u003dfalse\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "params",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027?blocking\u003dtrue\u0026result\u003dfalse\u0027",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 6908798,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "def scriptcode \u003d call read(\u0027classpath:com/karate/openwhisk/functions/hello-world.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "scriptcode",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/functions/hello-world.js\u0027)",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 38561585,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "def base64encoding \u003d read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "base64encoding",
+                  "offset": 4
+                },
+                {
+                  "val": "read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          }
+        ]
+      },
+      {
+        "line": 31,
+        "name": "TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID",
+        "description": "",
+        "id": "this-feature-file-will-test-for-the-presence-of-any-error-in-the-logs-pulled-using-the-activationid;tc04-as-a-user-i-want-verify-that-there-are-no-errors-in-the-logs-pulled-using-the-activationid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"nameSpace\": \"guest\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "url AdminBaseUrl",
+            "match": {
+              "arguments": [
+                {
+                  "val": "AdminBaseUrl",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "print \"I am here in get-user\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"I am here in get-user\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 27,
+              "value": "15:30:04.866 [print] I am here in get-user\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "def DBpath \u003d",
+            "match": {
+              "arguments": [
+                {
+                  "val": "DBpath",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.defDocString(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 29,
+              "value": "\r\nif (BaseUrl.match (\u0027rtbeta\u0027))\r\n{\r\n DBpath \u003d \u0027/whisk_dev_subjects/\u0027;\r\n}\r\nelse{\r\n DBpath \u003d \u0027/local_subjects/\u0027;\r\n}\r\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 40,
+                "value": "#And path \u0027/whisk_local_subjects/\u0027+nameSpace"
+              }
+            ],
+            "line": 41,
+            "name": "path DBpath+nameSpace",
+            "match": {
+              "arguments": [
+                {
+                  "val": "DBpath+nameSpace",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "header Authorization \u003d AdminAuth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "AdminAuth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 44,
+              "value": "15:30:04.984 request:\n1 \u003e GET https://whisk-couchdb-rtqe2-ue1-a.dev.runtime.adobe.io:443/local_subjects/guest\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic d2hpc2tfYWRtaW46YmxhZGVydW5PcHM\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Type: application/json\n1 \u003e Host: whisk-couchdb-rtqe2-ue1-a.dev.runtime.adobe.io:443\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n\n15:30:06.171 response time in milliseconds: 1185\n1 \u003c 200\n1 \u003c Cache-Control: must-revalidate\n1 \u003c Connection: keep-alive\n1 \u003c Content-Length: 229\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 30 Jul 2018 10:00:06 GMT\n1 \u003c ETag: \"1-cd503abe708f3950bdc8c76c2cfccf12\"\n1 \u003c Server: api-gateway/1.9.3.1\n1 \u003c X-Couch-Request-ID: 8290f2d982\n1 \u003c X-CouchDB-Body-Time: 0\n1 \u003c X-Request-Id: SgTt9wfxnCYnSfTbo6Rs8QnBcieFRfhp\n{\"_id\":\"guest\",\"_rev\":\"1-cd503abe708f3950bdc8c76c2cfccf12\",\"namespaces\":[{\"name\":\"guest\",\"key\":\"123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP\",\"uuid\":\"23bc46b1-71f6-4ed5-8c54-816aa4f8c502\"}],\"subject\":\"guest\"}\n\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "string NScreds \u003d response",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NScreds",
+                  "offset": 7
+                },
+                {
+                  "val": "response",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.castToString(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "def uuid \u003d $response.namespaces[*].uuid",
+            "match": {
+              "arguments": [
+                {
+                  "val": "uuid",
+                  "offset": 4
+                },
+                {
+                  "val": "$response.namespaces[*].uuid",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "def key \u003d $response.namespaces[*].key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "key",
+                  "offset": 4
+                },
+                {
+                  "val": "$response.namespaces[*].key",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "def result \u003d uuid[0]+\u0027:\u0027+ key[0]",
+            "match": {
+              "arguments": [
+                {
+                  "val": "result",
+                  "offset": 4
+                },
+                {
+                  "val": "uuid[0]+\u0027:\u0027+ key[0]",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 50,
+                "value": "#* def uuid \u003d $response.namespaces[*].uuid"
+              }
+            ],
+            "line": 51,
+            "name": "print result",
+            "match": {
+              "arguments": [
+                {
+                  "val": "result",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 51,
+              "value": "15:30:06.193 [print] 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 1396895639,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 32,
+                "value": "# Get User Auth"
+              }
+            ],
+            "line": 33,
+            "name": "def getNSCreds \u003d call read(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027) {nameSpace:\u0027#(nameSpace)\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "getNSCreds",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027) {nameSpace:\u0027#(nameSpace)\u0027}",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 5774099,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "def result \u003d getNSCreds.result",
+            "match": {
+              "arguments": [
+                {
+                  "val": "result",
+                  "offset": 4
+                },
+                {
+                  "val": "getNSCreds.result",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 59127558,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "def Auth \u003d base64encoding(result)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Auth",
+                  "offset": 4
+                },
+                {
+                  "val": "base64encoding(result)",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 2835317,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "print \"Got the Creds for the guest user\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Got the Creds for the guest user\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 36,
+              "value": "15:30:06.264 [print] Got the Creds for the guest user\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 338815,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "print Auth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Auth",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 37,
+              "value": "15:30:06.265 [print] Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Create an Action] [As a user I want to create an action] classpath:com/karate/openwhisk/wskactions/create-action.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"script\": \"function main(params) {\\n    console.log(\u0027hello stdout\u0027);\\n    console.error(\u0027hello stderr\u0027);\\n    var name \u003d params.name || \\\"World\\\";\\n    return {payload: \\\"Hello, \\\" + name + \\\"!\\\"};\\n}\\n\",\n  \"nameSpace\": \"guest\",\n  \"Auth\": \"Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 29,
+                "value": "#Create an Action"
+              }
+            ],
+            "line": 30,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 31,
+              "value": "\tif (typeof actionName \u003d\u003d \u0027undefined\u0027) {\r\n\t    karate.set(\u0027actionName\u0027, \u0027Testing\u0027+java.util.UUID.randomUUID());\r\n\t} else {\r\n\t\t\tkarate.set(\u0027actionName\u0027, actionName);\r\n\t}"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 40,
+              "value": "\tif (typeof webAction \u003d\u003d \u0027undefined\u0027) {\r\n\t    karate.set(\u0027webAction\u0027, \u0027false\u0027);\r\n\t} else {\r\n\t\t\tkarate.set(\u0027webAction\u0027, \u0027true\u0027);\r\n\t}"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "def requestBody \u003d {\"namespace\":\u0027#(nameSpace)\u0027,\"name\":\u0027#(actionName)\u0027,\"exec\":{\"kind\":\"nodejs:default\",\"code\":\u0027#(script)\u0027},\"annotations\":[{\"key\":\"web-export\",\"value\":true},{\"key\":\"raw-http\",\"value\":false},{\"key\":\"final\",\"value\":true}]}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "requestBody",
+                  "offset": 4
+                },
+                {
+                  "val": "{\"namespace\":\u0027#(nameSpace)\u0027,\"name\":\u0027#(actionName)\u0027,\"exec\":{\"kind\":\"nodejs:default\",\"code\":\u0027#(script)\u0027},\"annotations\":[{\"key\":\"web-export\",\"value\":true},{\"key\":\"raw-http\",\"value\":false},{\"key\":\"final\",\"value\":true}]}",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "string payload \u003d requestBody",
+            "match": {
+              "arguments": [
+                {
+                  "val": "payload",
+                  "offset": 7
+                },
+                {
+                  "val": "requestBody",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.castToString(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "url BaseUrl+\u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName+\u0027?overwrite\u003dfalse\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "BaseUrl+\u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName+\u0027?overwrite\u003dfalse\u0027",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "header Authorization \u003d Auth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "Auth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "request payload",
+            "match": {
+              "arguments": [
+                {
+                  "val": "payload",
+                  "offset": 8
+                }
+              ],
+              "location": "StepDefs.request(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "method put",
+            "match": {
+              "arguments": [
+                {
+                  "val": "put",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 54,
+              "value": "15:30:06.325 request:\n1 \u003e PUT https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing07a2862b-2792-4689-99b0-9f66628e7265?overwrite\u003dfalse\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Length: 420\n1 \u003e Content-Type: application/json; charset\u003dUTF-8\n1 \u003e Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n{\"namespace\":\"guest\",\"name\":\"Testing07a2862b-2792-4689-99b0-9f66628e7265\",\"exec\":{\"kind\":\"nodejs:default\",\"code\":\"function main(params) {\\n    console.log(\u0027hello stdout\u0027);\\n    console.error(\u0027hello stderr\u0027);\\n    var name \u003d params.name || \\\"World\\\";\\n    return {payload: \\\"Hello, \\\" + name + \\\"!\\\"};\\n}\\n\"},\"annotations\":[{\"key\":\"web-export\",\"value\":true},{\"key\":\"raw-http\",\"value\":false},{\"key\":\"final\",\"value\":true}]}\n\n15:30:07.417 response time in milliseconds: 1091\n1 \u003c 200\n1 \u003c Access-Control-Allow-Headers: Authorization, Content-Type\n1 \u003c Access-Control-Allow-Origin: *\n1 \u003c Connection: keep-alive\n1 \u003c Content-Length: 563\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 30 Jul 2018 10:00:07 GMT\n1 \u003c Server: api-gateway/1.9.3.1\n1 \u003c X-Request-ID: [nhASsfDhQizxX7LyJLN0P7dk7ND87KZR, qGbdF7ES3MJMFSRC4lMLonMxb42wlzMo]\n1 \u003c X-Request-Id: [nhASsfDhQizxX7LyJLN0P7dk7ND87KZR, qGbdF7ES3MJMFSRC4lMLonMxb42wlzMo]\n{\"name\":\"Testing07a2862b-2792-4689-99b0-9f66628e7265\",\"publish\":false,\"annotations\":[{\"key\":\"web-export\",\"value\":true},{\"key\":\"raw-http\",\"value\":false},{\"key\":\"final\",\"value\":true},{\"key\":\"exec\",\"value\":\"nodejs:6\"}],\"version\":\"0.0.1\",\"exec\":{\"kind\":\"nodejs:6\",\"code\":\"function main(params) {\\n    console.log(\u0027hello stdout\u0027);\\n    console.error(\u0027hello stderr\u0027);\\n    var name \u003d params.name || \\\"World\\\";\\n    return {payload: \\\"Hello, \\\" + name + \\\"!\\\"};\\n}\\n\",\"binary\":false},\"parameters\":[],\"limits\":{\"timeout\":60000,\"memory\":256,\"logs\":10},\"namespace\":\"guest\"}\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "def responseStatusCode \u003d responseStatus",
+            "match": {
+              "arguments": [
+                {
+                  "val": "responseStatusCode",
+                  "offset": 4
+                },
+                {
+                  "val": "responseStatus",
+                  "offset": 25
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "print \u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 56,
+              "value": "15:30:07.421 [print] The value of responseStatusCode is: 200\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 58,
+              "value": "if(responseStatusCode \u003d\u003d 200) {\r\n\t karate.log(\"Action Created\");\r\n\t }\r\nelse if(responseStatusCode \u003d\u003d 409){\r\n   karate.log(\"Duplicate Action\");\r\n   }"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 66,
+                "value": "#* match responseStatusCode \u003d\u003d 200"
+              }
+            ],
+            "line": 67,
+            "name": "eval if(responseStatusCode \u003d\u003d 200) karate.set(\u0027actName\u0027, response.name )",
+            "match": {
+              "arguments": [
+                {
+                  "val": "if(responseStatusCode \u003d\u003d 200) karate.set(\u0027actName\u0027, response.name )",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.eval(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 67,
+              "value": "15:30:07.428 Action Created \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "print \u0027Action name for the created action \u0027 + actName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027Action name for the created action \u0027 + actName",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 68,
+              "value": "15:30:07.441 [print] Action name for the created action Testing07a2862b-2792-4689-99b0-9f66628e7265\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 1175913140,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 39,
+                "value": "# Create an Action .Create an action for the above defined guest name"
+              },
+              {
+                "line": 40,
+                "value": "#* def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcode)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027, actionName:\u0027Dammyyy\u0027}"
+              }
+            ],
+            "line": 41,
+            "name": "def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcode)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "createAction",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcode)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 4504290,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "def actionName \u003d createAction.actName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "actionName",
+                  "offset": 4
+                },
+                {
+                  "val": "createAction.actName",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 480997,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "print actionName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "actionName",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 43,
+              "value": "15:30:07.448 [print] Testing07a2862b-2792-4689-99b0-9f66628e7265\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 2667032,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "print \"Successfully Created an action\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Successfully Created an action\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 44,
+              "value": "15:30:07.451 [print] Successfully Created an action\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Get Action] [Get Details of an action] classpath:com/karate/openwhisk/wskactions/get-action.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"nameSpace\": \"guest\",\n  \"Auth\": \"Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\",\n  \"actionName\": \"Testing07a2862b-2792-4689-99b0-9f66628e7265\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "url BaseUrl",
+            "match": {
+              "arguments": [
+                {
+                  "val": "BaseUrl",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "path \u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "header Authorization \u003d Auth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "Auth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 29,
+              "value": "15:30:07.484 request:\n1 \u003e GET https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing07a2862b-2792-4689-99b0-9f66628e7265\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Type: application/json\n1 \u003e Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n\n15:30:08.535 response time in milliseconds: 1049\n1 \u003c 200\n1 \u003c Access-Control-Allow-Headers: Authorization, Content-Type\n1 \u003c Access-Control-Allow-Origin: *\n1 \u003c Connection: keep-alive\n1 \u003c Content-Length: 563\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 30 Jul 2018 10:00:08 GMT\n1 \u003c Server: api-gateway/1.9.3.1\n1 \u003c X-Request-ID: [u8397k9Q8ovpranpyLBVrjs9dkcOwo4r, HSuWuMufciu82C0Ko4xq2SCzM6LiN4mv]\n1 \u003c X-Request-Id: [u8397k9Q8ovpranpyLBVrjs9dkcOwo4r, HSuWuMufciu82C0Ko4xq2SCzM6LiN4mv]\n{\"name\":\"Testing07a2862b-2792-4689-99b0-9f66628e7265\",\"publish\":false,\"annotations\":[{\"key\":\"web-export\",\"value\":true},{\"key\":\"raw-http\",\"value\":false},{\"key\":\"final\",\"value\":true},{\"key\":\"exec\",\"value\":\"nodejs:6\"}],\"version\":\"0.0.1\",\"exec\":{\"kind\":\"nodejs:6\",\"code\":\"function main(params) {\\n    console.log(\u0027hello stdout\u0027);\\n    console.error(\u0027hello stderr\u0027);\\n    var name \u003d params.name || \\\"World\\\";\\n    return {payload: \\\"Hello, \\\" + name + \\\"!\\\"};\\n}\\n\",\"binary\":false},\"parameters\":[],\"limits\":{\"timeout\":60000,\"memory\":256,\"logs\":10},\"namespace\":\"guest\"}\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "def responseStatusCode \u003d responseStatus",
+            "match": {
+              "arguments": [
+                {
+                  "val": "responseStatusCode",
+                  "offset": 4
+                },
+                {
+                  "val": "responseStatus",
+                  "offset": 25
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "print \u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 31,
+              "value": "15:30:08.536 [print] The value of responseStatusCode is: 200\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 33,
+              "value": "if(responseStatusCode\u003d\u003d200){\r\n\t karate.log(\"Got the action details\");\r\n\t karate.set(\u0027action_details\u0027, response)\r\n\t }\r\nelse if(responseStatusCode \u003d\u003d 404){\r\n   karate.log(\"The requested Action does not exist\");\r\n   }"
+            }
+          },
+          {
+            "result": {
+              "duration": 1086051370,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 46,
+                "value": "# Get Action Details"
+              }
+            ],
+            "line": 47,
+            "name": "def actionDetails \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/get-action.feature\u0027) {nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027,actionName:\u0027#(actionName)\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "actionDetails",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/wskactions/get-action.feature\u0027) {nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027,actionName:\u0027#(actionName)\u0027}",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 47,
+              "value": "15:30:08.538 Got the action details \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 410332,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "print \"Successfully got the action details\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Successfully got the action details\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 48,
+              "value": "15:30:08.539 [print] Successfully got the action details\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Invoke action and return activation ID] [As a user I want to invoke an action and return the activationID which can be used for other Test Cases] classpath:com/karate/openwhisk/wskactions/invoke-action.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"params\": \"?blocking\u003dtrue\u0026result\u003dfalse\",\n  \"requestBody\": \"\",\n  \"nameSpace\": \"guest\",\n  \"Auth\": \"Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\",\n  \"actionName\": \"Testing07a2862b-2792-4689-99b0-9f66628e7265\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "string payload \u003d requestBody",
+            "match": {
+              "arguments": [
+                {
+                  "val": "payload",
+                  "offset": 7
+                },
+                {
+                  "val": "requestBody",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.castToString(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "def requestBody \u003d {}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "requestBody",
+                  "offset": 4
+                },
+                {
+                  "val": "{}",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "def path \u003d \u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName+params",
+            "match": {
+              "arguments": [
+                {
+                  "val": "path",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027/api/v1/namespaces/\u0027+nameSpace+\u0027/actions/\u0027+actionName+params",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "url BaseUrl+path",
+            "match": {
+              "arguments": [
+                {
+                  "val": "BaseUrl+path",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "header Authorization \u003d Auth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "Auth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "request payload",
+            "match": {
+              "arguments": [
+                {
+                  "val": "payload",
+                  "offset": 8
+                }
+              ],
+              "location": "StepDefs.request(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "method post",
+            "match": {
+              "arguments": [
+                {
+                  "val": "post",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 34,
+              "value": "15:30:08.562 request:\n1 \u003e POST https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing07a2862b-2792-4689-99b0-9f66628e7265?blocking\u003dtrue\u0026result\u003dfalse\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Length: 0\n1 \u003e Content-Type: application/json; charset\u003dUTF-8\n1 \u003e Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n\n\n15:30:10.742 response time in milliseconds: 2179\n1 \u003c 200\n1 \u003c Access-Control-Allow-Headers: Authorization, Content-Type\n1 \u003c Access-Control-Allow-Origin: *\n1 \u003c Connection: keep-alive\n1 \u003c Content-Length: 581\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 30 Jul 2018 10:00:09 GMT\n1 \u003c Server: api-gateway/1.9.3.1\n1 \u003c X-Request-ID: [W7E00Viv6aUt0RAKZ6r9lOuaIGRuFikH, 0bMLEtZqQH2HpYhgfVnMur0ZJ0noGE4Q]\n1 \u003c X-Request-Id: [W7E00Viv6aUt0RAKZ6r9lOuaIGRuFikH, 0bMLEtZqQH2HpYhgfVnMur0ZJ0noGE4Q]\n{\"duration\":245,\"name\":\"Testing07a2862b-2792-4689-99b0-9f66628e7265\",\"subject\":\"guest\",\"activationId\":\"2d736c5c90764945b36c5c90762945fa\",\"publish\":false,\"annotations\":[{\"key\":\"path\",\"value\":\"guest/Testing07a2862b-2792-4689-99b0-9f66628e7265\"},{\"key\":\"waitTime\",\"value\":2153},{\"key\":\"kind\",\"value\":\"nodejs:6\"},{\"key\":\"limits\",\"value\":{\"timeout\":60000,\"memory\":256,\"logs\":10}},{\"key\":\"initTime\",\"value\":239}],\"version\":\"0.0.1\",\"response\":{\"result\":{\"payload\":\"Hello, World!\"},\"success\":true,\"status\":\"success\"},\"end\":1532944811151,\"logs\":[],\"start\":1532944810906,\"namespace\":\"guest\"}\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "def responseStatusCode \u003d responseStatus",
+            "match": {
+              "arguments": [
+                {
+                  "val": "responseStatusCode",
+                  "offset": 4
+                },
+                {
+                  "val": "responseStatus",
+                  "offset": 25
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "print \u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027The value of responseStatusCode is:\u0027,responseStatusCode",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 36,
+              "value": "15:30:10.744 [print] The value of responseStatusCode is: 200\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 39,
+              "value": "if(responseStatusCode\u003d\u003d200){\n\t karate.log(\"Action got invoked\");\n\t karate.set(\u0027activationId\u0027, response.activationId);\n\t }\nelse if(responseStatusCode \u003d\u003d 404){\n   karate.log(\"The requested Action does not exist.\");\n   }"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 48,
+                "value": "#And def activationId \u003d response.activationId"
+              }
+            ],
+            "line": 49,
+            "name": "print \u0027Activation ID for the Invoke action \u0027 + activationId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027Activation ID for the Invoke action \u0027 + activationId",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 49,
+              "value": "15:30:10.749 Action got invoked \n15:30:10.754 [print] Activation ID for the Invoke action 2d736c5c90764945b36c5c90762945fa\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 2214941675,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 50,
+                "value": "#Invoke Action"
+              }
+            ],
+            "line": 51,
+            "name": "def invokeAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/invoke-action.feature\u0027) {params:\u0027#(params)\u0027,requestBody:\u0027\u0027,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027,actionName:\u0027#(actionName)\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "invokeAction",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/wskactions/invoke-action.feature\u0027) {params:\u0027#(params)\u0027,requestBody:\u0027\u0027,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027,actionName:\u0027#(actionName)\u0027}",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 2363519,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "def actID \u003d invokeAction.activationId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "actID",
+                  "offset": 4
+                },
+                {
+                  "val": "invokeAction.activationId",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 3340073,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "print  \u003d \"Successfully invoked the action\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": " \u003d \"Successfully invoked the action\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 53,
+              "value": "15:30:10.761 [print]\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Used to Sleep between tests. sheepCount to (default 60 sec, pass \u0027-1\u0027 to avoid) sleep as many seconds] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/sleep.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"sheepCount\": \"20\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "def sleep \u003d",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sleep",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.defDocString(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 21,
+              "value": "function() {\n  var seconds \u003d karate.get(\u0027sheepCount\u0027);\n  if (seconds) {  // check if sheepCount is defined\n    if (seconds \u003d\u003d -1) {\n      karate.log(\"NO Sleeping: as we were told not to count sheep\");\n      return;\n    }\n  } else {\n    seconds \u003d 60; // default sleep time in seconds\n    karate.log(\"Use default sleep time: \" + seconds);\n  }\n  karate.log(\"Sleeping for \" + seconds );\n  for(i \u003d 1; i \u003c\u003d seconds; i++) {\n    java.lang.Thread.sleep(1*1000);\n//karate.log(\"counting sheep - \" + i);\n//karate.log(\"Done sleeping, back to work...\");\n  }\n \n}"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "print \"I cam here\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"I cam here\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 44,
+              "value": "15:30:10.784 [print] I cam here\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "call sleep",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sleep",
+                  "offset": 5
+                },
+                {}
+              ],
+              "location": "StepDefs.callAndUpdateConfigAndVars(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 45,
+              "value": "15:30:10.798 Sleeping for 20 \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 20121818489,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "def webhooks \u003d callonce read(\u0027classpath:com/karate/openwhisk/utils/sleep.feature\u0027) {sheepCount:\u002720\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "webhooks",
+                  "offset": 4
+                },
+                {
+                  "val": "callonce read(\u0027classpath:com/karate/openwhisk/utils/sleep.feature\u0027) {sheepCount:\u002720\u0027}",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 54,
+              "value": "15:30:30.883 cached callonce: read(\u0027classpath:com/karate/openwhisk/utils/sleep.feature\u0027)\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Get Action] [Get Activation Details] classpath:com/karate/openwhisk/wskactions/get-activation-details.feature",
+            "match": {},
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 0,
+              "value": "{\n  \"activationId\": \"2d736c5c90764945b36c5c90762945fa\",\n  \"Auth\": \"Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\"\n}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 26,
+                "value": "#Get Activation details"
+              }
+            ],
+            "line": 27,
+            "name": "def path \u003d \u0027/api/v1/namespaces/_/activations/\u0027+activationId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "path",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027/api/v1/namespaces/_/activations/\u0027+activationId",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "url BaseUrl+path",
+            "match": {
+              "arguments": [
+                {
+                  "val": "BaseUrl+path",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "header Authorization \u003d Auth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "Auth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 31,
+              "value": "15:30:30.901 request:\n1 \u003e GET https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/_/activations/2d736c5c90764945b36c5c90762945fa\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Type: application/json\n1 \u003e Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n\n15:30:31.943 response time in milliseconds: 1042\n1 \u003c 200\n1 \u003c Access-Control-Allow-Headers: Authorization, Content-Type\n1 \u003c Access-Control-Allow-Origin: *\n1 \u003c Connection: keep-alive\n1 \u003c Content-Length: 688\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 30 Jul 2018 10:00:31 GMT\n1 \u003c Server: api-gateway/1.9.3.1\n1 \u003c X-Request-ID: [F0BMKKnoubEC3ZG8hx39rgKWRrLUlqlB, fHIXYEVGAOCPnw19GWXK9fa75zB3NS7P]\n1 \u003c X-Request-Id: [F0BMKKnoubEC3ZG8hx39rgKWRrLUlqlB, fHIXYEVGAOCPnw19GWXK9fa75zB3NS7P]\n{\"duration\":245,\"name\":\"Testing07a2862b-2792-4689-99b0-9f66628e7265\",\"subject\":\"guest\",\"activationId\":\"2d736c5c90764945b36c5c90762945fa\",\"publish\":false,\"annotations\":[{\"key\":\"path\",\"value\":\"guest/Testing07a2862b-2792-4689-99b0-9f66628e7265\"},{\"key\":\"waitTime\",\"value\":2153},{\"key\":\"kind\",\"value\":\"nodejs:6\"},{\"key\":\"limits\",\"value\":{\"timeout\":60000,\"memory\":256,\"logs\":10}},{\"key\":\"initTime\",\"value\":239}],\"version\":\"0.0.1\",\"response\":{\"result\":{\"payload\":\"Hello, World!\"},\"success\":true,\"status\":\"success\"},\"end\":1532944811151,\"logs\":[\"2018-07-30T10:00:11.150783837Z stdout: hello stdout\",\"2018-07-30T10:00:11.150867125Z stderr: hello stderr\"],\"start\":1532944810906,\"namespace\":\"guest\"}\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "def activationDetails \u003d response",
+            "match": {
+              "arguments": [
+                {
+                  "val": "activationDetails",
+                  "offset": 4
+                },
+                {
+                  "val": "response",
+                  "offset": 24
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "print \u0027Activation ID for the Invoke action(I was here in activation details \u0027 + activationId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027Activation ID for the Invoke action(I was here in activation details \u0027 + activationId",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 34,
+              "value": "15:30:31.946 [print] Activation ID for the Invoke action(I was here in activation details 2d736c5c90764945b36c5c90762945fa\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 35,
+                "value": "# And match response !contains {\"annotations\": [{\"key\": \"initTime\"}]}"
+              }
+            ],
+            "line": 36,
+            "name": "def webhooks \u003d callonce read(\u0027classpath:com/karate/openwhisk/utils/sleep.js\u0027)(1000)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "webhooks",
+                  "offset": 4
+                },
+                {
+                  "val": "callonce read(\u0027classpath:com/karate/openwhisk/utils/sleep.js\u0027)(1000)",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 36,
+              "value": "15:30:32.949 not a js function or feature file: read(\u0027classpath:com/karate/openwhisk/utils/sleep.js\u0027)(1000) - [type: NULL, value: null]\n15:30:32.949 cached callonce: read(\u0027classpath:com/karate/openwhisk/utils/sleep.js\u0027)(1000)\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 2065256874,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 56,
+                "value": "#Get Activation details"
+              }
+            ],
+            "line": 57,
+            "name": "def getActivationDetails \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/get-activation-details.feature\u0027) { activationId: \u0027#(actID)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {
+              "arguments": [
+                {
+                  "val": "getActivationDetails",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/wskactions/get-activation-details.feature\u0027) { activationId: \u0027#(actID)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+                  "offset": 27
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 2028754,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "def activationResponse \u003d getActivationDetails.response",
+            "match": {
+              "arguments": [
+                {
+                  "val": "activationResponse",
+                  "offset": 4
+                },
+                {
+                  "val": "getActivationDetails.response",
+                  "offset": 25
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 1768807,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "print activationResponse.logs",
+            "match": {
+              "arguments": [
+                {
+                  "val": "activationResponse.logs",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 59,
+              "value": "15:30:32.954 [print] [\n  \"2018-07-30T10:00:11.150783837Z stdout: hello stdout\",\n  \"2018-07-30T10:00:11.150867125Z stderr: hello stderr\"\n]\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 1002626,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "match activationResponse.logs \u003d\u003d [\u0027#regex .* stdout: hello stdout\u0027,\u0027#regex .* stderr: hello stderr\u0027]",
+            "match": {
+              "arguments": [
+                {},
+                {
+                  "val": "activationResponse.logs",
+                  "offset": 6
+                },
+                {},
+                {
+                  "val": "\u003d\u003d",
+                  "offset": 30
+                },
+                {
+                  "val": "[\u0027#regex .* stdout: hello stdout\u0027,\u0027#regex .* stderr: hello stderr\u0027]",
+                  "offset": 33
+                }
+              ],
+              "location": "StepDefs.matchEquals(String,String,String,String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 309972,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "print \"Successfully pulled the activation details\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Successfully pulled the activation details\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 61,
+              "value": "15:30:32.956 [print] Successfully pulled the activation details\n"
+            }
+          }
+        ]
+      }
+    ],
+    "name": "com/karate/openwhisk/smoketests/TC04_SmokeTest_check-error-logs.feature",
+    "description": "This feature file will test for the presence of any error in the logs pulled using the activationID",
+    "id": "this-feature-file-will-test-for-the-presence-of-any-error-in-the-logs-pulled-using-the-activationid",
+    "keyword": "Feature",
+    "uri": "com/karate/openwhisk/smoketests/TC04_SmokeTest_check-error-logs.feature",
+    "tags": [
+      {
+        "line": 18,
+        "name": "@smoketests"
+      }
+    ]
+  }
+]
