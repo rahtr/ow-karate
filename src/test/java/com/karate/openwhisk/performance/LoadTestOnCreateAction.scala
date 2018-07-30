@@ -20,7 +20,7 @@ class LoadTestOnCreateAction extends Simulation {
     val ar = new WskAdminRunner()
     ar.WskAdminRunner()
   }
-  val createActionTest = scenario("create").exec(karateFeature("classpath:com/karate/openwhisk/smoketests/TC05_SmokeTest_getuser.feature"))
+  val createActionTest = scenario("create").exec(karateFeature("classpath:com/karate/openwhisk/performance/TC05_SmokeTest_getuser.feature"))
 
 
   setUp(createActionTest.inject(rampUsers(5) over (5 seconds))
