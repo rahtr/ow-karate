@@ -1,0 +1,218 @@
+15:30:04.517 karate.env system property was: null 
+15:30:04.866 [print] I am here in get-user
+15:30:04.984 request:
+1 > GET https://whisk-couchdb-rtqe2-ue1-a.dev.runtime.adobe.io:443/local_subjects/guest
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic d2hpc2tfYWRtaW46YmxhZGVydW5PcHM=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: whisk-couchdb-rtqe2-ue1-a.dev.runtime.adobe.io:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+15:30:06.171 response time in milliseconds: 1185
+1 < 200
+1 < Cache-Control: must-revalidate
+1 < Connection: keep-alive
+1 < Content-Length: 229
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:06 GMT
+1 < ETag: "1-cd503abe708f3950bdc8c76c2cfccf12"
+1 < Server: api-gateway/1.9.3.1
+1 < X-Couch-Request-ID: d5d47d1ae3
+1 < X-CouchDB-Body-Time: 0
+1 < X-Request-Id: 1RRDUkX2js1zrHnCudxvrsM9BaF6c7YD
+{"_id":"guest","_rev":"1-cd503abe708f3950bdc8c76c2cfccf12","namespaces":[{"name":"guest","key":"123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP","uuid":"23bc46b1-71f6-4ed5-8c54-816aa4f8c502"}],"subject":"guest"}
+
+
+15:30:06.193 [print] 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
+15:30:06.266 [print] Got the Creds for the guest user
+15:30:06.267 [print] Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+15:30:06.325 request:
+1 > PUT https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Length: 420
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","exec":{"kind":"nodejs:default","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+15:30:07.421 response time in milliseconds: 1096
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:06 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [3fzrUXpRaqjA6VhlwtRMkYM6f2ZAgjzA, FZLIvBxdlphtEDI79VpGZR9alqd0mi0B]
+1 < X-Request-Id: [3fzrUXpRaqjA6VhlwtRMkYM6f2ZAgjzA, FZLIvBxdlphtEDI79VpGZR9alqd0mi0B]
+{"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+15:30:07.425 [print] The value of responseStatusCode is: 200
+15:30:07.428 Action Created 
+15:30:07.441 [print] Action name for the created action Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+15:30:07.448 [print] Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+15:30:07.451 [print] Successfully Created an action
+15:30:07.484 request:
+1 > GET https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+15:30:08.469 response time in milliseconds: 983
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:08 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [9xFJqgl48vxFpgh5yfH5xfA5IaMg1fQQ, cS9IfFuoQI9DEiFOtRokib57WrEo6oAu]
+1 < X-Request-Id: [9xFJqgl48vxFpgh5yfH5xfA5IaMg1fQQ, cS9IfFuoQI9DEiFOtRokib57WrEo6oAu]
+{"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+15:30:08.472 [print] The value of responseStatusCode is: 200
+15:30:08.477 Got the action details 
+15:30:08.481 [print] Successfully got the action details
+15:30:08.513 request:
+1 > POST https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d?blocking=true&result=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+15:30:10.743 response time in milliseconds: 2230
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 581
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:10 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [pn23IKdElO4sF5YK2RvH8zWb3gaUw6tB, 78buJUmr9hUY2D8jbc8DNk2sXlMPgenU]
+1 < X-Request-Id: [pn23IKdElO4sF5YK2RvH8zWb3gaUw6tB, 78buJUmr9hUY2D8jbc8DNk2sXlMPgenU]
+{"duration":147,"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","subject":"guest","activationId":"8cdb0501657747c69b0501657747c6d4","publish":false,"annotations":[{"key":"path","value":"guest/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d"},{"key":"waitTime","value":2247},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":140}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1532944811153,"logs":[],"start":1532944811006,"namespace":"guest"}
+
+15:30:10.748 [print] The value of responseStatusCode is: 200
+15:30:10.749 Action got invoked 
+15:30:10.754 [print] Activation ID for the Invoke action 8cdb0501657747c69b0501657747c6d4
+15:30:10.761 [print]
+15:30:10.784 [print] I cam here
+15:30:10.798 Sleeping for 20 
+15:30:30.883 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+15:30:30.901 request:
+1 > GET https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/_/activations/8cdb0501657747c69b0501657747c6d4
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+15:30:31.902 response time in milliseconds: 1001
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 688
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:30 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [UzF5f2kPKk1A7NpkNgoQUFlBBpbfLAyt, NoHsdfdvxupflbM8wQaBAxcaKW6TQLLu]
+1 < X-Request-Id: [UzF5f2kPKk1A7NpkNgoQUFlBBpbfLAyt, NoHsdfdvxupflbM8wQaBAxcaKW6TQLLu]
+{"duration":147,"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","subject":"guest","activationId":"8cdb0501657747c69b0501657747c6d4","publish":false,"annotations":[{"key":"path","value":"guest/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d"},{"key":"waitTime","value":2247},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":140}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1532944811153,"logs":["2018-07-30T10:00:11.152082886Z stdout: hello stdout","2018-07-30T10:00:11.152193957Z stderr: hello stderr"],"start":1532944811006,"namespace":"guest"}
+
+15:30:31.906 [print] Activation ID for the Invoke action(I was here in activation details 8cdb0501657747c69b0501657747c6d4
+15:30:32.922 not a js function or feature file: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000) - [type: NULL, value: null]
+15:30:32.922 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+15:30:32.925 [print] Successfully pulled the activation details
+15:30:32.940 request:
+1 > PUT https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d?overwrite=true
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Length: 308
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","exec":{"kind":"nodejs:default","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n"}}
+
+15:30:33.946 response time in milliseconds: 1005
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:32 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [sMEgeqX73jW7R4Ejx8hZJLi3StzdFdgw, c9nagJQbNpa89cQB7ISZ6A1Tk8DGOJLE]
+1 < X-Request-Id: [sMEgeqX73jW7R4Ejx8hZJLi3StzdFdgw, c9nagJQbNpa89cQB7ISZ6A1Tk8DGOJLE]
+{"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+15:30:33.950 [print] Action name for the created action Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+15:30:33.953 [print] Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+15:30:33.956 [print] Successfully updated the action
+15:30:33.971 request:
+1 > GET https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions?limit=30&skip=0
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+15:30:35.096 response time in milliseconds: 1125
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 10468
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:34 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [yVWKjlRyGjwtc7vPyqleZdGqFM1eEzJ2, m0CvdPUkKYyzq2ZvetvLVHbTVqKlfv1D]
+1 < X-Request-Id: [yVWKjlRyGjwtc7vPyqleZdGqFM1eEzJ2, m0CvdPUkKYyzq2ZvetvLVHbTVqKlfv1D]
+[{"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","updated":1532944833137,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"deleteResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944810012,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"putResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944808830,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"postResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944807723,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"getResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944806543,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing07a2862b-2792-4689-99b0-9f66628e7265","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944806543,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing3e8f4a2d-ec80-46ef-b49a-b636fee2803e","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944730834,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingaf5b1679-56fc-4a65-9cf3-e4465da17377","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944544832,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing87f502c8-79d2-4b91-92eb-b3ee44ec9360","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944544831,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingd9ce6b3b-e438-4ee9-9b7e-c725bfbf0378","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944439401,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingea1770f5-2928-4ff4-ae80-38efc345e127","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944212067,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing9dd45399-e955-44b7-bc6d-bddcd2693ddf","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532944212066,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing57db6331-22cc-4a23-8c37-bd93aa5441b1","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532939598733,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingd9b86c73-ca6a-43ec-a24e-19c96f5c00f4","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532939598721,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingee309004-5dc3-4e39-94e5-8214ad5c64f6","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532938684179,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing0f9a5230-bc5a-4609-b913-8b773f62466a","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532938547616,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing3d34be75-bcb8-4b48-8329-ff1c705b70a3","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532938458214,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing09f6c0a4-a793-482f-8b68-aa2c2bac1b38","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532938266643,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing300dc92c-8a81-49fc-b6f6-0c112eb62d55","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532938124339,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingbdd08f21-26f2-43fc-aedd-c1b8126b1aff","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532937955441,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingaaf8953b-8d2d-4ab0-88da-7ae475043ab7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532937939639,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing9928376a-2fda-465b-b633-9217a916e937","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532937291879,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing5fde2024-1756-4ed9-b2da-e3cc122c790c","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532937290531,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing3a50bedd-f0c2-4fec-b488-002fbfcbc462","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532937240423,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingfc002131-ac2e-478c-9d67-ea4344e394bd","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932820015,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing5cad7546-6dd6-40c5-a332-091b385fa4c0","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932712646,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingb2286205-c6cd-437b-9f66-16e5f265cd9c","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932707529,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing01d7a83a-6595-4783-bf32-0c14893cab6a","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932655085,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing f06d27a8-b806-4407-b98c-d4fa0764b450","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932652944,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing1ce1af3e-6c8c-445a-b245-dcc9614cbf9e","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1532932650836,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}]
+
+15:30:35.103 [print] Successfully pulled up the list of actions
+15:30:35.120 request:
+1 > DELETE https://controller-a-rtqe2-ue1-a.dev.runtime.adobe.io/api/v1/namespaces/guest/actions/Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtqe2-ue1-a.dev.runtime.adobe.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+15:30:36.191 response time in milliseconds: 1071
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 30 Jul 2018 10:00:35 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [JesNU25aMyxQrz6XfoVQ3qQ11ba9G51q, LJiCsjFMlxBKb3ae5pq0OHEMLNMsBSlW]
+1 < X-Request-Id: [JesNU25aMyxQrz6XfoVQ3qQ11ba9G51q, LJiCsjFMlxBKb3ae5pq0OHEMLNMsBSlW]
+{"name":"Testing4bc93b31-7edb-4705-a0ae-3101dcafaf2d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+15:30:36.194 [print] The value of responseStatusCode is: 200
+15:30:36.198 Action got deleted 
+15:30:36.199 [print] Successfully deleted the action
+he value of responseStatusCode is: 200
+15:29:20.736 Action got deleted 
+15:29:20.738 [print] Successfully deleted the action
