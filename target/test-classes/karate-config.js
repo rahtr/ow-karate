@@ -59,13 +59,13 @@ function() {
 	    config.NS_botTester10="tester10",
 	    config.Auth_botTester10="Basic YTczNTViMDctY2U1OS00Y2E0LThmYjYtNmUxYzAzNmQ3MTE2OkRMeU1RTjlXeTBPOE5NeGRNandJV3NlV0U2WWUzUGthY1BGU2V2M252Qko1TWNYQXhBbW81U3AxdWNmVFBWRVo=" 
 
-	 	// Admin Config
+	 	//Admin Config
 	    config.AdminAuth="Basic " +adminauth,
 	    config.AdminBaseUrl=adminbaseurl,
 	    config.BaseUrl=baseurl
 	    	 		
-	    //	config.AdminAuth="Basic d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA==",
-	   	 //   config.AdminBaseUrl="http://172.17.0.1:5984",
+//	    	config.AdminAuth="Basic d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA==",
+//	   	    config.AdminBaseUrl="http://172.17.0.1:5984",
 //	   	    config.BaseUrl="https://172.17.0.1:443"
 
   return config;

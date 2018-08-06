@@ -14,13 +14,15 @@
  #*  limitations under the License.
  #*/
 #Author: rtripath@adobe.com
+# Summary :This feature file will get the list of action based on the namespace provided
+#Author: rtripath@adobe.com
 # Summary :This feature file can be used to get action destils using action name
-@ignore
+@createNS
 Feature: Get User Credentials
 
 Background:
 * configure ssl = true
- 
+  @ignore
   Scenario: Get NS credentials
   
   #generate UUID

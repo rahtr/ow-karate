@@ -125,7 +125,7 @@ Feature: This feature contains basic test cases of openwhisks triggers
     * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
 	 	* match deleteTrigger.responseStatusCode == 404
 	 	* print "Test case completed --> verify reject delete of trigger that does not exist"
-	##@ignore 	
+	#@ignore 	
 	Scenario: As a user i want to verify reject get of trigger that does not exist
     * print "Test case started --> verify reject get of trigger that does not exist" 
     # Get User Auth

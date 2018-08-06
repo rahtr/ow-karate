@@ -178,7 +178,7 @@ Feature: This feature contains basic test cases of openwhisks rules
     * print Auth 
     
     * def ruleName = 'Rule'+java.util.UUID.randomUUID()
-    * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/enable-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
+    * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/delete-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
     * match deleteRule.responseStatusCode == 404
     * print "Test case completed --> verify reject enable of rule that does not exist"
   #@ignore  
