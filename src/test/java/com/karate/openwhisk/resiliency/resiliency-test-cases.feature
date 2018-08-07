@@ -60,7 +60,7 @@ Feature:  This feature file will test all the wsk functions.It will use User3 cr
 	  * def actionName = createAction.actName
 	  * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
 	  * def actID = invokeAction.activationId
-	  * print  = "Successfully invoked the action"
+	  * match invokeAction.responseStatusCode == 502
   
 
      
