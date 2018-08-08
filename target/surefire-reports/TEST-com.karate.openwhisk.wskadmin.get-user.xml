@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0"
+           name="Create Namespace"
+           skipped="0"
+           tests="1"
+           time="1.991213">
+   <testcase classname="com.karate.openwhisk.wskadmin.get-user"
+             name="Get NS credentials"
+             time="1.991213">
+      <system-out>* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And string NScreds = response...............................................passed
+* def uuid = $response.namespaces[*].uuid...................................passed
+* def key = $response.namespaces[*].key.....................................passed
+* def result = uuid[0]+':'+ key[0]..........................................passed
+* def Auth = base64encoding(result).........................................passed
+* print result..............................................................passed
+* def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil').........passed
+* string fileSaveResult = FileUtil.writeToFile(Auth, 'authFile.txt')........passed
+* assert fileSaveResult == 'success'........................................passed
+</system-out>
+   </testcase>
+</testsuite>
