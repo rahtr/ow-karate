@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0"
+           name="This feature contains smoke test cases of openwhisk triggers"
+           skipped="0"
+           tests="2"
+           time="53.594141">
+   <testcase classname="com.karate.openwhisk.smoketests.TC05_SmokeTest_Trigger"
+             name="As a user i want to verify create, update, get, fire, list and delete trigger"
+             time="28.352063">
+      <system-out>* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def nameSpace2 = 'normaluser'.............................................passed
+* def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js').passed
+* def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js').passed
+* call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And string NScreds = response...............................................passed
+* def uuid = $response.namespaces[*].uuid...................................passed
+* def key = $response.namespaces[*].key.....................................passed
+* def result = uuid[0]+':'+ key[0]..........................................passed
+* def Auth = base64encoding(result).........................................passed
+* print result..............................................................passed
+* def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil').........passed
+* string fileSaveResult = FileUtil.writeToFile(Auth, 'authFile.txt')........passed
+* assert fileSaveResult == 'success'........................................passed
+* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}.passed
+* def Auth = getNSCreds.Auth................................................passed
+* print "Got the Creds for the guest user"..................................passed
+* print Auth................................................................passed
+* print "Test case started --&gt; verify create, update, get, fire, list and delete trigger".passed
+* call [Create a Trigger] [As a user I want to create a trigger] classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature.passed
+* configure ssl = true......................................................passed
+* eval......................................................................passed
+* def requestBody = {"name":'#(triggerName)'}...............................passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName+'?overwrite=false'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Trigger name for the created trigger ' + trgrName..................passed
+* def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* def triggerName = createTrigger.trgrName..................................passed
+* match createTrigger.responseStatusCode == 200.............................passed
+* print "Successfully Created an trigger"...................................passed
+* call [Fire a Trigger] [As a user I want to fire a trigger] classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature.passed
+* configure ssl = true......................................................passed
+* string payload = requestBody..............................................passed
+* def requestBody = {}......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName.......passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method post............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Activation ID for the fired trigger ' + activationId...............passed
+* def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}.passed
+* def actID = fireTrigger.activationId......................................passed
+* match fireTrigger.responseStatusCode == 204...............................passed
+* print "Successfully fired the trigger"....................................passed
+* call [Used to Sleep between tests. sheepCount to (default 60 sec, pass '-1' to avoid) sleep as many seconds] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/sleep.feature.passed
+* def sleep =...............................................................passed
+* print "I cam here"........................................................passed
+* call sleep................................................................passed
+* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}.passed
+* call [Get a Trigger details] [As a user i want to get the details of a trigegr] classpath:com/karate/openwhisk/wsktriggers/get-trigger.feature.passed
+* configure ssl = true......................................................passed
+Given url BaseUrl...........................................................passed
+And path '/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName...........passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* def triggerDetails = call read('classpath:com/karate/openwhisk/wsktriggers/get-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}.passed
+* print "Successfully got the trigger details"..............................passed
+* call [Update a Trigger details] [As a user i want to update a trigger] classpath:com/karate/openwhisk/wsktriggers/update-trigger.feature.passed
+* configure ssl = true......................................................passed
+* def requestBody = {"name":"#(triggerName)"}...............................passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName+'?overwrite=true'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+Then status 200.............................................................passed
+And def trgrName = response.name............................................passed
+* print 'Trigger name for the created trigger ' + trgrName..................passed
+* def updateTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/update-trigger.feature') {triggerName:'#(triggerName)',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* def triggerName = updateTrigger.trgrName..................................passed
+* print triggerName.........................................................passed
+* print "Successfully updated the trigger"..................................passed
+* call [Get List of triggers based on the NameSpace] [As a user I want to get the list of triggers available for the given namespace] classpath:com/karate/openwhisk/wsktriggers/list-trigger.feature.passed
+* configure ssl = true......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/triggers?limit=30&amp;skip=0'....passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And def json = response.....................................................passed
+* def listRules = call read('classpath:com/karate/openwhisk/wsktriggers/list-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* print "Successfully pulled up the list of triggers".......................passed
+* call [Delete the trigger on the basis of the trigger name] [As a user I want to get the list of triggers available for the given namespace] classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature.passed
+* configure ssl = true......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName.......passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method delete..........................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}.passed
+* match deleteTrigger.responseStatusCode == 200.............................passed
+* print "Trigger got deleted"...............................................passed
+* print "Test case completed --&gt; verify create, update, get, fire, list and delete trigger".passed
+</system-out>
+   </testcase>
+   <testcase classname="com.karate.openwhisk.smoketests.TC05_SmokeTest_Trigger"
+             name="As a user i want to verify create and fire a trigger with a rule"
+             time="25.242078">
+      <system-out>* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def nameSpace2 = 'normaluser'.............................................passed
+* def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js').passed
+* def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js').passed
+* call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And string NScreds = response...............................................passed
+* def uuid = $response.namespaces[*].uuid...................................passed
+* def key = $response.namespaces[*].key.....................................passed
+* def result = uuid[0]+':'+ key[0]..........................................passed
+* def Auth = base64encoding(result).........................................passed
+* print result..............................................................passed
+* def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil').........passed
+* string fileSaveResult = FileUtil.writeToFile(Auth, 'authFile.txt')........passed
+* assert fileSaveResult == 'success'........................................passed
+* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}.passed
+* def Auth = getNSCreds.Auth................................................passed
+* print "Got the Creds for the guest user"..................................passed
+* print Auth................................................................passed
+* print "Test case started --&gt; verify create and fire a trigger with a rule".passed
+* call [Create a Trigger] [As a user I want to create a trigger] classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature.passed
+* configure ssl = true......................................................passed
+* eval......................................................................passed
+* def requestBody = {"name":'#(triggerName)'}...............................passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName+'?overwrite=false'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Trigger name for the created trigger ' + trgrName..................passed
+* def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* def triggerName = createTrigger.trgrName..................................passed
+* match createTrigger.responseStatusCode == 200.............................passed
+* print "Successfully Created an trigger"...................................passed
+* call [Create an Action] [As a user I want to create an action] classpath:com/karate/openwhisk/wskactions/create-action.feature.passed
+* configure ssl = true......................................................passed
+* eval......................................................................passed
+* eval......................................................................passed
+* def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}.passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* eval if(responseStatusCode == 200) karate.set('actName', response.name )..passed
+* print 'Action name for the created action ' + actName.....................passed
+* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* def actionName = createAction.actName.....................................passed
+* match createAction.responseStatusCode == 200..............................passed
+* print "Successfully Created an action"....................................passed
+* def trgrName = '/'+nameSpace +'/'+triggerName.............................passed
+* def actName = '/'+nameSpace +'/'+actionName...............................passed
+* call [Create a Rule] [As a user I want to create a rule] classpath:com/karate/openwhisk/wskrules/create-rule.feature.passed
+* configure ssl = true......................................................passed
+* eval......................................................................passed
+* def requestBody = {"name":'#(ruleName)',"status":"","trigger":'#(trgrName)',"action":'#(actName)'}.passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/rules/'+ruleName+'?overwrite=false'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* def createRuleResponse = response.........................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Rule name for the created rule ' + rulName.........................passed
+* def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* match createRule.responseStatusCode == 200................................passed
+* print 'successfully created the rule'.....................................passed
+* call [Fire a Trigger] [As a user I want to fire a trigger] classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature.passed
+* configure ssl = true......................................................passed
+* string payload = requestBody..............................................passed
+* def requestBody = {}......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName.......passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method post............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Activation ID for the fired trigger ' + activationId...............passed
+* def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}.passed
+* def actID = fireTrigger.activationId......................................passed
+* print  = "Successfully fired the trigger".................................passed
+* call [Delete the trigger on the basis of the trigger name] [As a user I want to get the list of triggers available for the given namespace] classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature.passed
+* configure ssl = true......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/triggers/'+triggerName.......passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method delete..........................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}.passed
+* match deleteTrigger.responseStatusCode == 200.............................passed
+* print "Trigger got deleted"...............................................passed
+* print 'Test Case completed--&gt; verify create and fire a trigger with a rule'.passed
+</system-out>
+   </testcase>
+</testsuite>

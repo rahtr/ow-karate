@@ -1,0 +1,4056 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports  - Feature: com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>openwhisk</td>
+            <td>08 Aug 2018, 14:01</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Feature Report</h2>
+      </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="stats-table">
+
+        
+<thead>
+  <tr class="header dont-sort">
+        <th></th>
+    <th colspan="6">Steps</th>
+    <th colspan="3">Scenarios</th>
+    <th colspan="2">Features</th>
+  </tr>
+  <tr>
+    <th>Feature</th>
+        <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="skipped">Skipped</th>
+    <th class="pending">Pending</th>
+    <th class="undefined">Undefined</th>
+    <th class="total">Total</th>
+
+    <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="total">Total</th>
+
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+</thead>
+
+
+        <tbody>
+        <tr>
+          <td class="tagname">com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</td>
+                    <td      class="passed"    >137</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">137</td>
+
+          <td  class="passed"    >1</td>
+          <td >0</td>
+          <td class="total">1</td>
+
+          <td class="duration" data-value="30900786593">30s 900ms</td>
+          <td class="passed">Passed</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="feature">
+        
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_smoketests.html">@smoketests</a>
+      </div>
+
+        
+<div class="brief passed">
+  <span class="keyword indention">Feature</span>
+  <span class="name">com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</span>
+  
+
+  </div>
+
+        <div class="description indention">This feature file will test all the wsk functions</div>
+
+        <div class="elements inner-level">
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">832ms</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-1" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-2" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">773ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>13:59:58.663 karate.env system property was: null 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def nameSpace = 'guest'</span>
+  
+  <span class="lead-duration duration">002ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def params = '?blocking=true&amp;result=false'</span>
+  
+  <span class="lead-duration duration">003ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')</span>
+  
+  <span class="lead-duration duration">007ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')</span>
+  
+  <span class="lead-duration duration">044ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">30s 068ms</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-4">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">TC01-As a user I want to all the wsk functions available to the user and check if they give the proper response</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-4" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-5">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-5" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-6">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-6" class="collapse collapsable-details">
+        <pre>{
+  &quot;nameSpace&quot;: &quot;guest&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def nameSpace = 'guest'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url AdminBaseUrl</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;I am here in get-user&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-7">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-7" class="collapse collapsable-details">
+        <pre>13:59:59.019 [print] I am here in get-user
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def DBpath =</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-8">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-8" class="collapse collapsable-details">
+        <pre>
+if (BaseUrl.match ('rtbeta'))
+{
+ DBpath = '/whisk_dev_subjects/';
+}
+else{
+ DBpath = '/local_subjects/';
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">path DBpath+nameSpace</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = AdminAuth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-9">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-9" class="collapse collapsable-details">
+        <pre>13:59:59.152 request:
+1 &gt; GET https://whisk-couchdb-rtqe2-ue1-a.qe.adobe-runtime.com:443/local_subjects/guest
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic d2hpc2tfYWRtaW46YmxhZGVydW5PcHM=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: whisk-couchdb-rtqe2-ue1-a.qe.adobe-runtime.com:443
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+14:00:00.236 response time in milliseconds: 1084
+1 &lt; 200
+1 &lt; Cache-Control: must-revalidate
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 229
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:29:59 GMT
+1 &lt; ETag: &quot;1-cd503abe708f3950bdc8c76c2cfccf12&quot;
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Couch-Request-ID: 7a6af077ff
+1 &lt; X-CouchDB-Body-Time: 0
+1 &lt; X-Request-Id: YOajhkY3ejxQgVvnBKfDdcvIo5xMgpvo
+{&quot;_id&quot;:&quot;guest&quot;,&quot;_rev&quot;:&quot;1-cd503abe708f3950bdc8c76c2cfccf12&quot;,&quot;namespaces&quot;:[{&quot;name&quot;:&quot;guest&quot;,&quot;key&quot;:&quot;123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP&quot;,&quot;uuid&quot;:&quot;23bc46b1-71f6-4ed5-8c54-816aa4f8c502&quot;}],&quot;subject&quot;:&quot;guest&quot;}
+
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">string NScreds = response</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def uuid = $response.namespaces[*].uuid</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def key = $response.namespaces[*].key</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def result = uuid[0]+':'+ key[0]</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def Auth = base64encoding(result)</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print result</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-10">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-10" class="collapse collapsable-details">
+        <pre>14:00:00.268 [print] 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil')</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">string fileSaveResult = FileUtil.writeToFile(Auth, 'authFile.txt')</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">assert fileSaveResult == 'success'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}</span>
+  
+  <span class="lead-duration duration">1s 309ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def result = getNSCreds.result</span>
+  
+  <span class="lead-duration duration">005ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def Auth = base64encoding(result)</span>
+  
+  <span class="lead-duration duration">006ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Got the Creds for the guest user&quot;</span>
+  
+  <span class="lead-duration duration">004ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-11">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-11" class="collapse collapsable-details">
+        <pre>14:00:00.309 [print] Got the Creds for the guest user
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-12">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-12" class="collapse collapsable-details">
+        <pre>14:00:00.310 [print] Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Create an Action] [As a user I want to create an action] classpath:com/karate/openwhisk/wskactions/create-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-13">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-13" class="collapse collapsable-details">
+        <pre>{
+  &quot;script&quot;: &quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-14">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-14" class="collapse collapsable-details">
+        <pre>	if (typeof actionName == 'undefined') {
+	    karate.set('actionName', 'Testing'+java.util.UUID.randomUUID());
+	} else {
+			karate.set('actionName', actionName);
+	}</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-15">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-15" class="collapse collapsable-details">
+        <pre>	if (typeof webAction == 'undefined') {
+	    karate.set('webAction', 'false');
+	} else {
+			karate.set('webAction', 'true');
+	}</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def requestBody = {&quot;namespace&quot;:'#(nameSpace)',&quot;name&quot;:'#(actionName)',&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:default&quot;,&quot;code&quot;:'#(script)'},&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true}]}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">string payload = requestBody</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">request payload</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method put</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-16">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-16" class="collapse collapsable-details">
+        <pre>14:00:00.379 request:
+1 &gt; PUT https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions/Testingfce92d40-0d38-4ed4-a799-7c3938af2030?overwrite=false
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Length: 420
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{&quot;namespace&quot;:&quot;guest&quot;,&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:default&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;},&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true}]}
+
+14:00:01.362 response time in milliseconds: 982
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 563
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:00 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [Zvveh2qfjNfEt8qr6ef7qlwEHs7bOOvw, sTH9mxzdOdoOmniVXk3TZAec2Ppxtydo]
+1 &lt; X-Request-Id: [Zvveh2qfjNfEt8qr6ef7qlwEHs7bOOvw, sTH9mxzdOdoOmniVXk3TZAec2Ppxtydo]
+{&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:6&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,&quot;binary&quot;:false},&quot;parameters&quot;:[],&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def responseStatusCode = responseStatus</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'The value of responseStatusCode is:',responseStatusCode</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-17">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-17" class="collapse collapsable-details">
+        <pre>14:00:01.364 [print] The value of responseStatusCode is: 200
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-18">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-18" class="collapse collapsable-details">
+        <pre>if(responseStatusCode == 200) {
+	 karate.log(&quot;Action Created&quot;);
+	 }
+else if(responseStatusCode == 409){
+   karate.log(&quot;Duplicate Action&quot;);
+   }</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval if(responseStatusCode == 200) karate.set('actName', response.name )</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-19">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-19" class="collapse collapsable-details">
+        <pre>14:00:01.366 Action Created 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'Action name for the created action ' + actName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-20">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-20" class="collapse collapsable-details">
+        <pre>14:00:01.370 [print] Action name for the created action Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">1s 059ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionName = createAction.actName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-21">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-21" class="collapse collapsable-details">
+        <pre>14:00:01.372 [print] Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully Created an action&quot;</span>
+  
+  <span class="lead-duration duration">003ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-22">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-22" class="collapse collapsable-details">
+        <pre>14:00:01.376 [print] Successfully Created an action
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Get Action] [Get Details of an action] classpath:com/karate/openwhisk/wskactions/get-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-23">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-23" class="collapse collapsable-details">
+        <pre>{
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;,
+  &quot;actionName&quot;: &quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">path '/api/v1/namespaces/'+nameSpace+'/actions/'+actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-24">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-24" class="collapse collapsable-details">
+        <pre>14:00:01.419 request:
+1 &gt; GET https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions/Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+14:00:02.325 response time in milliseconds: 904
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 563
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:01 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [kTxbYfqzAbbrMEwRw1CurdX6EfOp4Nra, 53egs4Ktc1GesTOiqcZpbdQkrlVlTg6r]
+1 &lt; X-Request-Id: [kTxbYfqzAbbrMEwRw1CurdX6EfOp4Nra, 53egs4Ktc1GesTOiqcZpbdQkrlVlTg6r]
+{&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:6&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,&quot;binary&quot;:false},&quot;parameters&quot;:[],&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def responseStatusCode = responseStatus</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'The value of responseStatusCode is:',responseStatusCode</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-25">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-25" class="collapse collapsable-details">
+        <pre>14:00:02.326 [print] The value of responseStatusCode is: 200
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-26">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-26" class="collapse collapsable-details">
+        <pre>if(responseStatusCode==200){
+	 karate.log(&quot;Got the action details&quot;);
+	 karate.set('action_details', response)
+	 }
+else if(responseStatusCode == 404){
+   karate.log(&quot;The requested Action does not exist&quot;);
+   }</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}</span>
+  
+  <span class="lead-duration duration">954ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-27">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-27" class="collapse collapsable-details">
+        <pre>14:00:02.331 Got the action details 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully got the action details&quot;</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-28">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-28" class="collapse collapsable-details">
+        <pre>14:00:02.333 [print] Successfully got the action details
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Invoke action and return activation ID] [As a user I want to invoke an action and return the activationID which can be used for other Test Cases] classpath:com/karate/openwhisk/wskactions/invoke-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-29">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-29" class="collapse collapsable-details">
+        <pre>{
+  &quot;params&quot;: &quot;?blocking=true&amp;result=false&quot;,
+  &quot;requestBody&quot;: &quot;&quot;,
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;,
+  &quot;actionName&quot;: &quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">string payload = requestBody</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def requestBody = {}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def path = '/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+params</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+path</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">request payload</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method post</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-30">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-30" class="collapse collapsable-details">
+        <pre>14:00:02.369 request:
+1 &gt; POST https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions/Testingfce92d40-0d38-4ed4-a799-7c3938af2030?blocking=true&amp;result=false
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Length: 0
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+14:00:04.250 response time in milliseconds: 1880
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 580
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:03 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [xIDr5tSTA8lzmfm0qtJWwKQAZRJmFEJ3, Jh9cT9x3pDdc2DgsheZD4nhLf0Ibxfg7]
+1 &lt; X-Request-Id: [xIDr5tSTA8lzmfm0qtJWwKQAZRJmFEJ3, Jh9cT9x3pDdc2DgsheZD4nhLf0Ibxfg7]
+{&quot;duration&quot;:247,&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;subject&quot;:&quot;guest&quot;,&quot;activationId&quot;:&quot;e592a6a7dc2c419d92a6a7dc2c019d61&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;path&quot;,&quot;value&quot;:&quot;guest/Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;},{&quot;key&quot;:&quot;waitTime&quot;,&quot;value&quot;:376},{&quot;key&quot;:&quot;kind&quot;,&quot;value&quot;:&quot;nodejs:6&quot;},{&quot;key&quot;:&quot;limits&quot;,&quot;value&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10}},{&quot;key&quot;:&quot;initTime&quot;,&quot;value&quot;:241}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;response&quot;:{&quot;result&quot;:{&quot;payload&quot;:&quot;Hello, World!&quot;},&quot;success&quot;:true,&quot;status&quot;:&quot;success&quot;},&quot;end&quot;:1533717003764,&quot;logs&quot;:[],&quot;start&quot;:1533717003517,&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def responseStatusCode = responseStatus</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'The value of responseStatusCode is:',responseStatusCode</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-31">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-31" class="collapse collapsable-details">
+        <pre>14:00:04.251 [print] The value of responseStatusCode is: 200
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-32">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-32" class="collapse collapsable-details">
+        <pre>if(responseStatusCode==200){
+	 karate.log(&quot;Action got invoked&quot;);
+	 karate.set('activationId', response.activationId);
+	 }
+else if(responseStatusCode == 404){
+   karate.log(&quot;The requested Action does not exist.&quot;);
+   }</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'Activation ID for the Invoke action ' + activationId</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-33">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-33" class="collapse collapsable-details">
+        <pre>14:00:04.255 Action got invoked 
+14:00:04.259 [print] Activation ID for the Invoke action e592a6a7dc2c419d92a6a7dc2c019d61
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}</span>
+  
+  <span class="lead-duration duration">1s 925ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def actID = invokeAction.activationId</span>
+  
+  <span class="lead-duration duration">002ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print  = &quot;Successfully invoked the action&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-34">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-34" class="collapse collapsable-details">
+        <pre>14:00:04.263 [print]
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Used to Sleep between tests. sheepCount to (default 60 sec, pass '-1' to avoid) sleep as many seconds] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/sleep.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-35">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-35" class="collapse collapsable-details">
+        <pre>{
+  &quot;sheepCount&quot;: &quot;20&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def sleep =</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-36">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-36" class="collapse collapsable-details">
+        <pre>function() {
+  var seconds = karate.get('sheepCount');
+  if (seconds) {  // check if sheepCount is defined
+    if (seconds == -1) {
+      karate.log(&quot;NO Sleeping: as we were told not to count sheep&quot;);
+      return;
+    }
+  } else {
+    seconds = 60; // default sleep time in seconds
+    karate.log(&quot;Use default sleep time: &quot; + seconds);
+  }
+  karate.log(&quot;Sleeping for &quot; + seconds );
+  for(i = 1; i &lt;= seconds; i++) {
+    java.lang.Thread.sleep(1*1000);
+//karate.log(&quot;counting sheep - &quot; + i);
+//karate.log(&quot;Done sleeping, back to work...&quot;);
+  }
+ 
+}</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;I cam here&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-37">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-37" class="collapse collapsable-details">
+        <pre>14:00:04.272 [print] I cam here
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call sleep</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-38">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-38" class="collapse collapsable-details">
+        <pre>14:00:04.273 Sleeping for 20 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}</span>
+  
+  <span class="lead-duration duration">20s 053ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-39">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-39" class="collapse collapsable-details">
+        <pre>14:00:24.317 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Get Action] [Get Activation Details] classpath:com/karate/openwhisk/wskactions/get-activation-details.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-40">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-40" class="collapse collapsable-details">
+        <pre>{
+  &quot;activationId&quot;: &quot;e592a6a7dc2c419d92a6a7dc2c019d61&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def path = '/api/v1/namespaces/_/activations/'+activationId</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+path</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-41">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-41" class="collapse collapsable-details">
+        <pre>14:00:24.338 request:
+1 &gt; GET https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/_/activations/e592a6a7dc2c419d92a6a7dc2c019d61
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+14:00:25.209 response time in milliseconds: 870
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 687
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:24 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [JIvniBEn0qunDP1O2vfXFnlKPrKYot5p, 4PebuEKhetIgxd7ny9JNTbHZad6ai2BF]
+1 &lt; X-Request-Id: [JIvniBEn0qunDP1O2vfXFnlKPrKYot5p, 4PebuEKhetIgxd7ny9JNTbHZad6ai2BF]
+{&quot;duration&quot;:247,&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;subject&quot;:&quot;guest&quot;,&quot;activationId&quot;:&quot;e592a6a7dc2c419d92a6a7dc2c019d61&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;path&quot;,&quot;value&quot;:&quot;guest/Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;},{&quot;key&quot;:&quot;waitTime&quot;,&quot;value&quot;:376},{&quot;key&quot;:&quot;kind&quot;,&quot;value&quot;:&quot;nodejs:6&quot;},{&quot;key&quot;:&quot;limits&quot;,&quot;value&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10}},{&quot;key&quot;:&quot;initTime&quot;,&quot;value&quot;:241}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;response&quot;:{&quot;result&quot;:{&quot;payload&quot;:&quot;Hello, World!&quot;},&quot;success&quot;:true,&quot;status&quot;:&quot;success&quot;},&quot;end&quot;:1533717003764,&quot;logs&quot;:[&quot;2018-08-08T08:30:03.763120595Z stdout: hello stdout&quot;,&quot;2018-08-08T08:30:03.763240285Z stderr: hello stderr&quot;],&quot;start&quot;:1533717003517,&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">def activationDetails = response</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'Activation ID for the Invoke action(I was here in activation details ' + activationId</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-42">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-42" class="collapse collapsable-details">
+        <pre>14:00:25.212 [print] Activation ID for the Invoke action(I was here in activation details e592a6a7dc2c419d92a6a7dc2c019d61
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-43">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-43" class="collapse collapsable-details">
+        <pre>14:00:26.152 not a js function or feature file: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000) - [type: NULL, value: null]
+14:00:26.152 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">1s 834ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully pulled the activation details&quot;</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-44">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-44" class="collapse collapsable-details">
+        <pre>14:00:26.153 [print] Successfully pulled the activation details
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Update an action] [As a user I want to update the action and give the updated response] classpath:com/karate/openwhisk/wskactions/update-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-45">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-45" class="collapse collapsable-details">
+        <pre>{
+  &quot;actionName&quot;: &quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,
+  &quot;script&quot;: &quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def requestBody = {&quot;namespace&quot;:'#(nameSpace)',&quot;name&quot;:'#(actionName)',&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:default&quot;,&quot;code&quot;:'#(script)'}}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">string payload = requestBody</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=true'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">request payload</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method put</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-46">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-46" class="collapse collapsable-details">
+        <pre>14:00:26.171 request:
+1 &gt; PUT https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions/Testingfce92d40-0d38-4ed4-a799-7c3938af2030?overwrite=true
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Length: 308
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{&quot;namespace&quot;:&quot;guest&quot;,&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:default&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;}}
+
+14:00:27.095 response time in milliseconds: 923
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 563
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:26 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [0U6f7gFbkmnwAMJzEl0kxYnV7eieIOY5, fbAUjckfA7DuoCJxtc0VdStPiXfGltGC]
+1 &lt; X-Request-Id: [0U6f7gFbkmnwAMJzEl0kxYnV7eieIOY5, fbAUjckfA7DuoCJxtc0VdStPiXfGltGC]
+{&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.2&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:6&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,&quot;binary&quot;:false},&quot;parameters&quot;:[],&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">def actName = response.name</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'Action name for the created action ' + actName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-47">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-47" class="collapse collapsable-details">
+        <pre>14:00:27.099 [print] Action name for the created action Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def updateAction = call read('classpath:com/karate/openwhisk/wskactions/update-action.feature') {actionName:'#(actionName)',script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">945ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionName = createAction.actName</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-48">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-48" class="collapse collapsable-details">
+        <pre>14:00:27.101 [print] Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully updated the action&quot;</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-49">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-49" class="collapse collapsable-details">
+        <pre>14:00:27.102 [print] Successfully updated the action
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Get List of actions based on the NameSpace] [As a user I want to get the list of actions available for the given namespace] classpath:com/karate/openwhisk/wskactions/list-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-50">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-50" class="collapse collapsable-details">
+        <pre>{
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def path = '/api/v1/namespaces/'+nameSpace+'/actions?limit=30&amp;skip=0'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+path</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-51">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-51" class="collapse collapsable-details">
+        <pre>14:00:27.122 request:
+1 &gt; GET https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions?limit=30&amp;skip=0
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+14:00:28.092 response time in milliseconds: 969
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 10467
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:27 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [RckR4WELmlQVEmeo9tySt0adFUtH3rtC, n5Txe6Fqa02HHvi77pei0FMIoj3nBLXJ]
+1 &lt; X-Request-Id: [RckR4WELmlQVEmeo9tySt0adFUtH3rtC, n5Txe6Fqa02HHvi77pei0FMIoj3nBLXJ]
+[{&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.2&quot;,&quot;updated&quot;:1533717026983,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testinga5dc5df0-465f-40a2-8e16-56a54c4c7846&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717011983,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing1d25c27e-2117-433b-a623-f3d903576fc9&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717006179,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;deleteResponse&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717004199,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;putResponse&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717003259,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;postResponse&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717002275,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing344a3d24-e020-4748-82de-edcc7eac0d17&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717002232,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;getResponse&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717001240,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing24be8396-b619-42f4-a630-a7da78f77bec&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533717001226,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingf7b3920c-9483-4463-b7f2-b32711a5686d&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533716984348,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing261b0e13-182a-4f6f-8225-5068dbcc2cc8&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533716983300,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testinga3c1f028-5a23-4a06-a5ed-073c4cfe2818&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533716982365,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingce69d1ae-1e89-4eea-a114-07fa1c79fa90&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533716981303,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing235af859-0ca5-4edd-9202-7e5e372852b2&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533716980537,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing846cb9e5-15b7-46ed-a066-2187c734b81d&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715713266,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing260750b3-4cb4-475f-a303-09954f58091f&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715696653,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing71ca495d-c46e-460d-b854-f1bf237c781d&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715690322,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingec50c546-9e56-441c-9089-ad291a53e92e&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715686552,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingb8d788f2-2a62-4cba-94d5-af093c784644&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715685473,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing884782fa-cf36-4ac9-a3e2-ec48abf1c7f5&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715528589,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingc1886a94-3a65-456c-8951-55eb4725c9cf&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715512438,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing0eec15a0-cc91-4182-9ed9-8d8d3da5111e&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715505189,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing5c8caa75-57a8-4c4a-be9d-4c905614eda9&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715501137,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingc3a8bfa7-1682-4b7c-b4a4-4041e041e377&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715500204,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing991cde89-5811-40b2-9756-994d92388797&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715481824,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testinga475bcc1-7645-4705-9b6d-206ff198a0de&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715480758,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing79492bbb-7173-4f46-b354-b831c67fad4c&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715479734,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testing101536d5-cb45-4f60-b219-a6b737915cb8&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715478739,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingcd909ea0-98f3-40ac-8eca-3a96a1bddc95&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715477866,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;},{&quot;name&quot;:&quot;Testingc7ce2fc9-7835-4e4c-82a4-2e70501d17b4&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.1&quot;,&quot;updated&quot;:1533715435483,&quot;exec&quot;:{&quot;binary&quot;:false},&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;}]
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">def json = response</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def listActions = call read('classpath:com/karate/openwhisk/wskactions/list-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">990ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully pulled up the list of actions&quot;</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-52">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-52" class="collapse collapsable-details">
+        <pre>14:00:28.094 [print] Successfully pulled up the list of actions
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Delete the action on the basis of the ActionName] [As a user I want to get the list of actions available for the given namespace] classpath:com/karate/openwhisk/wskactions/delete-action.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-53">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-53" class="collapse collapsable-details">
+        <pre>{
+  &quot;actionName&quot;: &quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,
+  &quot;nameSpace&quot;: &quot;guest&quot;,
+  &quot;Auth&quot;: &quot;Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=&quot;
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def path = '/api/v1/namespaces/'+nameSpace+'/actions/'+actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url BaseUrl+path</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method delete</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-54">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-54" class="collapse collapsable-details">
+        <pre>14:00:28.107 request:
+1 &gt; DELETE https://controller-a-rtqe2-ue1-a.qe.adobe-runtime.com/api/v1/namespaces/guest/actions/Testingfce92d40-0d38-4ed4-a799-7c3938af2030
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MjNiYzQ2YjEtNzFmNi00ZWQ1LThjNTQtODE2YWE0ZjhjNTAyOjEyM3pPM3haQ0xyTU42djJCS0sxZFhZRnBYbFBrY2NPRnFtMTJDZEFzTWdSVTRWck5aOWx5R1ZDR3VNREdJd1A=
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: controller-a-rtqe2-ue1-a.qe.adobe-runtime.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+14:00:29.053 response time in milliseconds: 945
+1 &lt; 200
+1 &lt; Access-Control-Allow-Headers: Authorization, Content-Type
+1 &lt; Access-Control-Allow-Origin: *
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 563
+1 &lt; Content-Type: application/json
+1 &lt; Date: Wed, 08 Aug 2018 08:30:28 GMT
+1 &lt; Server: api-gateway/1.9.3.1
+1 &lt; X-Request-ID: [pQHOXEpzI7kydfFFgkMKcILP80iiWWsa, MGb1oOdGjp4k1nTaIndKBoaEdXtPkKhV]
+1 &lt; X-Request-Id: [pQHOXEpzI7kydfFFgkMKcILP80iiWWsa, MGb1oOdGjp4k1nTaIndKBoaEdXtPkKhV]
+{&quot;name&quot;:&quot;Testingfce92d40-0d38-4ed4-a799-7c3938af2030&quot;,&quot;publish&quot;:false,&quot;annotations&quot;:[{&quot;key&quot;:&quot;web-export&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;raw-http&quot;,&quot;value&quot;:false},{&quot;key&quot;:&quot;final&quot;,&quot;value&quot;:true},{&quot;key&quot;:&quot;exec&quot;,&quot;value&quot;:&quot;nodejs:6&quot;}],&quot;version&quot;:&quot;0.0.2&quot;,&quot;exec&quot;:{&quot;kind&quot;:&quot;nodejs:6&quot;,&quot;code&quot;:&quot;function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \&quot;World\&quot;;\n    return {payload: \&quot;Hello, \&quot; + name + \&quot;!\&quot;};\n}\n&quot;,&quot;binary&quot;:false},&quot;parameters&quot;:[],&quot;limits&quot;:{&quot;timeout&quot;:60000,&quot;memory&quot;:256,&quot;logs&quot;:10},&quot;namespace&quot;:&quot;guest&quot;}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def responseStatusCode = responseStatus</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'The value of responseStatusCode is:',responseStatusCode</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-55">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-55" class="collapse collapsable-details">
+        <pre>14:00:29.054 [print] The value of responseStatusCode is: 200
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-56">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-56" class="collapse collapsable-details">
+        <pre>if(responseStatusCode==200){
+	 karate.log(&quot;Action got deleted&quot;);
+	 }
+else if(responseStatusCode == 404){
+   karate.log(&quot;The requested Action does not exist&quot;);
+   }</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">961ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-57">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-57" class="collapse collapsable-details">
+        <pre>14:00:29.056 Action got deleted 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully deleted the action&quot;</span>
+  
+  <span class="lead-duration duration">001ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-58">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-58" class="collapse collapsable-details">
+        <pre>14:00:29.057 [print] Successfully deleted the action
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

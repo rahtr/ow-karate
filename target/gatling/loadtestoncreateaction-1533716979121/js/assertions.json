@@ -1,0 +1,18 @@
+{
+  "simulation": "com.karate.openwhisk.performance.LoadTestOnCreateAction",
+  "simulationId": "loadtestoncreateaction",
+  "start": 1533716979121,
+  "description": "null",
+  "scenarios": ["create"],
+  "assertions": [
+{
+  "path": "Global",
+  "target": "mean of response time",
+  "condition": "is less than",
+  "expectedValues": [1100.0],
+  "result": true,
+  "message": "Global: mean of response time is less than 1100.0",
+  "actualValue": [1061.0]
+}
+  ]
+}

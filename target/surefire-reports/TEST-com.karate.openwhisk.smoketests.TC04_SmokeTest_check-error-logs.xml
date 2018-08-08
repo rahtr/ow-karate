@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0"
+           name="This feature file will test for the presence of any error in the logs pulled using the activationID"
+           skipped="0"
+           tests="1"
+           time="28.127814">
+   <testcase classname="com.karate.openwhisk.smoketests.TC04_SmokeTest_check-error-logs"
+             name="TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID"
+             time="28.127814">
+      <system-out>* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def params = '?blocking=true&amp;result=false'................................passed
+* def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js').passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+* call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = 'guest'...................................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And string NScreds = response...............................................passed
+* def uuid = $response.namespaces[*].uuid...................................passed
+* def key = $response.namespaces[*].key.....................................passed
+* def result = uuid[0]+':'+ key[0]..........................................passed
+* def Auth = base64encoding(result).........................................passed
+* print result..............................................................passed
+* def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil').........passed
+* string fileSaveResult = FileUtil.writeToFile(Auth, 'authFile.txt')........passed
+* assert fileSaveResult == 'success'........................................passed
+* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}.passed
+* def result = getNSCreds.result............................................passed
+* def Auth = base64encoding(result).........................................passed
+* print "Got the Creds for the guest user"..................................passed
+* print Auth................................................................passed
+* call [Create an Action] [As a user I want to create an action] classpath:com/karate/openwhisk/wskactions/create-action.feature.passed
+* configure ssl = true......................................................passed
+* eval......................................................................passed
+* eval......................................................................passed
+* def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}.passed
+* string payload = requestBody..............................................passed
+Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'.passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method put.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* eval if(responseStatusCode == 200) karate.set('actName', response.name )..passed
+* print 'Action name for the created action ' + actName.....................passed
+* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.passed
+* def actionName = createAction.actName.....................................passed
+* print actionName..........................................................passed
+* print "Successfully Created an action"....................................passed
+* call [Get Action] [Get Details of an action] classpath:com/karate/openwhisk/wskactions/get-action.feature.passed
+* configure ssl = true......................................................passed
+Given url BaseUrl...........................................................passed
+And path '/api/v1/namespaces/'+nameSpace+'/actions/'+actionName.............passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}.passed
+* print "Successfully got the action details"...............................passed
+* call [Invoke action and return activation ID] [As a user I want to invoke an action and return the activationID which can be used for other Test Cases] classpath:com/karate/openwhisk/wskactions/invoke-action.feature.passed
+* configure ssl = true......................................................passed
+* string payload = requestBody..............................................passed
+* def requestBody = {}......................................................passed
+* def path = '/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+params..passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+And request payload.........................................................passed
+When method post............................................................passed
+* def responseStatusCode = responseStatus...................................passed
+* print 'The value of responseStatusCode is:',responseStatusCode............passed
+* eval......................................................................passed
+* print 'Activation ID for the Invoke action ' + activationId...............passed
+* def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}.passed
+* def actID = invokeAction.activationId.....................................passed
+* print  = "Successfully invoked the action"................................passed
+* call [Used to Sleep between tests. sheepCount to (default 60 sec, pass '-1' to avoid) sleep as many seconds] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/sleep.feature.passed
+* def sleep =...............................................................passed
+* print "I cam here"........................................................passed
+* call sleep................................................................passed
+* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}.passed
+* call [Get Action] [Get Activation Details] classpath:com/karate/openwhisk/wskactions/get-activation-details.feature.passed
+* configure ssl = true......................................................passed
+* def path = '/api/v1/namespaces/_/activations/'+activationId...............passed
+Given url BaseUrl+path......................................................passed
+And header Authorization = Auth.............................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+And def activationDetails = response........................................passed
+* print 'Activation ID for the Invoke action(I was here in activation details ' + activationId.passed
+* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000).passed
+* def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}.passed
+* def activationResponse = getActivationDetails.response....................passed
+* print activationResponse.logs.............................................passed
+* match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr'].passed
+* print "Successfully pulled the activation details"........................passed
+</system-out>
+   </testcase>
+</testsuite>
