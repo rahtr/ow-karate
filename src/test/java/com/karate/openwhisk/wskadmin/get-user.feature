@@ -36,6 +36,10 @@ Feature: Create Namespace
     {
      DBpath = '/whisk_dev_subjects/';
     }
+    if (AdminBaseUrl.match ('bluemix'))
+    {
+     DBpath = '/whisk_dev_subjects/';
+    }
     else{
      DBpath = '/local_subjects/';
     }
