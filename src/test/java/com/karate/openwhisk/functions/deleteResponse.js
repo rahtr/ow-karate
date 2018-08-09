@@ -1,7 +1,6 @@
-
 function(){
-	var deleteResponse = "function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n";
-    return deleteResponse;
+var deleteResponse = "function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n";
+return deleteResponse;
 }
 /**
  *  Copyright 2017-2018 Adobe.

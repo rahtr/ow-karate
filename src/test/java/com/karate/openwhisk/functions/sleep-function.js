@@ -1,5 +1,3 @@
-
-
 function(){
 var scriptcode="function main(params) {  return new Promise(function(resolve, reject) {     setTimeout(function() {         resolve({ message: \"Hello world\" });    }, params.time);  });}";
 return scriptcode;
@@ -24,5 +22,5 @@ return scriptcode;
 /**
  * @author Rahul Tripathi
  *
- * 
+ *
  */
