@@ -1,4 +1,3 @@
-
 function(){ return Math.random().toString(36).substr(2, 10) }
 
 /**
@@ -19,5 +18,5 @@ function(){ return Math.random().toString(36).substr(2, 10) }
 /**
  * @author Rahul Tripathi
  *
- * 
+ *
  */

@@ -1,25 +1,21 @@
 /*
- *  Copyright 2017-2018 Adobe.
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- *          http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+// Copyright 2017-2018 Adobe.
 package com.karate.openwhisk.reliability;
-
-import com.intuit.karate.cucumber.CucumberRunner;
-import com.intuit.karate.cucumber.KarateStats;
-import cucumber.api.CucumberOptions;
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.ReportBuilder;
 
 import static org.junit.Assert.assertTrue;
 
@@ -31,21 +27,28 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import com.intuit.karate.cucumber.CucumberRunner;
+import com.intuit.karate.cucumber.KarateStats;
+
+import cucumber.api.CucumberOptions;
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+
 /**
  * @author Rahul Tripathi
  *
- * 
+ *
  */
 
 @CucumberOptions(tags = {"~@ignore","~@reliability","~@wskfunctions","~@resiliency","~@driver"})
 public class ParallelRunner {
-    
+
     @Test
     public void testParallel() {
-	    String karateOutputPath = "target/surefire-reports";
+        String karateOutputPath = "target/surefire-reports";
         KarateStats stats = CucumberRunner.parallel(getClass(), 5, karateOutputPath);
         generateReport(karateOutputPath);
-        assertTrue("there are scenario failures", stats.getFailCount() == 0);        
+        assertTrue("there are scenario failures", stats.getFailCount() == 0);
     }
     private static void generateReport(String karateOutputPath) {
         Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
@@ -53,6 +56,6 @@ public class ParallelRunner {
         jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
         Configuration config = new Configuration(new File("target"), "openwhisk");
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
-        reportBuilder.generateReports();        
+        reportBuilder.generateReports();
     }
 }

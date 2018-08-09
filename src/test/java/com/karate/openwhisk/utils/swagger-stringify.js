@@ -1,13 +1,11 @@
+function(raw_swagger){
 
-function(raw_swagger){ 
-	
-	    var swagger2connv = JSON.stringify(raw_swagger);
-	   var convertedswagger = '{"apidoc":{"namespace":"guest","swagger":' + swagger2connv + '}}';
-	   // console.log(convertedswagger);
-	   
-        return convertedswagger; 
+    var swagger2connv = JSON.stringify(raw_swagger);
+    var convertedswagger = '{"apidoc":{"namespace":"guest","swagger":' + swagger2connv + '}}';
+    // console.log(convertedswagger);
+
+    return convertedswagger;
 }
-
 /**
  *  Copyright 2017-2018 Adobe.
  *

@@ -1,6 +1,6 @@
 /**
-* Usage: Return Random Email Id.
-*/
+ * Usage: Return Random Email Id.
+ */
 exports.getRandomEmail = function () {
     var strValues = "abcdefghijk123456789";
     var strEmail = "";
@@ -11,10 +11,10 @@ exports.getRandomEmail = function () {
 };
 
 /**
-* Usage: Generate random string.
-* characterLength :  Length of string.
-* Returns : Random string.
-*/
+ * Usage: Generate random string.
+ * characterLength :  Length of string.
+ * Returns : Random string.
+ */
 exports.getRandomString = function (characterLength) {
     var randomText = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -24,10 +24,10 @@ exports.getRandomString = function (characterLength) {
 };
 
 /**
-* Usage: Generate random number.
-* characterLength :  Length of number.
-* Returns : Random number.
-*/
+ * Usage: Generate random number.
+ * characterLength :  Length of number.
+ * Returns : Random number.
+ */
 exports.getRandomNumber = function (numberLength) {
     var randomNumber = "";
     var possible = "0123456789";
