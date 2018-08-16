@@ -78,7 +78,7 @@ Feature: This feature file will test the basic API Management Functionality
     #Call the get-api-list swagger to get the list of the imported swagger
     * def getSwaggerList = call read('classpath:com/karate/openwhisk/apimanagement/get-api-list.feature') {guid:'#(guid)' ,Auth:'#(Auth)'}
     * print  = "Successfully got the List of API's"
-    * def sleepsometime = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'5'}
+    * def sleepsometime = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'15'}
      * print "Got the List of APIs Hurray!"
    
    #Hit the imnported APIs and asset the response
