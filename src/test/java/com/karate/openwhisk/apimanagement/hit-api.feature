@@ -36,3 +36,4 @@ Feature: Hit the End Points and Assert for Success
  		 And request payload
      When method methodtype
      Then status 200
+     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'10'}
