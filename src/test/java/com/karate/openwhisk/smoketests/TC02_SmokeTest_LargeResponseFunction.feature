@@ -15,7 +15,6 @@
  #*/
 #Author: rtripath@adobe.com
 # Summary :This feature file will check for the containers
-
 @smoketests
 @ignore
 
@@ -25,21 +24,24 @@ Feature:  This feature file will download a large image from cc storage
 
   Background:
 * configure ssl = true
-* def nameSpace = 'guest'
+* def nameSpace = test_user_ns
 * def params = '?blocking=true&result=true'
 * def scriptcode = call read('classpath:com/karate/openwhisk/functions/getAssetContent.js')
-* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
+  * def Auth =
+    """
+    if(!test_user_key)
+    {
+    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+    Auth=getNSCreds.Auth;
+    }
+    
+    else
+    {
+    Auth = 'Basic '+test_user_key;
+    }
+    """
 
-
-
-
-  Scenario: TC02-As a user I want run a long running funtion
-  
-  #Get User Auth
-  * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-  * def uuid = getNSCreds.response.namespaces[*]
-  * def result = uuid[0].uuid+':'+uuid[0].key
-  * def Auth = base64encoding(result)
+  Scenario: TC02-As a user I want run a long running function
   
   # Create an Action 
      * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}

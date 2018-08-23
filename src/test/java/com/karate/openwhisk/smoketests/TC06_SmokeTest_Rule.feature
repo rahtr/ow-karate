@@ -16,18 +16,27 @@
 #Author: mamishra@adobe.com
 #Keywords Summary : This feature is all about smoke test cases of Triggers
 @smoketests
+
 Feature: This feature contains smoke test cases of openwhisk triggers
 
 	Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
-    * def nameSpace2 = 'normaluser'
+    * def nameSpace = test_user_ns
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def Auth = getNSCreds.Auth
-    * print "Got the Creds for the guest user"
-    * print Auth
+   * def Auth =
+    """
+    if(!test_user_key)
+    {
+    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+    Auth=getNSCreds.Auth;
+    }
+    
+    else
+    {
+    Auth = 'Basic '+test_user_key;
+    }
+    """
     
    #@ignore  
   Scenario: As a user i want to verify create rule, get rule, update rule,list rule and delete rule
