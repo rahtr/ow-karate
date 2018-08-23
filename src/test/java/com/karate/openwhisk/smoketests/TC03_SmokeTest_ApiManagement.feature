@@ -17,12 +17,11 @@
 #Summary :This feature file will 1)Import the swagger file 2)Get the list of API's 3)Hit each API and assert on 200 OK
 @smoketests
 
-
 Feature: This feature file will test the basic API Management Functionality
 
   Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcodeget = call read('classpath:com/karate/openwhisk/functions/getResponse.js')
     * def scriptcodepost = call read('classpath:com/karate/openwhisk/functions/postResponse.js')
@@ -53,17 +52,21 @@ Feature: This feature file will test the basic API Management Functionality
     |'/apis/guest/v2/user/tester'             |'get'|
     |'/apis/guest/v2/user/tester'             |'put'|
     |'/apis/guest/v2/user/tester'             |'delete'|
+      * def Auth =
+    """
+    if(!test_user_key)
+    {
+    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+    Auth=getNSCreds.Auth;
+    }
     
+    else
+    {
+    Auth = 'Basic '+test_user_key;
+    }
+    """
     
-    
-  Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response
-    
-     # Get User Guid & Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * def guid = getNSCreds.uuid[0]
-    
+  Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  
     # Create an Action .Create an 4 actions for the above defined guest name.This will be used by the API's
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeget)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'getResponse' , webAction: '#(webAction)'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodepost)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName: 'postResponse' , webAction: '#(webAction)'}

@@ -22,7 +22,7 @@ Feature: Create Namespace
 
   Background:
     * configure ssl = true
-    * def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
     #* def authFile = '/com/karate/openwhisk/utils'
 
@@ -55,7 +55,7 @@ Feature: Create Namespace
     * def uuid = $response.namespaces[*].uuid
     * def key = $response.namespaces[*].key
     * def result = uuid[0]+':'+ key[0]
-    * def Auth = base64encoding(result)
+    * def Auth = base64encoding(result);   
     #* def uuid = $response.namespaces[*].uuid
     * print result
     * def FileUtil = Java.type('com.karate.openwhisk.utils.OWFileUtil')

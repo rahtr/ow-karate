@@ -22,20 +22,25 @@ Feature: This feature file will test all the wsk functions
 
   Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
-    * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
+    * def Auth =
+    """
+    if(!test_user_key)
+    {
+    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+    Auth=getNSCreds.Auth;
+    }
+    
+    else
+    {
+    Auth = 'Basic '+test_user_key;
+    }
+    """
 
   Scenario: TC01-As a user I want to all the wsk functions available to the user and check if they give the proper response
-    # Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
-    # Create an Action .Create an action for the above defined guest name
+     # Create an Action .Create an action for the above defined guest name
     #* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName:'Dammyyy'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
