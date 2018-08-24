@@ -29,6 +29,8 @@ Feature: This feature file will test the basic API Management Functionality
     * def scriptcodedelete = call read('classpath:com/karate/openwhisk/functions/deleteResponse.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
     * string raw_swagger = read('classpath:com/karate/openwhisk/utils/pet-store-swagger.json')
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
     * def webAction = 'true'
        * table apis
     | endpoint   | methodtype |
@@ -52,19 +54,7 @@ Feature: This feature file will test the basic API Management Functionality
     |'/apis/guest/v2/user/tester'             |'get'|
     |'/apis/guest/v2/user/tester'             |'put'|
     |'/apis/guest/v2/user/tester'             |'delete'|
-      * def Auth =
-    """
-    if(!test_user_key)
-    {
-    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
-    Auth=getNSCreds.Auth;
-    }
-    
-    else
-    {
-    Auth = 'Basic '+test_user_key;
-    }
-    """
+
     
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  
     # Create an Action .Create an 4 actions for the above defined guest name.This will be used by the API's

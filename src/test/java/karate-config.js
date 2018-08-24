@@ -49,6 +49,7 @@ function() {
         config.AdminAuth="Basic " +adminauth,
         config.AdminBaseUrl=adminbaseurl,
         config.BaseUrl=baseurl
+   
 
         //	config.AdminAuth="Basic d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA==",
         //   config.AdminBaseUrl="http://172.17.0.1:5984",
