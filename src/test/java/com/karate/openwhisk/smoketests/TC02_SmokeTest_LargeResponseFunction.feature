@@ -27,19 +27,8 @@ Feature:  This feature file will download a large image from cc storage
 * def nameSpace = test_user_ns
 * def params = '?blocking=true&result=true'
 * def scriptcode = call read('classpath:com/karate/openwhisk/functions/getAssetContent.js')
-  * def Auth =
-    """
-    if(!test_user_key)
-    {
-    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
-    Auth=getNSCreds.Auth;
-    }
-    
-    else
-    {
-    Auth = 'Basic '+test_user_key;
-    }
-    """
+* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+* def Auth = getAuth.Auth
 
   Scenario: TC02-As a user I want run a long running function
   

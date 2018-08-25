@@ -49,6 +49,7 @@ Feature: Create an Action
     * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'
     And header Authorization = Auth
+    * print 'Auth i create-action' + Auth
     And header Content-Type = 'application/json'
     And request payload
     When method put

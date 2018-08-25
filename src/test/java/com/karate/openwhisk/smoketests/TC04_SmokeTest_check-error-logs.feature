@@ -24,19 +24,8 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
-     * def Auth =
-    """
-    if(!test_user_key)
-    {
-    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
-    Auth=getNSCreds.Auth;
-    }
-    
-    else
-    {
-    Auth = 'Basic '+test_user_key;
-    }
-    """
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
 
   Scenario: TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID
     

@@ -24,19 +24,8 @@ Feature: This feature contains smoke test cases of openwhisk triggers
     * def nameSpace = test_user_ns
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-   * def Auth =
-    """
-    if(!test_user_key)
-    {
-    var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
-    Auth=getNSCreds.Auth;
-    }
-    
-    else
-    {
-    Auth = 'Basic '+test_user_key;
-    }
-    """
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
     
    #@ignore  
   Scenario: As a user i want to verify create rule, get rule, update rule,list rule and delete rule
