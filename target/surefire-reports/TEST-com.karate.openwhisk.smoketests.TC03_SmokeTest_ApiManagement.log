@@ -1,0 +1,2896 @@
+13:46:47.480 karate.env system property was: null 
+13:46:47.579 [print] Start
+13:46:47.581 >> lock acquired, begin callSingle: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+13:46:47.596 [print] I am here in get-user
+13:46:47.604 request:
+1 > GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:48.765 response time in milliseconds: 1161
+1 < 404
+1 < Cache-Control: must-revalidate
+1 < Content-Length: 41
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:48 GMT
+1 < Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 < Strict-Transport-Security: max-age=31536000
+1 < Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 < X-Cloudant-Backend: bm-cc-us-south-02
+1 < X-Cloudant-Request-Class: lookup
+1 < X-Content-Type-Options: nosniff
+1 < X-Couch-Request-ID: 49fd82b686
+1 < X-Frame-Options: DENY
+{"error":"not_found","reason":"missing"}
+
+
+13:46:48.766 status code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:48.767 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:48.768 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+EyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+13:43:59.300 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/postResponse?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 374
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"postResponse","exec":{"kind":"nodejs:default","code":"function main(params) {\n    return {\n        statusCode: 200,\n        body: params,\n        headers: {\n            \"Cache-Control\": \"max-age=60\"\n        }\n    }\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+13:44:00.527 response time in milliseconds: 1226
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 517
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:09 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [bzcAgjWX03O0C1pta9VblS4zumdeU7ag, bzcAgjWX03O0C1pta9VblS4zumdeU7ag]
+1 < X-Request-Id: [bzcAgjWX03O0C1pta9VblS4zumdeU7ag, bzcAgjWX03O0C1pta9VblS4zumdeU7ag]
+{"name":"postResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    return {\n        statusCode: 200,\n        body: params,\n        headers: {\n            \"Cache-Control\": \"max-age=60\"\n        }\n    }\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:44:00.528 [print] The value of responseStatusCode is: 200
+13:44:00.529 Action Created 
+13:44:00.531 [print] Action name for the created action postResponse
+13:44:00.550 [print] Auth i create-actionBasic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+13:44:00.552 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/putResponse?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 392
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"putResponse","exec":{"kind":"nodejs:default","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+13:44:01.658 response time in milliseconds: 1105
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 535
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:30 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [QNoh7ddhPnukcljNMgCacFGgqSo3D95F, QNoh7ddhPnukcljNMgCacFGgqSo3D95F]
+1 < X-Request-Id: [QNoh7ddhPnukcljNMgCacFGgqSo3D95F, QNoh7ddhPnukcljNMgCacFGgqSo3D95F]
+{"name":"putResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:44:01.659 [print] The value of responseStatusCode is: 200
+13:44:01.660 Action Created 
+13:44:01.662 [print] Action name for the created action putResponse
+13:44:01.674 [print] Auth i create-actionBasic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+13:44:01.676 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/deleteResponse?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 395
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"deleteResponse","exec":{"kind":"nodejs:default","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+13:44:02.902 response time in milliseconds: 1225
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 538
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:11 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [PTm7R8bFmlsL7AXUlbMRqZELjViEFZgS, PTm7R8bFmlsL7AXUlbMRqZELjViEFZgS]
+1 < X-Request-Id: [PTm7R8bFmlsL7AXUlbMRqZELjViEFZgS, PTm7R8bFmlsL7AXUlbMRqZELjViEFZgS]
+{"name":"deleteResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:44:02.903 [print] The value of responseStatusCode is: 200
+13:44:02.904 Action Created 
+13:44:02.905 [print] Action name for the created action deleteResponse
+13:44:02.906 [print] Successfully Created the required actions
+13:44:02.954 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/web/whisk.system/apimgmt/createApi.http?accesstoken=DUMMY+TOKEN&responsetype=json&spaceguid=738e6878-c07f-4a27-a1e0-8c669f603b8f
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 15764
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"apidoc":{"namespace":"guest","swagger":"{\"swagger\":\"2.0\",\"info\":{\"description\":\"This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.\",\"version\":\"1.0.0\",\"title\":\"Swagger Petstore\",\"termsOfService\":\"http://swagger.io/terms/\",\"contact\":{\"email\":\"apiteam@swagger.io\"},\"license\":{\"name\":\"Apache 2.0\",\"url\":\"http://www.apache.org/licenses/LICENSE-2.0.html\"}},\"host\":\"petstore.swagger.io\",\"basePath\":\"/v2\",\"tags\":[{\"name\":\"pet\",\"description\":\"Everything about your Pets\",\"externalDocs\":{\"description\":\"Find out more\",\"url\":\"http://swagger.io\"}},{\"name\":\"store\",\"description\":\"Access to Petstore orders\"},{\"name\":\"user\",\"description\":\"Operations about user\",\"externalDocs\":{\"description\":\"Find out more about our store\",\"url\":\"http://swagger.io\"}}],\"schemes\":[\"http\"],\"paths\":{\"/pet\":{\"post\":{\"tags\":[\"pet\"],\"summary\":\"Add a new pet to the store\",\"description\":\"\",\"operationId\":\"postResponse\",\"consumes\":[\"application/json\",\"application/xml\"],\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"Pet object that needs to be added to the store\",\"required\":true,\"schema\":{\"$ref\":\"#/definitions/Pet\"}}],\"responses\":{\"405\":{\"description\":\"Invalid input\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]},\"put\":{\"tags\":[\"pet\"],\"summary\":\"Update an existing pet\",\"description\":\"\",\"operationId\":\"putResponse\",\"consumes\":[\"application/json\",\"application/xml\"],\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"Pet object that needs to be added to the store\",\"required\":true,\"schema\":{\"$ref\":\"#/definitions/Pet\"}}],\"responses\":{\"400\":{\"description\":\"Invalid ID supplied\"},\"404\":{\"description\":\"Pet not found\"},\"405\":{\"description\":\"Validation exception\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]}},\"/pet/findByStatus\":{\"get\":{\"tags\":[\"pet\"],\"summary\":\"Finds Pets by status\",\"description\":\"Multiple status values can be provided with comma separated strings\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"status\",\"in\":\"query\",\"description\":\"Status values that need to be considered for filter\",\"required\":true,\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"available\",\"pending\",\"sold\"],\"default\":\"available\"},\"collectionFormat\":\"multi\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/Pet\"}}},\"400\":{\"description\":\"Invalid status value\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]}},\"/pet/findByTags\":{\"get\":{\"tags\":[\"pet\"],\"summary\":\"Finds Pets by tags\",\"description\":\"Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing.\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"tags\",\"in\":\"query\",\"description\":\"Tags to filter by\",\"required\":true,\"type\":\"array\",\"items\":{\"type\":\"string\"},\"collectionFormat\":\"multi\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/Pet\"}}},\"400\":{\"description\":\"Invalid tag value\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}],\"deprecated\":true}},\"/pet/{petId}\":{\"get\":{\"tags\":[\"pet\"],\"summary\":\"Find pet by ID\",\"description\":\"Returns a single pet\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"petId\",\"in\":\"path\",\"description\":\"ID of pet to return\",\"required\":true,\"type\":\"integer\",\"format\":\"int64\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/Pet\"}},\"400\":{\"description\":\"Invalid ID supplied\"},\"404\":{\"description\":\"Pet not found\"}},\"security\":[{\"api_key\":[]}]},\"post\":{\"tags\":[\"pet\"],\"summary\":\"Updates a pet in the store with form data\",\"description\":\"\",\"operationId\":\"postResponse\",\"consumes\":[\"application/x-www-form-urlencoded\"],\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"petId\",\"in\":\"path\",\"description\":\"ID of pet that needs to be updated\",\"required\":true,\"type\":\"integer\",\"format\":\"int64\"},{\"name\":\"name\",\"in\":\"formData\",\"description\":\"Updated name of the pet\",\"required\":false,\"type\":\"string\"},{\"name\":\"status\",\"in\":\"formData\",\"description\":\"Updated status of the pet\",\"required\":false,\"type\":\"string\"}],\"responses\":{\"405\":{\"description\":\"Invalid input\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]},\"delete\":{\"tags\":[\"pet\"],\"summary\":\"Deletes a pet\",\"description\":\"\",\"operationId\":\"deleteResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"api_key\",\"in\":\"header\",\"required\":false,\"type\":\"string\"},{\"name\":\"petId\",\"in\":\"path\",\"description\":\"Pet id to delete\",\"required\":true,\"type\":\"integer\",\"format\":\"int64\"}],\"responses\":{\"400\":{\"description\":\"Invalid ID supplied\"},\"404\":{\"description\":\"Pet not found\"}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]}},\"/pet/{petId}/uploadImage\":{\"post\":{\"tags\":[\"pet\"],\"summary\":\"uploads an image\",\"description\":\"\",\"operationId\":\"postResponse\",\"consumes\":[\"multipart/form-data\"],\"produces\":[\"application/json\"],\"parameters\":[{\"name\":\"petId\",\"in\":\"path\",\"description\":\"ID of pet to update\",\"required\":true,\"type\":\"integer\",\"format\":\"int64\"},{\"name\":\"additionalMetadata\",\"in\":\"formData\",\"description\":\"Additional data to pass to server\",\"required\":false,\"type\":\"string\"},{\"name\":\"file\",\"in\":\"formData\",\"description\":\"file to upload\",\"required\":false,\"type\":\"file\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/ApiResponse\"}}},\"security\":[{\"petstore_auth\":[\"write:pets\",\"read:pets\"]}]}},\"/store/inventory\":{\"get\":{\"tags\":[\"store\"],\"summary\":\"Returns pet inventories by status\",\"description\":\"Returns a map of status codes to quantities\",\"operationId\":\"getResponse\",\"produces\":[\"application/json\"],\"parameters\":[],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"integer\",\"format\":\"int32\"}}}},\"security\":[{\"api_key\":[]}]}},\"/store/order\":{\"post\":{\"tags\":[\"store\"],\"summary\":\"Place an order for a pet\",\"description\":\"\",\"operationId\":\"postResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"order placed for purchasing the pet\",\"required\":true,\"schema\":{\"$ref\":\"#/definitions/Order\"}}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/Order\"}},\"400\":{\"description\":\"Invalid Order\"}}}},\"/store/order/{orderId}\":{\"get\":{\"tags\":[\"store\"],\"summary\":\"Find purchase order by ID\",\"description\":\"For valid response try integer IDs with value >= 1 and <= 10.         Other values will generated exceptions\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"orderId\",\"in\":\"path\",\"description\":\"ID of pet that needs to be fetched\",\"required\":true,\"type\":\"integer\",\"maximum\":10,\"minimum\":1,\"format\":\"int64\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/Order\"}},\"400\":{\"description\":\"Invalid ID supplied\"},\"404\":{\"description\":\"Order not found\"}}},\"delete\":{\"tags\":[\"store\"],\"summary\":\"Delete purchase order by ID\",\"description\":\"For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors\",\"operationId\":\"deleteResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"orderId\",\"in\":\"path\",\"description\":\"ID of the order that needs to be deleted\",\"required\":true,\"type\":\"integer\",\"minimum\":1,\"format\":\"int64\"}],\"responses\":{\"400\":{\"description\":\"Invalid ID supplied\"},\"404\":{\"description\":\"Order not found\"}}}},\"/user\":{\"post\":{\"tags\":[\"user\"],\"summary\":\"Create user\",\"description\":\"This can only be done by the logged in user.\",\"operationId\":\"postResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"Created user object\",\"required\":true,\"schema\":{\"$ref\":\"#/definitions/User\"}}],\"responses\":{\"default\":{\"description\":\"successful operation\"}}}},\"/user/createWithArray\":{\"post\":{\"tags\":[\"user\"],\"summary\":\"Creates list of users with given input array\",\"description\":\"\",\"operationId\":\"postResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"List of user object\",\"required\":true,\"schema\":{\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/User\"}}}],\"responses\":{\"default\":{\"description\":\"successful operation\"}}}},\"/user/createWithList\":{\"post\":{\"tags\":[\"user\"],\"summary\":\"Creates list of users with given input array\",\"description\":\"\",\"operationId\":\"postResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"in\":\"body\",\"name\":\"body\",\"description\":\"List of user object\",\"required\":true,\"schema\":{\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/User\"}}}],\"responses\":{\"default\":{\"description\":\"successful operation\"}}}},\"/user/login\":{\"get\":{\"tags\":[\"user\"],\"summary\":\"Logs user into the system\",\"description\":\"\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"username\",\"in\":\"query\",\"description\":\"The user name for login\",\"required\":true,\"type\":\"string\"},{\"name\":\"password\",\"in\":\"query\",\"description\":\"The password for login in clear text\",\"required\":true,\"type\":\"string\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"type\":\"string\"},\"headers\":{\"X-Rate-Limit\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"calls per hour allowed by the user\"},\"X-Expires-After\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"date in UTC when token expires\"}}},\"400\":{\"description\":\"Invalid username/password supplied\"}}}},\"/user/logout\":{\"get\":{\"tags\":[\"user\"],\"summary\":\"Logs out current logged in user session\",\"description\":\"\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[],\"responses\":{\"default\":{\"description\":\"successful operation\"}}}},\"/user/{username}\":{\"get\":{\"tags\":[\"user\"],\"summary\":\"Get user by user name\",\"description\":\"\",\"operationId\":\"getResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"username\",\"in\":\"path\",\"description\":\"The name that needs to be fetched. Use user1 for testing. \",\"required\":true,\"type\":\"string\"}],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/User\"}},\"400\":{\"description\":\"Invalid username supplied\"},\"404\":{\"description\":\"User not found\"}}},\"put\":{\"tags\":[\"user\"],\"summary\":\"Updated user\",\"description\":\"This can only be done by the logged in user.\",\"operationId\":\"putResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"username\",\"in\":\"path\",\"description\":\"name that need to be updated\",\"required\":true,\"type\":\"string\"},{\"in\":\"body\",\"name\":\"body\",\"description\":\"Updated user object\",\"required\":true,\"schema\":{\"$ref\":\"#/definitions/User\"}}],\"responses\":{\"400\":{\"description\":\"Invalid user supplied\"},\"404\":{\"description\":\"User not found\"}}},\"delete\":{\"tags\":[\"user\"],\"summary\":\"Delete user\",\"description\":\"This can only be done by the logged in user.\",\"operationId\":\"deleteResponse\",\"produces\":[\"application/xml\",\"application/json\"],\"parameters\":[{\"name\":\"username\",\"in\":\"path\",\"description\":\"The name that needs to be deleted\",\"required\":true,\"type\":\"string\"}],\"responses\":{\"400\":{\"description\":\"Invalid username supplied\"},\"404\":{\"description\":\"User not found\"}}}}},\"securityDefinitions\":{\"petstore_auth\":{\"type\":\"oauth2\",\"authorizationUrl\":\"http://petstore.swagger.io/oauth/dialog\",\"flow\":\"implicit\",\"scopes\":{\"write:pets\":\"modify pets in your account\",\"read:pets\":\"read your pets\"}},\"api_key\":{\"type\":\"apiKey\",\"name\":\"api_key\",\"in\":\"header\"}},\"definitions\":{\"Order\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"petId\":{\"type\":\"integer\",\"format\":\"int64\"},\"quantity\":{\"type\":\"integer\",\"format\":\"int32\"},\"shipDate\":{\"type\":\"string\",\"format\":\"date-time\"},\"status\":{\"type\":\"string\",\"description\":\"Order Status\",\"enum\":[\"placed\",\"approved\",\"delivered\"]},\"complete\":{\"type\":\"boolean\",\"default\":false}},\"xml\":{\"name\":\"Order\"}},\"Category\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"name\":{\"type\":\"string\"}},\"xml\":{\"name\":\"Category\"}},\"User\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"username\":{\"type\":\"string\"},\"firstName\":{\"type\":\"string\"},\"lastName\":{\"type\":\"string\"},\"email\":{\"type\":\"string\"},\"password\":{\"type\":\"string\"},\"phone\":{\"type\":\"string\"},\"userStatus\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"User Status\"}},\"xml\":{\"name\":\"User\"}},\"Tag\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"name\":{\"type\":\"string\"}},\"xml\":{\"name\":\"Tag\"}},\"Pet\":{\"type\":\"object\",\"required\":[\"name\",\"photoUrls\"],\"properties\":{\"id\":{\"type\":\"integer\",\"format\":\"int64\"},\"category\":{\"$ref\":\"#/definitions/Category\"},\"name\":{\"type\":\"string\",\"example\":\"doggie\"},\"photoUrls\":{\"type\":\"array\",\"xml\":{\"name\":\"photoUrl\",\"wrapped\":true},\"items\":{\"type\":\"string\"}},\"tags\":{\"type\":\"array\",\"xml\":{\"name\":\"tag\",\"wrapped\":true},\"items\":{\"$ref\":\"#/definitions/Tag\"}},\"status\":{\"type\":\"string\",\"description\":\"pet status in the store\",\"enum\":[\"available\",\"pending\",\"sold\"]}},\"xml\":{\"name\":\"Pet\"}},\"ApiResponse\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\"},\"type\":{\"type\":\"string\"},\"message\":{\"type\":\"string\"}}}},\"externalDocs\":{\"description\":\"Find out more about Swagger\",\"url\":\"http://swagger.io\"}}"}}
+
+13:44:08.027 response time in milliseconds: 4751
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 27910
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:36 GMT
+1 < Perf-Br-Resp-Out: 1535357676.778
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: Bczf9GMi1ItKul0SHZ2weSQoShrQXOTW
+{
+  "gwApiUrl": "https://controller-a-rtbeta-ue1-a.adobe-runtime.com:443/apis/guest/v2",
+  "gwApiActivated": true,
+  "tenantId": "Not Used",
+  "apidoc": {
+    "tags": [{
+      "description": "Everything about your Pets",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      },
+      "name": "pet"
+    }, {
+      "description": "Access to Petstore orders",
+      "name": "store"
+    }, {
+      "description": "Operations about user",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": "http://swagger.io"
+      },
+      "name": "user"
+    }],
+    "host": "petstore.swagger.io",
+    "securityDefinitions": {
+      "api_key": {
+        "in": "header",
+        "name": "api_key",
+        "type": "apiKey"
+      },
+      "petstore_auth": {
+        "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+        "flow": "implicit",
+        "scopes": {
+          "read:pets": "read your pets",
+          "write:pets": "modify pets in your account"
+        },
+        "type": "oauth2"
+      }
+    },
+    "paths": {
+      "/store/order": {
+        "post": {
+          "description": "",
+          "tags": ["store"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "order placed for purchasing the pet",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "required": true
+          }],
+          "summary": "Place an order for a pet",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Order"
+              }
+            },
+            "400": {
+              "description": "Invalid Order"
+            }
+          }
+        }
+      },
+      "/pet/findByTags": {
+        "get": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing.",
+          "tags": ["pet"],
+          "deprecated": true,
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "name": "tags",
+            "in": "query",
+            "description": "Tags to filter by",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "type": "array",
+            "required": true
+          }],
+          "summary": "Finds Pets by tags",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/Pet"
+                },
+                "type": "array"
+              }
+            },
+            "400": {
+              "description": "Invalid tag value"
+            }
+          }
+        }
+      },
+      "/pet": {
+        "post": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "",
+          "tags": ["pet"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "consumes": ["application/json", "application/xml"],
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "Pet object that needs to be added to the store",
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            },
+            "required": true
+          }],
+          "summary": "Add a new pet to the store",
+          "responses": {
+            "405": {
+              "description": "Invalid input"
+            }
+          }
+        },
+        "put": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "",
+          "tags": ["pet"],
+          "operationId": "guest/default/putResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "putResponse"
+          },
+          "consumes": ["application/json", "application/xml"],
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "Pet object that needs to be added to the store",
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            },
+            "required": true
+          }],
+          "summary": "Update an existing pet",
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Pet not found"
+            },
+            "405": {
+              "description": "Validation exception"
+            }
+          }
+        }
+      },
+      "/store/order/{orderId}": {
+        "delete": {
+          "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+          "tags": ["store"],
+          "operationId": "guest/default/deleteResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "deleteResponse"
+          },
+          "parameters": [{
+            "format": "int64",
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of the order that needs to be deleted",
+            "minimum": 1,
+            "type": "integer",
+            "required": true
+          }],
+          "summary": "Delete purchase order by ID",
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Order not found"
+            }
+          }
+        },
+        "get": {
+          "description": "For valid response try integer IDs with value >= 1 and <= 10.         Other values will generated exceptions",
+          "tags": ["store"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "format": "int64",
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of pet that needs to be fetched",
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "required": true
+          }],
+          "summary": "Find purchase order by ID",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Order"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Order not found"
+            }
+          }
+        }
+      },
+      "/user/logout": {
+        "get": {
+          "description": "",
+          "tags": ["user"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [],
+          "summary": "Logs out current logged in user session",
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/store/inventory": {
+        "get": {
+          "security": [{
+            "api_key": []
+          }],
+          "description": "Returns a map of status codes to quantities",
+          "tags": ["store"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [],
+          "summary": "Returns pet inventories by status",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "additionalProperties": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/user/createWithList": {
+        "post": {
+          "description": "",
+          "tags": ["user"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "List of user object",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/User"
+              },
+              "type": "array"
+            },
+            "required": true
+          }],
+          "summary": "Creates list of users with given input array",
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/user/{username}": {
+        "delete": {
+          "description": "This can only be done by the logged in user.",
+          "tags": ["user"],
+          "operationId": "guest/default/deleteResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "deleteResponse"
+          },
+          "parameters": [{
+            "name": "username",
+            "in": "path",
+            "description": "The name that needs to be deleted",
+            "type": "string",
+            "required": true
+          }],
+          "summary": "Delete user",
+          "responses": {
+            "400": {
+              "description": "Invalid username supplied"
+            },
+            "404": {
+              "description": "User not found"
+            }
+          }
+        },
+        "get": {
+          "description": "",
+          "tags": ["user"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "name": "username",
+            "in": "path",
+            "description": "The name that needs to be fetched. Use user1 for testing. ",
+            "type": "string",
+            "required": true
+          }],
+          "summary": "Get user by user name",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid username supplied"
+            },
+            "404": {
+              "description": "User not found"
+            }
+          }
+        },
+        "put": {
+          "description": "This can only be done by the logged in user.",
+          "tags": ["user"],
+          "operationId": "guest/default/putResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "putResponse"
+          },
+          "parameters": [{
+            "name": "username",
+            "in": "path",
+            "description": "name that need to be updated",
+            "type": "string",
+            "required": true
+          }, {
+            "name": "body",
+            "in": "body",
+            "description": "Updated user object",
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "required": true
+          }],
+          "summary": "Updated user",
+          "responses": {
+            "400": {
+              "description": "Invalid user supplied"
+            },
+            "404": {
+              "description": "User not found"
+            }
+          }
+        }
+      },
+      "/user/login": {
+        "get": {
+          "description": "",
+          "tags": ["user"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "name": "username",
+            "in": "query",
+            "description": "The user name for login",
+            "type": "string",
+            "required": true
+          }, {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "type": "string",
+            "required": true
+          }],
+          "summary": "Logs user into the system",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "headers": {
+                "X-Expires-After": {
+                  "description": "date in UTC when token expires",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "X-Rate-Limit": {
+                  "description": "calls per hour allowed by the user",
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "schema": {
+                "type": "string"
+              }
+            },
+            "400": {
+              "description": "Invalid username/password supplied"
+            }
+          }
+        }
+      },
+      "/user": {
+        "post": {
+          "description": "This can only be done by the logged in user.",
+          "tags": ["user"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "Created user object",
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "required": true
+          }],
+          "summary": "Create user",
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/pet/{petId}": {
+        "delete": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "",
+          "tags": ["pet"],
+          "operationId": "guest/default/deleteResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "deleteResponse"
+          },
+          "parameters": [{
+            "in": "header",
+            "name": "api_key",
+            "required": false,
+            "type": "string"
+          }, {
+            "format": "int64",
+            "name": "petId",
+            "in": "path",
+            "description": "Pet id to delete",
+            "type": "integer",
+            "required": true
+          }],
+          "summary": "Deletes a pet",
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Pet not found"
+            }
+          }
+        },
+        "get": {
+          "security": [{
+            "api_key": []
+          }],
+          "description": "Returns a single pet",
+          "tags": ["pet"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "format": "int64",
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "type": "integer",
+            "required": true
+          }],
+          "summary": "Find pet by ID",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Pet"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Pet not found"
+            }
+          }
+        },
+        "post": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "",
+          "tags": ["pet"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "consumes": ["application/x-www-form-urlencoded"],
+          "parameters": [{
+            "format": "int64",
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet that needs to be updated",
+            "type": "integer",
+            "required": true
+          }, {
+            "name": "name",
+            "in": "formData",
+            "description": "Updated name of the pet",
+            "type": "string",
+            "required": false
+          }, {
+            "name": "status",
+            "in": "formData",
+            "description": "Updated status of the pet",
+            "type": "string",
+            "required": false
+          }],
+          "summary": "Updates a pet in the store with form data",
+          "responses": {
+            "405": {
+              "description": "Invalid input"
+            }
+          }
+        }
+      },
+      "/pet/{petId}/uploadImage": {
+        "post": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "",
+          "tags": ["pet"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "consumes": ["multipart/form-data"],
+          "parameters": [{
+            "format": "int64",
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet to update",
+            "type": "integer",
+            "required": true
+          }, {
+            "name": "additionalMetadata",
+            "in": "formData",
+            "description": "Additional data to pass to server",
+            "type": "string",
+            "required": false
+          }, {
+            "name": "file",
+            "in": "formData",
+            "description": "file to upload",
+            "type": "file",
+            "required": false
+          }],
+          "summary": "uploads an image",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            }
+          }
+        }
+      },
+      "/user/createWithArray": {
+        "post": {
+          "description": "",
+          "tags": ["user"],
+          "operationId": "guest/default/postResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "postResponse"
+          },
+          "parameters": [{
+            "name": "body",
+            "in": "body",
+            "description": "List of user object",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/User"
+              },
+              "type": "array"
+            },
+            "required": true
+          }],
+          "summary": "Creates list of users with given input array",
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/pet/findByStatus": {
+        "get": {
+          "security": [{
+            "petstore_auth": ["write:pets", "read:pets"]
+          }],
+          "description": "Multiple status values can be provided with comma separated strings",
+          "tags": ["pet"],
+          "operationId": "guest/default/getResponse",
+          "produces": ["application/xml", "application/json"],
+          "x-openwhisk": {
+            "url": "not-used",
+            "namespace": "guest",
+            "package": "default",
+            "action": "getResponse"
+          },
+          "parameters": [{
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "items": {
+              "default": "available",
+              "enum": ["available", "pending", "sold"],
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "type": "array",
+            "required": true
+          }],
+          "summary": "Finds Pets by status",
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/Pet"
+                },
+                "type": "array"
+              }
+            },
+            "400": {
+              "description": "Invalid status value"
+            }
+          }
+        }
+      }
+    },
+    "basePath": "/v2",
+    "info": {
+      "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+      "contact": {
+        "email": "apiteam@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "termsOfService": "http://swagger.io/terms/",
+      "version": "1.0.0",
+      "title": "Swagger Petstore"
+    },
+    "schemes": ["http"],
+    "definitions": {
+      "Pet": {
+        "properties": {
+          "name": {
+            "example": "doggie",
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "$ref": "#/definitions/Tag"
+            },
+            "type": "array",
+            "xml": {
+              "name": "tag",
+              "wrapped": true
+            }
+          },
+          "photoUrls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "xml": {
+              "name": "photoUrl",
+              "wrapped": true
+            }
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "status": {
+            "description": "pet status in the store",
+            "enum": ["available", "pending", "sold"],
+            "type": "string"
+          },
+          "category": {
+            "$ref": "#/definitions/Category"
+          }
+        },
+        "required": ["name", "photoUrls"],
+        "type": "object",
+        "xml": {
+          "name": "Pet"
+        }
+      },
+      "Category": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "xml": {
+          "name": "Category"
+        }
+      },
+      "Tag": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "xml": {
+          "name": "Tag"
+        }
+      },
+      "User": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "userStatus": {
+            "description": "User Status",
+            "format": "int32",
+            "type": "integer"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "xml": {
+          "name": "User"
+        }
+      },
+      "Order": {
+        "properties": {
+          "shipDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "quantity": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "petId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "complete": {
+            "default": false,
+            "type": "boolean"
+          },
+          "status": {
+            "description": "Order Status",
+            "enum": ["placed", "approved", "delivered"],
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "xml": {
+          "name": "Order"
+        }
+      },
+      "ApiResponse": {
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "swagger": "2.0",
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  },
+  "namespace": "Not Used"
+}
+
+13:44:08.032 [print] Successfully imported the swagger
+13:44:08.047 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/web/whisk.system/apimgmt/getApi.http?accesstoken=DUMMY+TOKEN&basepath=v2&spaceguid=738e6878-c07f-4a27-a1e0-8c669f603b8f
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:11.219 response time in milliseconds: 2907
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 31741
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:19 GMT
+1 < Perf-Br-Resp-Out: 1535357659.818
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: 1SpcCOqrn2s9NSDsrfaO1juXspAe8byT
+{
+  "apis": [{
+    "value": {
+      "gwApiUrl": "https://controller-a-rtbeta-ue1-a.adobe-runtime.com:443/apis/guest/v2",
+      "gwApiActivated": true,
+      "tenantId": "Not Used",
+      "apidoc": {
+        "tags": [{
+          "name": "pet",
+          "description": "Everything about your Pets",
+          "externalDocs": {
+            "description": "Find out more",
+            "url": "http://swagger.io"
+          }
+        }, {
+          "name": "store",
+          "description": "Access to Petstore orders"
+        }, {
+          "name": "user",
+          "description": "Operations about user",
+          "externalDocs": {
+            "description": "Find out more about our store",
+            "url": "http://swagger.io"
+          }
+        }],
+        "host": "petstore.swagger.io",
+        "securityDefinitions": {
+          "petstore_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+            "flow": "implicit",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          },
+          "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+          }
+        },
+        "paths": {
+          "/store/order": {
+            "post": {
+              "description": "",
+              "tags": ["store"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "order placed for purchasing the pet",
+                "schema": {
+                  "$ref": "#/definitions/Order"
+                },
+                "required": true
+              }],
+              "summary": "Place an order for a pet",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/Order"
+                  }
+                },
+                "400": {
+                  "description": "Invalid Order"
+                }
+              }
+            }
+          },
+          "/pet/findByTags": {
+            "get": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing.",
+              "tags": ["pet"],
+              "deprecated": true,
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "name": "tags",
+                "in": "query",
+                "description": "Tags to filter by",
+                "items": {
+                  "type": "string"
+                },
+                "collectionFormat": "multi",
+                "type": "array",
+                "required": true
+              }],
+              "summary": "Finds Pets by tags",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Pet"
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Invalid tag value"
+                }
+              }
+            }
+          },
+          "/pet": {
+            "post": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "",
+              "tags": ["pet"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "consumes": ["application/json", "application/xml"],
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "Pet object that needs to be added to the store",
+                "schema": {
+                  "$ref": "#/definitions/Pet"
+                },
+                "required": true
+              }],
+              "summary": "Add a new pet to the store",
+              "responses": {
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            },
+            "put": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "",
+              "tags": ["pet"],
+              "operationId": "guest/default/putResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "putResponse"
+              },
+              "consumes": ["application/json", "application/xml"],
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "Pet object that needs to be added to the store",
+                "schema": {
+                  "$ref": "#/definitions/Pet"
+                },
+                "required": true
+              }],
+              "summary": "Update an existing pet",
+              "responses": {
+                "400": {
+                  "description": "Invalid ID supplied"
+                },
+                "404": {
+                  "description": "Pet not found"
+                },
+                "405": {
+                  "description": "Validation exception"
+                }
+              }
+            }
+          },
+          "/store/order/{orderId}": {
+            "get": {
+              "description": "For valid response try integer IDs with value >= 1 and <= 10.         Other values will generated exceptions",
+              "tags": ["store"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "format": "int64",
+                "name": "orderId",
+                "in": "path",
+                "description": "ID of pet that needs to be fetched",
+                "maximum": 10,
+                "minimum": 1,
+                "type": "integer",
+                "required": true
+              }],
+              "summary": "Find purchase order by ID",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/Order"
+                  }
+                },
+                "400": {
+                  "description": "Invalid ID supplied"
+                },
+                "404": {
+                  "description": "Order not found"
+                }
+              }
+            },
+            "delete": {
+              "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+              "tags": ["store"],
+              "operationId": "guest/default/deleteResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "deleteResponse"
+              },
+              "parameters": [{
+                "format": "int64",
+                "name": "orderId",
+                "in": "path",
+                "description": "ID of the order that needs to be deleted",
+                "minimum": 1,
+                "type": "integer",
+                "required": true
+              }],
+              "summary": "Delete purchase order by ID",
+              "responses": {
+                "400": {
+                  "description": "Invalid ID supplied"
+                },
+                "404": {
+                  "description": "Order not found"
+                }
+              }
+            }
+          },
+          "/user/logout": {
+            "get": {
+              "description": "",
+              "tags": ["user"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [],
+              "summary": "Logs out current logged in user session",
+              "responses": {
+                "default": {
+                  "description": "successful operation"
+                }
+              }
+            }
+          },
+          "/store/inventory": {
+            "get": {
+              "security": [{
+                "api_key": []
+              }],
+              "description": "Returns a map of status codes to quantities",
+              "tags": ["store"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [],
+              "summary": "Returns pet inventories by status",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/user/createWithList": {
+            "post": {
+              "description": "",
+              "tags": ["user"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "List of user object",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                },
+                "required": true
+              }],
+              "summary": "Creates list of users with given input array",
+              "responses": {
+                "default": {
+                  "description": "successful operation"
+                }
+              }
+            }
+          },
+          "/user/{username}": {
+            "get": {
+              "description": "",
+              "tags": ["user"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "name": "username",
+                "in": "path",
+                "description": "The name that needs to be fetched. Use user1 for testing. ",
+                "type": "string",
+                "required": true
+              }],
+              "summary": "Get user by user name",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/User"
+                  }
+                },
+                "400": {
+                  "description": "Invalid username supplied"
+                },
+                "404": {
+                  "description": "User not found"
+                }
+              }
+            },
+            "put": {
+              "description": "This can only be done by the logged in user.",
+              "tags": ["user"],
+              "operationId": "guest/default/putResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "putResponse"
+              },
+              "parameters": [{
+                "name": "username",
+                "in": "path",
+                "description": "name that need to be updated",
+                "type": "string",
+                "required": true
+              }, {
+                "name": "body",
+                "in": "body",
+                "description": "Updated user object",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                },
+                "required": true
+              }],
+              "summary": "Updated user",
+              "responses": {
+                "400": {
+                  "description": "Invalid user supplied"
+                },
+                "404": {
+                  "description": "User not found"
+                }
+              }
+            },
+            "delete": {
+              "description": "This can only be done by the logged in user.",
+              "tags": ["user"],
+              "operationId": "guest/default/deleteResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "deleteResponse"
+              },
+              "parameters": [{
+                "name": "username",
+                "in": "path",
+                "description": "The name that needs to be deleted",
+                "type": "string",
+                "required": true
+              }],
+              "summary": "Delete user",
+              "responses": {
+                "400": {
+                  "description": "Invalid username supplied"
+                },
+                "404": {
+                  "description": "User not found"
+                }
+              }
+            }
+          },
+          "/user/login": {
+            "get": {
+              "description": "",
+              "tags": ["user"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "name": "username",
+                "in": "query",
+                "description": "The user name for login",
+                "type": "string",
+                "required": true
+              }, {
+                "name": "password",
+                "in": "query",
+                "description": "The password for login in clear text",
+                "type": "string",
+                "required": true
+              }],
+              "summary": "Logs user into the system",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "X-Rate-Limit": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "calls per hour allowed by the user"
+                    },
+                    "X-Expires-After": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "date in UTC when token expires"
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Invalid username/password supplied"
+                }
+              }
+            }
+          },
+          "/user": {
+            "post": {
+              "description": "This can only be done by the logged in user.",
+              "tags": ["user"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "Created user object",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                },
+                "required": true
+              }],
+              "summary": "Create user",
+              "responses": {
+                "default": {
+                  "description": "successful operation"
+                }
+              }
+            }
+          },
+          "/pet/{petId}": {
+            "get": {
+              "security": [{
+                "api_key": []
+              }],
+              "description": "Returns a single pet",
+              "tags": ["pet"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "format": "int64",
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet to return",
+                "type": "integer",
+                "required": true
+              }],
+              "summary": "Find pet by ID",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/Pet"
+                  }
+                },
+                "400": {
+                  "description": "Invalid ID supplied"
+                },
+                "404": {
+                  "description": "Pet not found"
+                }
+              }
+            },
+            "post": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "",
+              "tags": ["pet"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "consumes": ["application/x-www-form-urlencoded"],
+              "parameters": [{
+                "format": "int64",
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet that needs to be updated",
+                "type": "integer",
+                "required": true
+              }, {
+                "name": "name",
+                "in": "formData",
+                "description": "Updated name of the pet",
+                "type": "string",
+                "required": false
+              }, {
+                "name": "status",
+                "in": "formData",
+                "description": "Updated status of the pet",
+                "type": "string",
+                "required": false
+              }],
+              "summary": "Updates a pet in the store with form data",
+              "responses": {
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            },
+            "delete": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "",
+              "tags": ["pet"],
+              "operationId": "guest/default/deleteResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "deleteResponse"
+              },
+              "parameters": [{
+                "name": "api_key",
+                "in": "header",
+                "required": false,
+                "type": "string"
+              }, {
+                "format": "int64",
+                "name": "petId",
+                "in": "path",
+                "description": "Pet id to delete",
+                "type": "integer",
+                "required": true
+              }],
+              "summary": "Deletes a pet",
+              "responses": {
+                "400": {
+                  "description": "Invalid ID supplied"
+                },
+                "404": {
+                  "description": "Pet not found"
+                }
+              }
+            }
+          },
+          "/pet/{petId}/uploadImage": {
+            "post": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "",
+              "tags": ["pet"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "consumes": ["multipart/form-data"],
+              "parameters": [{
+                "format": "int64",
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet to update",
+                "type": "integer",
+                "required": true
+              }, {
+                "name": "additionalMetadata",
+                "in": "formData",
+                "description": "Additional data to pass to server",
+                "type": "string",
+                "required": false
+              }, {
+                "name": "file",
+                "in": "formData",
+                "description": "file to upload",
+                "type": "file",
+                "required": false
+              }],
+              "summary": "uploads an image",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/ApiResponse"
+                  }
+                }
+              }
+            }
+          },
+          "/user/createWithArray": {
+            "post": {
+              "description": "",
+              "tags": ["user"],
+              "operationId": "guest/default/postResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "postResponse"
+              },
+              "parameters": [{
+                "name": "body",
+                "in": "body",
+                "description": "List of user object",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                },
+                "required": true
+              }],
+              "summary": "Creates list of users with given input array",
+              "responses": {
+                "default": {
+                  "description": "successful operation"
+                }
+              }
+            }
+          },
+          "/pet/findByStatus": {
+            "get": {
+              "security": [{
+                "petstore_auth": ["write:pets", "read:pets"]
+              }],
+              "description": "Multiple status values can be provided with comma separated strings",
+              "tags": ["pet"],
+              "operationId": "guest/default/getResponse",
+              "produces": ["application/xml", "application/json"],
+              "x-openwhisk": {
+                "url": "not-used",
+                "namespace": "guest",
+                "package": "default",
+                "action": "getResponse"
+              },
+              "parameters": [{
+                "name": "status",
+                "in": "query",
+                "description": "Status values that need to be considered for filter",
+                "items": {
+                  "type": "string",
+                  "enum": ["available", "pending", "sold"],
+                  "default": "available"
+                },
+                "collectionFormat": "multi",
+                "type": "array",
+                "required": true
+              }],
+              "summary": "Finds Pets by status",
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Pet"
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Invalid status value"
+                }
+              }
+            }
+          }
+        },
+        "basePath": "/v2",
+        "info": {
+          "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+          "contact": {
+            "email": "apiteam@swagger.io"
+          },
+          "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+          },
+          "termsOfService": "http://swagger.io/terms/",
+          "version": "1.0.0",
+          "title": "Swagger Petstore"
+        },
+        "schemes": ["http"],
+        "definitions": {
+          "Pet": {
+            "type": "object",
+            "required": ["name", "photoUrls"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "doggie"
+              },
+              "tags": {
+                "type": "array",
+                "xml": {
+                  "name": "tag",
+                  "wrapped": true
+                },
+                "items": {
+                  "$ref": "#/definitions/Tag"
+                }
+              },
+              "photoUrls": {
+                "type": "array",
+                "xml": {
+                  "name": "photoUrl",
+                  "wrapped": true
+                },
+                "items": {
+                  "type": "string"
+                }
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "status": {
+                "type": "string",
+                "description": "pet status in the store",
+                "enum": ["available", "pending", "sold"]
+              },
+              "category": {
+                "$ref": "#/definitions/Category"
+              }
+            },
+            "xml": {
+              "name": "Pet"
+            }
+          },
+          "Category": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "xml": {
+              "name": "Category"
+            }
+          },
+          "Tag": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "xml": {
+              "name": "Tag"
+            }
+          },
+          "User": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "userStatus": {
+                "type": "integer",
+                "format": "int32",
+                "description": "User Status"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            },
+            "xml": {
+              "name": "User"
+            }
+          },
+          "Order": {
+            "type": "object",
+            "properties": {
+              "shipDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "quantity": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "petId": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "complete": {
+                "type": "boolean",
+                "default": false
+              },
+              "status": {
+                "type": "string",
+                "description": "Order Status",
+                "enum": ["placed", "approved", "delivered"]
+              }
+            },
+            "xml": {
+              "name": "Order"
+            }
+          },
+          "ApiResponse": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "type": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "swagger": "2.0",
+        "externalDocs": {
+          "description": "Find out more about Swagger",
+          "url": "http://swagger.io"
+        }
+      },
+      "namespace": "Not Used"
+    }
+  }]
+}
+
+13:44:11.224 [print] Got the List of APIs Hurray!
+13:44:11.224 [print]
+13:44:11.241 [print] I cam here
+13:44:11.246 Sleeping for 15 
+13:44:26.282 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:26.283 [print] Got the List of APIs Hurray!
+13:44:26.306 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/test123
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:28.879 response time in milliseconds: 2572
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:58 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: vW4FMrlLBgEah143QjRADRlmj8IxEmJK
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:28.881 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:28.894 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/test123
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:31.330 response time in milliseconds: 2436
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 586
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:00 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: aUX7cO1AowQLGb2aytkoUT4yPcNBTbbh
+{
+  "__ow_method": "post",
+  "petId": "test123",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:31.331 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:31.341 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/test123
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:34.131 response time in milliseconds: 2790
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:43 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: LAB6FawLj0FfcVpKneWCbLFyuqBgqmF6
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:34.132 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:34.141 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:35.535 response time in milliseconds: 1394
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 574
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:04 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: Hgp5Yv17mymLxYo60hjCqnVztic4JVjR
+{
+  "": "",
+  "__ow_method": "post",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:35.536 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:35.545 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:38.006 response time in milliseconds: 2460
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:46 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: byIn7IvmpmHpMUhr8DkYm5qLR8yZ0x4O
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:38.006 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:38.017 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/findByStatus
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:39.160 response time in milliseconds: 1142
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:08 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: ylJWDFXMYqkguFcpSDXSdLn16q2hJwsB
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:39.161 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:39.170 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/store/order
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:40.299 response time in milliseconds: 1129
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 574
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:49 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: oqtSt2zo4lq9uJ9fU8LtxUFcSCWGzjzi
+{
+  "": "",
+  "__ow_method": "post",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:40.300 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:40.311 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/store/order/test234
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:41.556 response time in milliseconds: 1245
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:10 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: bGFKOgD41E9cV9OjRx6IkZQKM85nTtSo
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:41.557 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:41.567 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/store/order/test234
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:42.778 response time in milliseconds: 1210
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:51 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: dPGD3CYen6p4GNP1QIlD6ohr98Iqhd8a
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:42.779 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:42.789 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/logout
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:43.818 response time in milliseconds: 1028
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:12 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: Gs1rCrNcAkqPOw12ZXQX49mGuZc4qC8z
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:43.819 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:43.827 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:45.014 response time in milliseconds: 1187
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 574
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:53 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: a8fK3lH3UuAa2mJPhsB808J4Twu9d0mo
+{
+  "": "",
+  "__ow_method": "post",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:45.015 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:45.024 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/login
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:46.154 response time in milliseconds: 1130
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:15 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: fQ7S7A13LwcYzpktXavdokA5KeIlGTmD
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:46.155 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:46.163 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/test123/uploadImage
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:47.412 response time in milliseconds: 1248
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 586
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:56 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: VCiqLrhgiXq0KOW6l13NFRE7nPB5AAam
+{
+  "__ow_method": "post",
+  "petId": "test123",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:47.413 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:47.421 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/createWithArray
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:48.679 response time in milliseconds: 1257
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 574
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:17 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: hRCychb6ErZ0szkvqYMvtc18je8se2dQ
+{
+  "": "",
+  "__ow_method": "post",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:48.679 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:48.687 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/pet/findByTags
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:49.918 response time in milliseconds: 1231
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:58 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: pOo0QNpWBIrAQTaMZf8vTn7FnTSzZEzV
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:49.919 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:49.927 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/store/inventory
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:51.178 response time in milliseconds: 1250
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:20 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: VJqFdzKT5Y4BMogHGGU2HMfJVwp0ebtd
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:51.179 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:51.190 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/createWithList
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:52.418 response time in milliseconds: 1228
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Cache-Control: max-age=60
+1 < Connection: keep-alive
+1 < Content-Length: 574
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:01 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: 7EOzg3xckpmk1UacLTAGI98CXvULKbCk
+{
+  "": "",
+  "__ow_method": "post",
+  "__ow_headers": {
+    "x-forwarded-port": "443",
+    "user-agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_131)",
+    "x-forwarded-proto": "https",
+    "host": "controller-a",
+    "authorization": "Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=",
+    "content-type": "application/json",
+    "connection": "close",
+    "accept-encoding": "gzip, deflate",
+    "x-forwarded-for": "103.43.114.129"
+  },
+  "__ow_path": "",
+  "__ow_user": "guest"
+}
+
+13:44:52.419 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:52.427 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/tester
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:53.694 response time in milliseconds: 1267
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:22 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: MISS
+1 < X-Request-ID: r9myjfbtm2Ude8owlzMwrgpzEIyy8J8A
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:53.695 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:53.703 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/tester
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:54.917 response time in milliseconds: 1213
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:03 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: n47kvixumE6eOxWf0s4EnXI4Xe2SVAt1
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:54.918 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:54.925 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/apis/guest/v2/user/tester
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:44:56.173 response time in milliseconds: 1248
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 45
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:25 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: AZ9ukRajWk7qJkWDbUwYsqWQtXdmDy1M
+{
+  "payload": "Hello world Serverless API"
+}
+
+13:44:56.174 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:44:56.174 cached callonce: read('classpath:com/karate/openwhisk/apimanagement/hit-api.feature')
+13:44:56.186 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/web/whisk.system/apimgmt/deleteApi.http?accesstoken=DUMMY+TOKEN&basepath=v2&spaceguid=738e6878-c07f-4a27-a1e0-8c669f603b8f
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:44:59.100 response time in milliseconds: 2914
+1 < 204
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST, PUT, HEAD, PATCH
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Date: Mon, 27 Aug 2018 08:15:07 GMT
+1 < Perf-Br-Resp-Out: 1535357707.827
+1 < Server: api-gateway/1.9.3.1
+1 < X-GW-Cache: BYPASS
+1 < X-Request-ID: CI3wuyv23AIOalNU5j6kFRYUcclmKiMD
+
+13:44:59.101 [print]
+13:44:59.102 [print] Successfully imported the swagger
+13:44:59.134 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/getResponse
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:00.348 response time in milliseconds: 1214
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 535
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:29 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [nkC7KuxmIKop6qdMeXdmdMd7FHBq3bM5, nkC7KuxmIKop6qdMeXdmdMd7FHBq3bM5]
+1 < X-Request-Id: [nkC7KuxmIKop6qdMeXdmdMd7FHBq3bM5, nkC7KuxmIKop6qdMeXdmdMd7FHBq3bM5]
+{"name":"getResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:45:00.350 [print] The value of responseStatusCode is: 200
+13:45:00.353 Action got deleted 
+13:45:00.360 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/postResponse
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:01.634 response time in milliseconds: 1274
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 517
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:10 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [eJxbW9qUfiQCYyhYBVdB3q5OanvHbXsd, eJxbW9qUfiQCYyhYBVdB3q5OanvHbXsd]
+1 < X-Request-Id: [eJxbW9qUfiQCYyhYBVdB3q5OanvHbXsd, eJxbW9qUfiQCYyhYBVdB3q5OanvHbXsd]
+{"name":"postResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    return {\n        statusCode: 200,\n        body: params,\n        headers: {\n            \"Cache-Control\": \"max-age=60\"\n        }\n    }\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:45:01.635 [print] The value of responseStatusCode is: 200
+13:45:01.636 Action got deleted 
+13:45:01.644 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/putResponse
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:02.883 response time in milliseconds: 1239
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 535
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:32 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [XoxggcyvQVDIg2GecFN59OAQVXUJjRBo, XoxggcyvQVDIg2GecFN59OAQVXUJjRBo]
+1 < X-Request-Id: [XoxggcyvQVDIg2GecFN59OAQVXUJjRBo, XoxggcyvQVDIg2GecFN59OAQVXUJjRBo]
+{"name":"putResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:45:02.884 [print] The value of responseStatusCode is: 200
+13:45:02.884 Action got deleted 
+13:45:02.891 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/deleteResponse
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:04.149 response time in milliseconds: 1257
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 538
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:13 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [H9pAI9UIhteBQgDUsYNdKyUG3GOSOPZb, H9pAI9UIhteBQgDUsYNdKyUG3GOSOPZb]
+1 < X-Request-Id: [H9pAI9UIhteBQgDUsYNdKyUG3GOSOPZb, H9pAI9UIhteBQgDUsYNdKyUG3GOSOPZb]
+{"name":"deleteResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:45:04.150 [print] The value of responseStatusCode is: 200
+13:45:04.150 Action got deleted 
+13:45:04.152 [print] Successfully deleted all the actions
+ion got deleted 
+13:41:39.432 [print] Successfully deleted all the actions
+
+-a.adobe-runtime.com/api/v1/namespaces/guest/actions/deleteResponse
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+11:53:54.398 response time in milliseconds: 1357
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 538
+1 < Content-Type: application/json
+1 < Date: Sun, 26 Aug 2018 06:24:02 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [2PDaB8y6Bt6l9ucDDfVnSil4qi2b2GeI, 2PDaB8y6Bt6l9ucDDfVnSil4qi2b2GeI]
+1 < X-Request-Id: [2PDaB8y6Bt6l9ucDDfVnSil4qi2b2GeI, 2PDaB8y6Bt6l9ucDDfVnSil4qi2b2GeI]
+{"name":"deleteResponse","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+11:53:54.399 [print] The value of responseStatusCode is: 200
+11:53:54.400 Action got deleted 
+11:53:54.402 [print] Successfully deleted all the actions

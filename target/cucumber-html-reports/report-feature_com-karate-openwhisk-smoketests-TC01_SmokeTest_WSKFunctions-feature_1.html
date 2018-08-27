@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports  - Feature: com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>openwhisk</td>
+            <td>27 Aug 2018, 13:46</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Feature Report</h2>
+      </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="stats-table">
+
+        
+<thead>
+  <tr class="header dont-sort">
+        <th></th>
+    <th colspan="6">Steps</th>
+    <th colspan="3">Scenarios</th>
+    <th colspan="2">Features</th>
+  </tr>
+  <tr>
+    <th>Feature</th>
+        <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="skipped">Skipped</th>
+    <th class="pending">Pending</th>
+    <th class="undefined">Undefined</th>
+    <th class="total">Total</th>
+
+    <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="total">Total</th>
+
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+</thead>
+
+
+        <tbody>
+        <tr>
+          <td class="tagname">com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</td>
+                    <td      class="passed"    >20</td>
+          <td      class="failed"    >3</td>
+          <td     class="skipped"   >22</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">45</td>
+
+          <td >0</td>
+          <td  class="failed"    >1</td>
+          <td class="total">1</td>
+
+          <td class="duration" data-value="2438225994">2s 438ms</td>
+          <td class="failed">Failed</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="feature">
+        
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_smoketests.html">@smoketests</a>
+      </div>
+
+        
+<div class="brief failed">
+  <span class="keyword indention">Feature</span>
+  <span class="name">com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature</span>
+  
+
+  </div>
+
+        <div class="description indention">This feature file will test all the wsk functions</div>
+
+        <div class="elements inner-level">
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">2s 438ms</span>
+
+
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+    
+<div class="brief failed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-1" class="collapse collapsable-details  in ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-2">
+    
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-2" class="inner-level collapse collapsable-details  in ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">895ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>13:46:45.421 karate.env system property was: null 
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def nameSpace = test_user_ns</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def params = '?blocking=true&amp;result=false'</span>
+  
+  <span class="lead-duration duration">002ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')</span>
+  
+  <span class="lead-duration duration">007ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [This feature file will either use the NS credentials provided or get the NS of guest] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/get-auth.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def nameSpace = test_user_ns</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def base64decoding = read('classpath:com/karate/openwhisk/utils/base64_decode.js')</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Start&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-4">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-4" class="collapse collapsable-details">
+        <pre>13:46:45.741 [print] Start
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure ssl = true</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def nameSpace = test_user_ns</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url AdminBaseUrl</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;I am here in get-user&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-5">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-5" class="collapse collapsable-details">
+        <pre>13:46:45.790 [print] I am here in get-user
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def DBpath =</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-6">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-6" class="collapse collapsable-details">
+        <pre>
+if (BaseUrl.match ('rtbeta'))
+{
+ DBpath = '/whisk_dev_subjects/';
+}
+if (AdminBaseUrl.match ('bluemix'))
+{
+ DBpath = '/whisk_dev_subjects/';
+}
+else{
+ DBpath = '/local_subjects/';
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">path DBpath+nameSpace</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Authorization = AdminAuth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">header Content-Type = 'application/json'</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-7">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-7" class="collapse collapsable-details">
+        <pre>13:46:45.932 request:
+1 &gt; GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Type: application/json
+1 &gt; Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 &gt; User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:47.152 response time in milliseconds: 1217
+1 &lt; 404
+1 &lt; Cache-Control: must-revalidate
+1 &lt; Content-Length: 41
+1 &lt; Content-Type: application/json
+1 &lt; Date: Mon, 27 Aug 2018 08:16:46 GMT
+1 &lt; Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 &lt; Strict-Transport-Security: max-age=31536000
+1 &lt; Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 &lt; X-Cloudant-Backend: bm-cc-us-south-02
+1 &lt; X-Cloudant-Request-Class: lookup
+1 &lt; X-Content-Type-Options: nosniff
+1 &lt; X-Couch-Request-ID: ba0f1adf96
+1 &lt; X-Frame-Options: DENY
+{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief failed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-8">
+          <a>com.intuit.karate.exception.KarateException: status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</a>
+      </div>
+      <div id="msg-8" class="collapse collapsable-details  in ">
+        <pre>com.intuit.karate.exception.KarateException: status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+	at com.intuit.karate.StepDefs.status(StepDefs.java:491)
+	at &#10045;.Then status 200(classpath:com/karate/openwhisk/wskadmin/get-user.feature:53)
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-9">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-9" class="collapse collapsable-details">
+        <pre>13:46:47.195 status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief failed">
+  <span class="keyword indention">*</span>
+  <span class="name">eval</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-10">
+          <a>java.lang.RuntimeException: javascript evaluation failed: if (!test_user_key)</a>
+      </div>
+      <div id="msg-10" class="collapse collapsable-details  in ">
+        <pre>java.lang.RuntimeException: javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+	at com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:144)
+	at com.intuit.karate.ScriptBindings.updateBindingsAndEval(ScriptBindings.java:134)
+	at com.intuit.karate.ScriptBindings.evalInNashorn(ScriptBindings.java:119)
+	at com.intuit.karate.Script.evalJsExpression(Script.java:371)
+	at com.intuit.karate.StepDefs.eval(StepDefs.java:592)
+	at com.intuit.karate.StepDefs.evalDocString(StepDefs.java:597)
+	at &#10045;.* eval(classpath:com/karate/openwhisk/utils/get-auth.feature:29)
+Caused by: com.intuit.karate.exception.KarateException: 
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)
+	at com.intuit.karate.ScriptBridge.call(ScriptBridge.java:240)
+	at com.intuit.karate.ScriptBridge.callSingle(ScriptBridge.java:269)
+	at com.intuit.karate.ScriptBridge.callSingle(ScriptBridge.java:251)
+	at jdk.nashorn.internal.scripts.Script$15$\^eval\_.:program(&lt;eval&gt;:3)
+	at jdk.nashorn.internal.runtime.ScriptFunctionData.invoke(ScriptFunctionData.java:637)
+	at jdk.nashorn.internal.runtime.ScriptFunction.invoke(ScriptFunction.java:494)
+	at jdk.nashorn.internal.runtime.ScriptRuntime.apply(ScriptRuntime.java:393)
+	at jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:449)
+	at jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:406)
+	at jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:402)
+	at jdk.nashorn.api.scripting.NashornScriptEngine.eval(NashornScriptEngine.java:155)
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233)
+	at com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:139)
+	at com.intuit.karate.ScriptBindings.updateBindingsAndEval(ScriptBindings.java:134)
+	at com.intuit.karate.ScriptBindings.evalInNashorn(ScriptBindings.java:119)
+	at com.intuit.karate.Script.evalJsExpression(Script.java:371)
+	at com.intuit.karate.StepDefs.eval(StepDefs.java:592)
+	at com.intuit.karate.StepDefs.evalDocString(StepDefs.java:597)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at com.intuit.karate.cucumber.CucumberUtils.runStep(CucumberUtils.java:201)
+	at com.intuit.karate.cucumber.CucumberUtils.runCalledStep(CucumberUtils.java:169)
+	at com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:48)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)
+	at com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)
+	at com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)
+	at com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)
+	at com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)
+	at com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)
+	at com.intuit.karate.cucumber.AsyncSection.lambda$submit$1(AsyncSection.java:67)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncSection.submit(AsyncSection.java:57)
+	at com.intuit.karate.cucumber.AsyncFeature.lambda$submit$1(AsyncFeature.java:54)
+	at com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)
+	at com.intuit.karate.cucumber.AsyncFeature.submit(AsyncFeature.java:52)
+	at com.intuit.karate.cucumber.CucumberUtils.callSync(CucumberUtils.java:144)
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1681)
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1662)
+	at com.intuit.karate.Script.call(Script.java:1599)
+	at com.intuit.karate.Script.callWithCache(Script.java:183)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:227)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:171)
+	at com.intuit.karate.Script.assign(Script.java:601)
+	at com.intuit.karate.Script.assign(Script.java:527)
+	at com.intuit.karate.StepDefs.def(StepDefs.java:309)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at com.intuit.karate.cucumber.CucumberUtils.runStep(CucumberUtils.java:201)
+	at com.intuit.karate.cucumber.KarateRuntime.runStep(KarateRuntime.java:89)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.runBackground(CucumberScenario.java:59)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:42)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at com.intuit.karate.cucumber.CucumberRunner.lambda$parallel$0(CucumberRunner.java:101)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-11">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-11" class="collapse collapsable-details">
+        <pre>if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief failed">
+  <span class="keyword indention">*</span>
+  <span class="name">def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')</span>
+  
+  <span class="lead-duration duration">1s 533ms</span>
+
+  </div>
+
+        
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-12">
+          <a>com.intuit.karate.exception.KarateException: </a>
+      </div>
+      <div id="msg-12" class="collapse collapsable-details  in ">
+        <pre>com.intuit.karate.exception.KarateException: 
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)
+	at com.intuit.karate.Script.call(Script.java:1599)
+	at com.intuit.karate.Script.callWithCache(Script.java:183)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:227)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:171)
+	at com.intuit.karate.Script.assign(Script.java:601)
+	at com.intuit.karate.Script.assign(Script.java:527)
+	at com.intuit.karate.StepDefs.def(StepDefs.java:309)
+	at &#10045;.* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC01_SmokeTest_WSKFunctions.feature:28)
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+        
+        
+  <div class="inner-level">
+    <div class="docstring indention">
+            <div data-toggle="collapse" class="collapsable-control" data-target="#msg-13">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-13" class="collapse collapsable-details">
+        <pre>13:46:47.196 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+13:46:47.197 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}
+</pre>
+      </div>
+    </div>
+  </div>
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def Auth = getAuth.Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">000ms</span>
+
+
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-14">
+    
+<div class="brief failed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">TC01-As a user I want to all the wsk functions available to the user and check if they give the proper response</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-14" class="collapse collapsable-details  in ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-15">
+    
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-15" class="inner-level collapse collapsable-details  in ">
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'I am inn TC01-' + Auth</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionName = createAction.actName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully Created an action&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully got the action details&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def actID = invokeAction.activationId</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print  = &quot;Successfully invoked the action&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully pulled the activation details&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def updateAction = call read('classpath:com/karate/openwhisk/wskactions/update-action.feature') {actionName:'#(actionName)',script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def actionName = createAction.actName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print actionName</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully updated the action&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def listActions = call read('classpath:com/karate/openwhisk/wskactions/list-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully pulled up the list of actions&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">print &quot;Successfully deleted the action&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

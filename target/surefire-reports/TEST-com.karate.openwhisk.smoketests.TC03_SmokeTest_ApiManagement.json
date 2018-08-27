@@ -1,0 +1,1102 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#/*"
+      },
+      {
+        "line": 2,
+        "value": "#*  Copyright 2017-2018 Adobe."
+      },
+      {
+        "line": 3,
+        "value": "#*"
+      },
+      {
+        "line": 4,
+        "value": "#*  Licensed under the Apache License, Version 2.0 (the \"License\");"
+      },
+      {
+        "line": 5,
+        "value": "#*  you may not use this file except in compliance with the License."
+      },
+      {
+        "line": 6,
+        "value": "#*  You may obtain a copy of the License at"
+      },
+      {
+        "line": 7,
+        "value": "#*"
+      },
+      {
+        "line": 8,
+        "value": "#*          http://www.apache.org/licenses/LICENSE-2.0"
+      },
+      {
+        "line": 9,
+        "value": "#*"
+      },
+      {
+        "line": 10,
+        "value": "#*  Unless required by applicable law or agreed to in writing, software"
+      },
+      {
+        "line": 11,
+        "value": "#*  distributed under the License is distributed on an \"AS IS\" BASIS,"
+      },
+      {
+        "line": 12,
+        "value": "#*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied."
+      },
+      {
+        "line": 13,
+        "value": "#*  See the License for the specific language governing permissions and"
+      },
+      {
+        "line": 14,
+        "value": "#*  limitations under the License."
+      },
+      {
+        "line": 15,
+        "value": "#*/"
+      },
+      {
+        "line": 16,
+        "value": "#Author: rtripath@adobe.com"
+      },
+      {
+        "line": 17,
+        "value": "#Summary :This feature file will 1)Import the swagger file 2)Get the list of API\u0027s 3)Hit each API and assert on 200 OK"
+      }
+    ],
+    "line": 20,
+    "elements": [
+      {
+        "line": 22,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 20020723,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 23,
+              "value": "13:46:47.480 karate.env system property was: null \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 53691,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "def nameSpace \u003d test_user_ns",
+            "match": {
+              "arguments": [
+                {
+                  "val": "nameSpace",
+                  "offset": 4
+                },
+                {
+                  "val": "test_user_ns",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 243857,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "def params \u003d \u0027?blocking\u003dtrue\u0026result\u003dfalse\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "params",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027?blocking\u003dtrue\u0026result\u003dfalse\u0027",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 7748988,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "def scriptcodeget \u003d call read(\u0027classpath:com/karate/openwhisk/functions/getResponse.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "scriptcodeget",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/functions/getResponse.js\u0027)",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 8252079,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "def scriptcodepost \u003d call read(\u0027classpath:com/karate/openwhisk/functions/postResponse.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "scriptcodepost",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/functions/postResponse.js\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 11461918,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "def scriptcodeput \u003d call read(\u0027classpath:com/karate/openwhisk/functions/putResponse.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "scriptcodeput",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/functions/putResponse.js\u0027)",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 9601660,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "def scriptcodedelete \u003d call read(\u0027classpath:com/karate/openwhisk/functions/deleteResponse.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "scriptcodedelete",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027classpath:com/karate/openwhisk/functions/deleteResponse.js\u0027)",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 1129533,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "def base64encoding \u003d read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "base64encoding",
+                  "offset": 4
+                },
+                {
+                  "val": "read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 25928256,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "string raw_swagger \u003d read(\u0027classpath:com/karate/openwhisk/utils/pet-store-swagger.json\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "raw_swagger",
+                  "offset": 7
+                },
+                {
+                  "val": "read(\u0027classpath:com/karate/openwhisk/utils/pet-store-swagger.json\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.castToString(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [This feature file will either use the NS credentials provided or get the NS of guest] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/get-auth.feature",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "def nameSpace \u003d test_user_ns",
+            "match": {
+              "arguments": [
+                {
+                  "val": "nameSpace",
+                  "offset": 4
+                },
+                {
+                  "val": "test_user_ns",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "def base64decoding \u003d read(\u0027classpath:com/karate/openwhisk/utils/base64_decode.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "base64decoding",
+                  "offset": 4
+                },
+                {
+                  "val": "read(\u0027classpath:com/karate/openwhisk/utils/base64_decode.js\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "print \"Start\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Start\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 28,
+              "value": "13:46:47.579 [print] Start\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "configure ssl \u003d true",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ssl",
+                  "offset": 10
+                },
+                {
+                  "val": "true",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.configure(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "def nameSpace \u003d test_user_ns",
+            "match": {
+              "arguments": [
+                {
+                  "val": "nameSpace",
+                  "offset": 4
+                },
+                {
+                  "val": "test_user_ns",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "def base64encoding \u003d read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "base64encoding",
+                  "offset": 4
+                },
+                {
+                  "val": "read(\u0027classpath:com/karate/openwhisk/utils/base64.js\u0027)",
+                  "offset": 21
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "url AdminBaseUrl",
+            "match": {
+              "arguments": [
+                {
+                  "val": "AdminBaseUrl",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "print \"I am here in get-user\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"I am here in get-user\"",
+                  "offset": 6
+                }
+              ],
+              "location": "StepDefs.print(String\u003e)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 31,
+              "value": "13:46:47.596 [print] I am here in get-user\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "def DBpath \u003d",
+            "match": {
+              "arguments": [
+                {
+                  "val": "DBpath",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.defDocString(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 33,
+              "value": "\r\nif (BaseUrl.match (\u0027rtbeta\u0027))\r\n{\r\n DBpath \u003d \u0027/whisk_dev_subjects/\u0027;\r\n}\r\nif (AdminBaseUrl.match (\u0027bluemix\u0027))\r\n{\r\n DBpath \u003d \u0027/whisk_dev_subjects/\u0027;\r\n}\r\nelse{\r\n DBpath \u003d \u0027/local_subjects/\u0027;\r\n}\r\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 48,
+                "value": "#And path \u0027/whisk_local_subjects/\u0027+nameSpace"
+              }
+            ],
+            "line": 49,
+            "name": "path DBpath+nameSpace",
+            "match": {
+              "arguments": [
+                {
+                  "val": "DBpath+nameSpace",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "header Authorization \u003d AdminAuth",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "AdminAuth",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "header Content-Type \u003d \u0027application/json\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Content-Type",
+                  "offset": 7
+                },
+                {
+                  "val": "\u0027application/json\u0027",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 52,
+              "value": "13:46:47.604 request:\n1 \u003e GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ\u003d\u003d\n1 \u003e Connection: Keep-Alive\n1 \u003e Content-Type: application/json\n1 \u003e Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443\n1 \u003e User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)\n\n13:46:48.765 response time in milliseconds: 1161\n1 \u003c 404\n1 \u003c Cache-Control: must-revalidate\n1 \u003c Content-Length: 41\n1 \u003c Content-Type: application/json\n1 \u003c Date: Mon, 27 Aug 2018 08:16:48 GMT\n1 \u003c Server: CouchDB/2.1.1 (Erlang OTP/17)\n1 \u003c Strict-Transport-Security: max-age\u003d31536000\n1 \u003c Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)\n1 \u003c X-Cloudant-Backend: bm-cc-us-south-02\n1 \u003c X-Cloudant-Request-Class: lookup\n1 \u003c X-Content-Type-Options: nosniff\n1 \u003c X-Couch-Request-ID: 49fd82b686\n1 \u003c X-Frame-Options: DENY\n{\"error\":\"not_found\",\"reason\":\"missing\"}\n\n\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "error_message": "com.intuit.karate.exception.KarateException: status code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n\tat com.intuit.karate.StepDefs.status(StepDefs.java:491)\n\tat ✽.Then status 200(classpath:com/karate/openwhisk/wskadmin/get-user.feature:53)\n",
+              "status": "failed"
+            },
+            "line": 53,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "",
+              "line": 53,
+              "value": "13:46:48.766 status code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "error_message": "java.lang.RuntimeException: javascript evaluation failed: if (!test_user_key)\n{\nvar getNSCreds \u003d karate.callSingle(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027);\nvar test\u003dgetNSCreds.Auth; \nkarate.set(\u0027authFunction\u0027,  \u0027Basic \u0027+getNSCreds.Auth);\nkarate.set(\u0027guid\u0027, getNSCreds.uuid[0]);\n}   \nelse\n{\nvar getGUID \u003d base64decoding(test_user_key); \nkarate.set(\u0027authFunction\u0027 , \u0027Basic \u0027+test_user_key);\nkarate.set(\u0027guid\u0027 , getGUID);\nkarate.log(\u0027I am here\u0027);\nkarate.log(getGUID);\n}, \n\nstatus code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n\tat com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:144)\n\tat com.intuit.karate.ScriptBindings.updateBindingsAndEval(ScriptBindings.java:134)\n\tat com.intuit.karate.ScriptBindings.evalInNashorn(ScriptBindings.java:119)\n\tat com.intuit.karate.Script.evalJsExpression(Script.java:371)\n\tat com.intuit.karate.StepDefs.eval(StepDefs.java:592)\n\tat com.intuit.karate.StepDefs.evalDocString(StepDefs.java:597)\n\tat ✽.* eval(classpath:com/karate/openwhisk/utils/get-auth.feature:29)\nCaused by: com.intuit.karate.exception.KarateException: \n\nstatus code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n\tat com.intuit.karate.Script.evalFeatureCall(Script.java:1667)\n\tat com.intuit.karate.ScriptBridge.call(ScriptBridge.java:240)\n\tat com.intuit.karate.ScriptBridge.callSingle(ScriptBridge.java:269)\n\tat com.intuit.karate.ScriptBridge.callSingle(ScriptBridge.java:251)\n\tat jdk.nashorn.internal.scripts.Script$15$\\^eval\\_.:program(\u003ceval\u003e:3)\n\tat jdk.nashorn.internal.runtime.ScriptFunctionData.invoke(ScriptFunctionData.java:637)\n\tat jdk.nashorn.internal.runtime.ScriptFunction.invoke(ScriptFunction.java:494)\n\tat jdk.nashorn.internal.runtime.ScriptRuntime.apply(ScriptRuntime.java:393)\n\tat jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:449)\n\tat jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:406)\n\tat jdk.nashorn.api.scripting.NashornScriptEngine.evalImpl(NashornScriptEngine.java:402)\n\tat jdk.nashorn.api.scripting.NashornScriptEngine.eval(NashornScriptEngine.java:155)\n\tat javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233)\n\tat com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:139)\n\tat com.intuit.karate.ScriptBindings.updateBindingsAndEval(ScriptBindings.java:134)\n\tat com.intuit.karate.ScriptBindings.evalInNashorn(ScriptBindings.java:119)\n\tat com.intuit.karate.Script.evalJsExpression(Script.java:371)\n\tat com.intuit.karate.StepDefs.eval(StepDefs.java:592)\n\tat com.intuit.karate.StepDefs.evalDocString(StepDefs.java:597)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)\n\tat cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)\n\tat com.intuit.karate.cucumber.CucumberUtils.runStep(CucumberUtils.java:201)\n\tat com.intuit.karate.cucumber.CucumberUtils.runCalledStep(CucumberUtils.java:169)\n\tat com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:48)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)\n\tat com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)\n\tat com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)\n\tat com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$null$0(AsyncScenario.java:68)\n\tat com.intuit.karate.cucumber.AsyncStep.lambda$submit$0(AsyncStep.java:64)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncStep.submit(AsyncStep.java:47)\n\tat com.intuit.karate.cucumber.AsyncScenario.lambda$submit$1(AsyncScenario.java:60)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncScenario.submit(AsyncScenario.java:58)\n\tat com.intuit.karate.cucumber.AsyncSection.lambda$submit$1(AsyncSection.java:67)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncSection.submit(AsyncSection.java:57)\n\tat com.intuit.karate.cucumber.AsyncFeature.lambda$submit$1(AsyncFeature.java:54)\n\tat com.intuit.karate.cucumber.CucumberUtils.lambda$static$0(CucumberUtils.java:138)\n\tat com.intuit.karate.cucumber.AsyncFeature.submit(AsyncFeature.java:52)\n\tat com.intuit.karate.cucumber.CucumberUtils.callSync(CucumberUtils.java:144)\n\tat com.intuit.karate.Script.evalFeatureCall(Script.java:1681)\n\tat com.intuit.karate.Script.evalFeatureCall(Script.java:1662)\n\tat com.intuit.karate.Script.call(Script.java:1599)\n\tat com.intuit.karate.Script.callWithCache(Script.java:183)\n\tat com.intuit.karate.Script.evalKarateExpression(Script.java:227)\n\tat com.intuit.karate.Script.evalKarateExpression(Script.java:171)\n\tat com.intuit.karate.Script.assign(Script.java:601)\n\tat com.intuit.karate.Script.assign(Script.java:527)\n\tat com.intuit.karate.StepDefs.def(StepDefs.java:309)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)\n\tat cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)\n\tat com.intuit.karate.cucumber.CucumberUtils.runStep(CucumberUtils.java:201)\n\tat com.intuit.karate.cucumber.KarateRuntime.runStep(KarateRuntime.java:89)\n\tat cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)\n\tat cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)\n\tat cucumber.runtime.model.CucumberScenario.runBackground(CucumberScenario.java:59)\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:42)\n\tat cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)\n\tat com.intuit.karate.cucumber.CucumberRunner.lambda$parallel$0(CucumberRunner.java:101)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+              "status": "failed"
+            },
+            "line": 29,
+            "name": "eval",
+            "match": {
+              "location": "StepDefs.evalDocString(String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 30,
+              "value": "if (!test_user_key)\n{\nvar getNSCreds \u003d karate.callSingle(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027);\nvar test\u003dgetNSCreds.Auth; \nkarate.set(\u0027authFunction\u0027,  \u0027Basic \u0027+getNSCreds.Auth);\nkarate.set(\u0027guid\u0027, getNSCreds.uuid[0]);\n}   \nelse\n{\nvar getGUID \u003d base64decoding(test_user_key); \nkarate.set(\u0027authFunction\u0027 , \u0027Basic \u0027+test_user_key);\nkarate.set(\u0027guid\u0027 , getGUID);\nkarate.log(\u0027I am here\u0027);\nkarate.log(getGUID);\n}"
+            }
+          },
+          {
+            "result": {
+              "duration": 1209102106,
+              "error_message": "com.intuit.karate.exception.KarateException: \n\njavascript evaluation failed: if (!test_user_key)\n{\nvar getNSCreds \u003d karate.callSingle(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027);\nvar test\u003dgetNSCreds.Auth; \nkarate.set(\u0027authFunction\u0027,  \u0027Basic \u0027+getNSCreds.Auth);\nkarate.set(\u0027guid\u0027, getNSCreds.uuid[0]);\n}   \nelse\n{\nvar getGUID \u003d base64decoding(test_user_key); \nkarate.set(\u0027authFunction\u0027 , \u0027Basic \u0027+test_user_key);\nkarate.set(\u0027guid\u0027 , getGUID);\nkarate.log(\u0027I am here\u0027);\nkarate.log(getGUID);\n}, \n\nstatus code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n\tat com.intuit.karate.Script.evalFeatureCall(Script.java:1667)\n\tat com.intuit.karate.Script.call(Script.java:1599)\n\tat com.intuit.karate.Script.callWithCache(Script.java:183)\n\tat com.intuit.karate.Script.evalKarateExpression(Script.java:227)\n\tat com.intuit.karate.Script.evalKarateExpression(Script.java:171)\n\tat com.intuit.karate.Script.assign(Script.java:601)\n\tat com.intuit.karate.Script.assign(Script.java:527)\n\tat com.intuit.karate.StepDefs.def(StepDefs.java:309)\n\tat ✽.* def getAuth \u003d callonce read(\u0027classpath:com/karate/openwhisk/utils/get-auth.feature\u0027)(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC03_SmokeTest_ApiManagement.feature:32)\n",
+              "status": "failed"
+            },
+            "line": 32,
+            "name": "def getAuth \u003d callonce read(\u0027classpath:com/karate/openwhisk/utils/get-auth.feature\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "getAuth",
+                  "offset": 4
+                },
+                {
+                  "val": "callonce read(\u0027classpath:com/karate/openwhisk/utils/get-auth.feature\u0027)",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 32,
+              "value": "13:46:48.767 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature\narg: null\n\nstatus code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n13:46:48.768 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature\narg: null\n\njavascript evaluation failed: if (!test_user_key)\n{\nvar getNSCreds \u003d karate.callSingle(\u0027classpath:com/karate/openwhisk/wskadmin/get-user.feature\u0027);\nvar test\u003dgetNSCreds.Auth; \nkarate.set(\u0027authFunction\u0027,  \u0027Basic \u0027+getNSCreds.Auth);\nkarate.set(\u0027guid\u0027, getNSCreds.uuid[0]);\n}   \nelse\n{\nvar getGUID \u003d base64decoding(test_user_key); \nkarate.set(\u0027authFunction\u0027 , \u0027Basic \u0027+test_user_key);\nkarate.set(\u0027guid\u0027 , getGUID);\nkarate.log(\u0027I am here\u0027);\nkarate.log(getGUID);\n}, \n\nstatus code was: 404, expected: 200, response time: 1161, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {\"error\":\"not_found\",\"reason\":\"missing\"}\n"
+            }
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 33,
+            "name": "def Auth \u003d getAuth.Auth",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 34,
+            "name": "def guid \u003d getAuth.guid",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 35,
+            "name": "def webAction \u003d \u0027true\u0027",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 36,
+            "name": "table apis",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "endpoint",
+                  "methodtype"
+                ],
+                "line": 37
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/test123\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 38
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/test123\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 39
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/test123\u0027",
+                  "\u0027delete\u0027"
+                ],
+                "line": 40
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 41
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet\u0027",
+                  "\u0027put\u0027"
+                ],
+                "line": 42
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/findByStatus\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 43
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/store/order\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 44
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/store/order/test234\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 45
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/store/order/test234\u0027",
+                  "\u0027delete\u0027"
+                ],
+                "line": 46
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/logout\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 47
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 48
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/login\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 49
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/test123/uploadImage\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 50
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/createWithArray\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 51
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/pet/findByTags\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 52
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/store/inventory\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 53
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/createWithList\u0027",
+                  "\u0027post\u0027"
+                ],
+                "line": 54
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/tester\u0027",
+                  "\u0027get\u0027"
+                ],
+                "line": 55
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/tester\u0027",
+                  "\u0027put\u0027"
+                ],
+                "line": 56
+              },
+              {
+                "cells": [
+                  "\u0027/apis/\u0027+nameSpace+\u0027/v2/user/tester\u0027",
+                  "\u0027delete\u0027"
+                ],
+                "line": 57
+              }
+            ],
+            "keyword": "* "
+          }
+        ]
+      },
+      {
+        "line": 60,
+        "name": "TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response",
+        "description": "",
+        "id": "this-feature-file-will-test-the-basic-api-management-functionality;tc03-as-a-user-i-want-to-import-my-swagger.json-and-see-if-my-api-gives-a-two-hundred-ok-response",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 61,
+                "value": "# Create an Action .Create an 4 actions for the above defined guest name.This will be used by the API\u0027s"
+              }
+            ],
+            "line": 62,
+            "name": "def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcodeget)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027 , actionName: \u0027getResponse\u0027 , webAction: \u0027#(webAction)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 63,
+            "name": "def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcodepost)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027, actionName: \u0027postResponse\u0027 , webAction: \u0027#(webAction)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 64,
+            "name": "def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcodeput)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027 , actionName: \u0027putResponse\u0027 , webAction: \u0027#(webAction)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 65,
+            "name": "def createAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/create-action.feature\u0027) {script:\u0027#(scriptcodedelete)\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027 ,actionName: \u0027deleteResponse\u0027 , webAction: \u0027#(webAction)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 66,
+            "name": "print \"Successfully Created the required actions\"",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 68,
+                "value": "# Call the import Swagger feature file and import the swagger"
+              }
+            ],
+            "line": 69,
+            "name": "def importSwagger \u003d call read(\u0027classpath:com/karate/openwhisk/apimanagement/import-swagger.feature\u0027) {nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027,guid:\u0027#(guid)\u0027 , raw_swagger: \u0027#(raw_swagger)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 70,
+            "name": "print \"Successfully imported the swagger\"",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 72,
+                "value": "#Call the get-api-list swagger to get the list of the imported swagger"
+              }
+            ],
+            "line": 73,
+            "name": "def getSwaggerList \u003d call read(\u0027classpath:com/karate/openwhisk/apimanagement/get-api-list.feature\u0027) {guid:\u0027#(guid)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 74,
+            "name": "print  \u003d \"Successfully got the List of API\u0027s\"",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 75,
+            "name": "def sleepsometime \u003d callonce read(\u0027classpath:com/karate/openwhisk/utils/sleep.feature\u0027) {sheepCount:\u002715\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 76,
+            "name": "print \"Got the List of APIs Hurray!\"",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 78,
+                "value": "#Hit the imnported APIs and asset the response"
+              }
+            ],
+            "line": 79,
+            "name": "def result \u003d callonce read(\u0027classpath:com/karate/openwhisk/apimanagement/hit-api.feature\u0027) apis",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 82,
+                "value": "# Call the Delete API feature file to delete the imported API List"
+              }
+            ],
+            "line": 83,
+            "name": "def deleteSwagger \u003d call read(\u0027classpath:com/karate/openwhisk/apimanagement/delete-api-list.feature\u0027) {guid:\u0027#(guid)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 84,
+            "name": "print \"Successfully imported the swagger\"",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 86,
+                "value": "# Delete the list of actions"
+              }
+            ],
+            "line": 87,
+            "name": "def deleteAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/delete-action.feature\u0027) {actionName:\u0027getResponse\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 88,
+            "name": "def deleteAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/delete-action.feature\u0027) {actionName:\u0027postResponse\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 89,
+            "name": "def deleteAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/delete-action.feature\u0027) {actionName:\u0027putResponse\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 90,
+            "name": "def deleteAction \u003d call read(\u0027classpath:com/karate/openwhisk/wskactions/delete-action.feature\u0027) {actionName:\u0027deleteResponse\u0027 ,nameSpace:\u0027#(nameSpace)\u0027 ,Auth:\u0027#(Auth)\u0027}",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 91,
+            "name": "print \"Successfully deleted all the actions\"",
+            "match": {},
+            "keyword": "* "
+          }
+        ]
+      }
+    ],
+    "name": "com/karate/openwhisk/smoketests/TC03_SmokeTest_ApiManagement.feature",
+    "description": "This feature file will test the basic API Management Functionality",
+    "id": "this-feature-file-will-test-the-basic-api-management-functionality",
+    "keyword": "Feature",
+    "uri": "com/karate/openwhisk/smoketests/TC03_SmokeTest_ApiManagement.feature",
+    "tags": [
+      {
+        "line": 18,
+        "name": "@smoketests"
+      }
+    ]
+  }
+]

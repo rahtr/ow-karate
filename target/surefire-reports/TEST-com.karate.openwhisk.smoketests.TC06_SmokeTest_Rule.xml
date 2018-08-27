@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="2"
+           name="This feature contains smoke test cases of openwhisk triggers"
+           skipped="0"
+           tests="2"
+           time="2.671881">
+   <testcase classname="com.karate.openwhisk.smoketests.TC06_SmokeTest_Rule"
+             name="As a user i want to verify create rule, get rule, update rule,list rule and delete rule"
+             time="1.548196">
+      <failure message="com.intuit.karate.exception.KarateException: &#xA;&#xA;javascript evaluation failed: if (!test_user_key)&#xA;{&#xA;var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');&#xA;var test=getNSCreds.Auth; &#xA;karate.set('authFunction',  'Basic '+getNSCreds.Auth);&#xA;karate.set('guid', getNSCreds.uuid[0]);&#xA;}   &#xA;else&#xA;{&#xA;var getGUID = base64decoding(test_user_key); &#xA;karate.set('authFunction' , 'Basic '+test_user_key);&#xA;karate.set('guid' , getGUID);&#xA;karate.log('I am here');&#xA;karate.log(getGUID);&#xA;}, &#xA;&#xA;status code was: 404, expected: 200, response time: 1491, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&#34;error&#34;:&#34;not_found&#34;,&#34;reason&#34;:&#34;missing&#34;}&#xA;&#x9;at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)&#xA;&#x9;at com.intuit.karate.Script.call(Script.java:1599)&#xA;&#x9;at com.intuit.karate.Script.callWithCache(Script.java:183)&#xA;&#x9;at com.intuit.karate.Script.evalKarateExpression(Script.java:227)&#xA;&#x9;at com.intuit.karate.Script.evalKarateExpression(Script.java:171)&#xA;&#x9;at com.intuit.karate.Script.assign(Script.java:601)&#xA;&#x9;at com.intuit.karate.Script.assign(Script.java:527)&#xA;&#x9;at com.intuit.karate.StepDefs.def(StepDefs.java:309)&#xA;&#x9;at ✽.* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC06_SmokeTest_Rule.feature:27)&#xA;">* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js').passed
+* def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js').passed
+* call [This feature file will either use the NS credentials provided or get the NS of guest] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/get-auth.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def base64decoding = read('classpath:com/karate/openwhisk/utils/base64_decode.js').passed
+* print "Start".............................................................passed
+* call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................failed
+* eval......................................................................failed
+* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature').failed
+* def Auth = getAuth.Auth...................................................skipped
+* print "Test case started --&gt; verify create rule, get rule, update rule,list rule and delete rule".skipped
+* def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* match createTrigger.responseStatusCode == 200.............................skipped
+* def triggerName = createTrigger.trgrName..................................skipped
+* print "Successfully Created an trigger"...................................skipped
+* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def actionName = createAction.actName.....................................skipped
+* match createAction.responseStatusCode == 200..............................skipped
+* print "Successfully Created an action"....................................skipped
+* def trgrName = '/'+nameSpace +'/'+triggerName.............................skipped
+* def actName = '/'+nameSpace +'/'+actionName...............................skipped
+* def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def ruleName = createRule.rulName.........................................skipped
+* match createRule.responseStatusCode == 200................................skipped
+* print 'successfully created the rule'.....................................skipped
+* def getRule = call read('classpath:com/karate/openwhisk/wskrules/get-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}.skipped
+* match getRule.responseStatusCode == 200...................................skipped
+* def actualRuleName = getRule.rulName......................................skipped
+* match actualRuleName == ruleName..........................................skipped
+* print "Asserted "+actualRuleName+" with " + ruleName......................skipped
+* print "Successfully got the rule details".................................skipped
+* def trgrName1 = 'Trigger'+java.util.UUID.randomUUID().....................skipped
+* def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', triggerName:'#(trgrName1)'}.skipped
+* def triggerName1 = createTrigger.trgrName.................................skipped
+* match createTrigger.responseStatusCode == 200.............................skipped
+* print "Successfully Created an trigger"...................................skipped
+* def actName1 = 'Testing'+java.util.UUID.randomUUID()......................skipped
+* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {actionName:'#(actName1)', script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def actionName1 = createAction.actName....................................skipped
+* match createAction.responseStatusCode == 200..............................skipped
+* print "Successfully Created an action"....................................skipped
+* def trgrName = '/'+nameSpace +'/'+triggerName1............................skipped
+* def actName = '/'+nameSpace +'/'+actionName1..............................skipped
+* def updateRule = call read('classpath:com/karate/openwhisk/wskrules/update-rule.feature') {ruleName:'#(ruleName)', triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def ruleName = updateRule.rulName.........................................skipped
+* print ruleName............................................................skipped
+* def actualTriggerName = updateRule.updateRuleResponse.trigger.name........skipped
+* match actualTriggerName == trgrName1......................................skipped
+* print "Asserted "+actualTriggerName+" with " + trgrName1..................skipped
+* def actualActionName = updateRule.updateRuleResponse.action.name..........skipped
+* match actualActionName == actName1........................................skipped
+* print "Asserted "+actualActionName+" with " + actName1....................skipped
+* print "Successfully updated the rule".....................................skipped
+* def listRules = call read('classpath:com/karate/openwhisk/wskrules/list-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* print "Successfully pulled up the list of rules"..........................skipped
+* def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/delete-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}.skipped
+* match deleteRule.responseStatusCode == 200................................skipped
+* print "Test case completed --&gt; verify create rule, get rule, update rule,list rule and delete rule".skipped
+
+StackTrace:
+com.intuit.karate.exception.KarateException: 
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1491, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)
+	at com.intuit.karate.Script.call(Script.java:1599)
+	at com.intuit.karate.Script.callWithCache(Script.java:183)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:227)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:171)
+	at com.intuit.karate.Script.assign(Script.java:601)
+	at com.intuit.karate.Script.assign(Script.java:527)
+	at com.intuit.karate.StepDefs.def(StepDefs.java:309)
+	at ✽.* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC06_SmokeTest_Rule.feature:27)
+</failure>
+   </testcase>
+   <testcase classname="com.karate.openwhisk.smoketests.TC06_SmokeTest_Rule"
+             name="As a user i want to verify create rule, get rule, ensure rule is enabled by default"
+             time="1.123685">
+      <failure message="com.intuit.karate.exception.KarateException: &#xA;&#xA;javascript evaluation failed: if (!test_user_key)&#xA;{&#xA;var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');&#xA;var test=getNSCreds.Auth; &#xA;karate.set('authFunction',  'Basic '+getNSCreds.Auth);&#xA;karate.set('guid', getNSCreds.uuid[0]);&#xA;}   &#xA;else&#xA;{&#xA;var getGUID = base64decoding(test_user_key); &#xA;karate.set('authFunction' , 'Basic '+test_user_key);&#xA;karate.set('guid' , getGUID);&#xA;karate.log('I am here');&#xA;karate.log(getGUID);&#xA;}, &#xA;&#xA;status code was: 404, expected: 200, response time: 1061, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {&#34;error&#34;:&#34;not_found&#34;,&#34;reason&#34;:&#34;missing&#34;}&#xA;&#x9;at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)&#xA;&#x9;at com.intuit.karate.Script.call(Script.java:1599)&#xA;&#x9;at com.intuit.karate.Script.callWithCache(Script.java:183)&#xA;&#x9;at com.intuit.karate.Script.evalKarateExpression(Script.java:227)&#xA;&#x9;at com.intuit.karate.Script.evalKarateExpression(Script.java:171)&#xA;&#x9;at com.intuit.karate.Script.assign(Script.java:601)&#xA;&#x9;at com.intuit.karate.Script.assign(Script.java:527)&#xA;&#x9;at com.intuit.karate.StepDefs.def(StepDefs.java:309)&#xA;&#x9;at ✽.* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC06_SmokeTest_Rule.feature:27)&#xA;">* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js').passed
+* def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js').passed
+* call [This feature file will either use the NS credentials provided or get the NS of guest] [This line is required please do not delete - or the functions cannot be called] classpath:com/karate/openwhisk/utils/get-auth.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def base64decoding = read('classpath:com/karate/openwhisk/utils/base64_decode.js').passed
+* print "Start".............................................................passed
+* call [Create Namespace] [Get NS credentials] classpath:com/karate/openwhisk/wskadmin/get-user.feature.passed
+* configure ssl = true......................................................passed
+* def nameSpace = test_user_ns..............................................passed
+* def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js').passed
+Given url AdminBaseUrl......................................................passed
+* print "I am here in get-user".............................................passed
+* def DBpath =..............................................................passed
+And path DBpath+nameSpace...................................................passed
+And header Authorization = AdminAuth........................................passed
+And header Content-Type = 'application/json'................................passed
+When method get.............................................................passed
+Then status 200.............................................................failed
+* eval......................................................................failed
+* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature').failed
+* def Auth = getAuth.Auth...................................................skipped
+* print "Test case started --&gt; verify create rule, get rule, ensure rule is enabled by default".skipped
+* def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* match createTrigger.responseStatusCode == 200.............................skipped
+* def triggerName = createTrigger.trgrName..................................skipped
+* print "Successfully Created an trigger"...................................skipped
+* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def actionName = createAction.actName.....................................skipped
+* match createAction.responseStatusCode == 200..............................skipped
+* print "Successfully Created an action"....................................skipped
+* def trgrName = '/'+nameSpace +'/'+triggerName.............................skipped
+* def actName = '/'+nameSpace +'/'+actionName...............................skipped
+* def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}.skipped
+* def ruleName = createRule.rulName.........................................skipped
+* match createRule.responseStatusCode == 200................................skipped
+* print 'successfully created the rule'.....................................skipped
+* def ruleStatus = createRule.createRuleResponse.status.....................skipped
+* match ruleStatus == "active"..............................................skipped
+* print "Asserted "+ruleStatus+" with active"...............................skipped
+* print "Test case completed --&gt; verify create rule, get rule, ensure rule is enabled by default".skipped
+
+StackTrace:
+com.intuit.karate.exception.KarateException: 
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1061, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+	at com.intuit.karate.Script.evalFeatureCall(Script.java:1667)
+	at com.intuit.karate.Script.call(Script.java:1599)
+	at com.intuit.karate.Script.callWithCache(Script.java:183)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:227)
+	at com.intuit.karate.Script.evalKarateExpression(Script.java:171)
+	at com.intuit.karate.Script.assign(Script.java:601)
+	at com.intuit.karate.Script.assign(Script.java:527)
+	at com.intuit.karate.StepDefs.def(StepDefs.java:309)
+	at ✽.* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')(/Users/rtripath/repo/OPENWHISK-KARATE/ow-karate/target/test-classes/com/karate/openwhisk/smoketests/TC06_SmokeTest_Rule.feature:27)
+</failure>
+   </testcase>
+</testsuite>

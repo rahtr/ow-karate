@@ -1,0 +1,156 @@
+13:46:48.793 karate.env system property was: null 
+13:46:48.812 [print] Start
+13:46:48.814 >> lock acquired, begin callSingle: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+13:46:48.831 [print] I am here in get-user
+13:46:48.839 request:
+1 > GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:49.943 response time in milliseconds: 1102
+1 < 404
+1 < Cache-Control: must-revalidate
+1 < Content-Length: 41
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:49 GMT
+1 < Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 < Strict-Transport-Security: max-age=31536000
+1 < Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 < X-Cloudant-Backend: bm-cc-us-south-02
+1 < X-Cloudant-Request-Class: lookup
+1 < X-Content-Type-Options: nosniff
+1 < X-Couch-Request-ID: b58294c39c
+1 < X-Frame-Options: DENY
+{"error":"not_found","reason":"missing"}
+
+
+13:46:49.943 status code was: 404, expected: 200, response time: 1102, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:49.944 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 1102, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:49.945 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1102, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+40b2-b3dd-792b6fd1e6f5
+13:45:05.378 [print] Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5
+13:45:05.380 [print] Successfully Created an action
+13:45:05.390 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:06.430 response time in milliseconds: 1040
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:15 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [vTvklL68qg63LH9rFR8a3MS1JcfZfYm4, vTvklL68qg63LH9rFR8a3MS1JcfZfYm4]
+1 < X-Request-Id: [vTvklL68qg63LH9rFR8a3MS1JcfZfYm4, vTvklL68qg63LH9rFR8a3MS1JcfZfYm4]
+{"name":"Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:45:06.431 [print] The value of responseStatusCode is: 200
+13:45:06.435 Got the action details 
+13:45:06.437 [print] Successfully got the action details
+13:45:06.449 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5?blocking=true&result=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:45:08.590 response time in milliseconds: 2141
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 582
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:37 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [1PuMve3yWeXBkcbVKPQ5ggEpCYOyDsmW, 1PuMve3yWeXBkcbVKPQ5ggEpCYOyDsmW]
+1 < X-Request-Id: [1PuMve3yWeXBkcbVKPQ5ggEpCYOyDsmW, 1PuMve3yWeXBkcbVKPQ5ggEpCYOyDsmW]
+{"duration":250,"name":"Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5","subject":"guest","activationId":"f7e38abb9b6445bfa38abb9b64b5bf13","publish":false,"annotations":[{"key":"path","value":"guest/Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5"},{"key":"waitTime","value":-6293},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":243}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1535357709251,"logs":[],"start":1535357709001,"namespace":"guest"}
+
+13:45:08.591 [print] The value of responseStatusCode is: 200
+13:45:08.594 Action got invoked 
+13:45:08.597 [print] Activation ID for the Invoke action f7e38abb9b6445bfa38abb9b64b5bf13
+13:45:08.599 [print]
+13:45:08.608 [print] I cam here
+13:45:08.611 Sleeping for 20 
+13:45:28.657 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:45:28.670 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/_/activations/f7e38abb9b6445bfa38abb9b64b5bf13
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:29.770 response time in milliseconds: 1100
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 689
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:15:38 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [9yRzoQPGkqn9VsePTurtxQJEbdKcrJzO, 9yRzoQPGkqn9VsePTurtxQJEbdKcrJzO]
+1 < X-Request-Id: [9yRzoQPGkqn9VsePTurtxQJEbdKcrJzO, 9yRzoQPGkqn9VsePTurtxQJEbdKcrJzO]
+{"duration":250,"name":"Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5","subject":"guest","activationId":"f7e38abb9b6445bfa38abb9b64b5bf13","publish":false,"annotations":[{"key":"path","value":"guest/Testinga71d8af9-3d42-40b2-b3dd-792b6fd1e6f5"},{"key":"waitTime","value":-6293},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":243}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1535357709251,"logs":["2018-08-27T08:15:09.250594174Z stdout: hello stdout","2018-08-27T08:15:09.250667685Z stderr: hello stderr"],"start":1535357709001,"namespace":"guest"}
+
+13:45:29.773 [print] Activation ID for the Invoke action(I was here in activation details f7e38abb9b6445bfa38abb9b64b5bf13
+13:45:30.502 not a js function or feature file: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000) - [type: NULL, value: null]
+13:45:30.502 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+13:45:30.506 [print] [
+  "2018-08-27T08:15:09.250594174Z stdout: hello stdout",
+  "2018-08-27T08:15:09.250667685Z stderr: hello stderr"
+]
+
+13:45:30.508 [print] Successfully pulled the activation details
+o stderr"
+]
+
+13:42:06.380 [print] Successfully pulled the activation details
+(1000)
+07:11:29.260 [print] [
+  "2018-08-25T01:41:07.426929968Z stdout: hello stdout",
+  "2018-08-25T01:41:07.426993907Z stderr: hello stderr"
+]
+
+07:11:29.263 [print] Successfully pulled the activation details

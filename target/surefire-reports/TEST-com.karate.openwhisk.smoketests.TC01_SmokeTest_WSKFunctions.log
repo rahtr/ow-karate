@@ -1,0 +1,238 @@
+13:46:45.421 karate.env system property was: null 
+13:46:45.741 [print] Start
+13:46:45.754 >> lock acquired, begin callSingle: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+13:46:45.790 [print] I am here in get-user
+13:46:45.932 request:
+1 > GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:47.152 response time in milliseconds: 1217
+1 < 404
+1 < Cache-Control: must-revalidate
+1 < Content-Length: 41
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:46 GMT
+1 < Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 < Strict-Transport-Security: max-age=31536000
+1 < Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 < X-Cloudant-Backend: bm-cc-us-south-02
+1 < X-Cloudant-Request-Class: lookup
+1 < X-Content-Type-Options: nosniff
+1 < X-Couch-Request-ID: ba0f1adf96
+1 < X-Frame-Options: DENY
+{"error":"not_found","reason":"missing"}
+
+
+13:46:47.195 status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:47.196 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:47.197 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1217, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+3M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 420
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","exec":{"kind":"nodejs:default","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+13:43:27.664 response time in milliseconds: 1353
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:13:56 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [RMYfchHxgaJOSQICYeBBb007lsXuFhrf, RMYfchHxgaJOSQICYeBBb007lsXuFhrf]
+1 < X-Request-Id: [RMYfchHxgaJOSQICYeBBb007lsXuFhrf, RMYfchHxgaJOSQICYeBBb007lsXuFhrf]
+{"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:43:27.668 [print] The value of responseStatusCode is: 200
+13:43:27.674 Action Created 
+13:43:27.683 [print] Action name for the created action Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+13:43:27.686 [print] Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+13:43:27.688 [print] Successfully Created an action
+13:43:27.711 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:43:28.789 response time in milliseconds: 1078
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:13:37 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [6pueTCVXYwcjwSY4N8h2az8bgMl91grq, 6pueTCVXYwcjwSY4N8h2az8bgMl91grq]
+1 < X-Request-Id: [6pueTCVXYwcjwSY4N8h2az8bgMl91grq, 6pueTCVXYwcjwSY4N8h2az8bgMl91grq]
+{"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:43:28.791 [print] The value of responseStatusCode is: 200
+13:43:28.796 Got the action details 
+13:43:28.800 [print] Successfully got the action details
+13:43:28.821 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7?blocking=true&result=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 0
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+
+13:43:31.670 response time in milliseconds: 2849
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 583
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:00 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [CkKb7uuFMTmRPAhUQXXNmpe3sLTtYaTW, CkKb7uuFMTmRPAhUQXXNmpe3sLTtYaTW]
+1 < X-Request-Id: [CkKb7uuFMTmRPAhUQXXNmpe3sLTtYaTW, CkKb7uuFMTmRPAhUQXXNmpe3sLTtYaTW]
+{"duration":247,"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","subject":"guest","activationId":"7c2cc431a4de4013acc431a4de5013c1","publish":false,"annotations":[{"key":"path","value":"guest/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7"},{"key":"waitTime","value":-29009},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":240}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1535357612227,"logs":[],"start":1535357611980,"namespace":"guest"}
+
+13:43:31.671 [print] The value of responseStatusCode is: 200
+13:43:31.676 Action got invoked 
+13:43:31.680 [print] Activation ID for the Invoke action 7c2cc431a4de4013acc431a4de5013c1
+13:43:31.686 [print]
+13:43:31.705 [print] I cam here
+13:43:31.714 Sleeping for 20 
+13:43:51.780 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.feature')
+13:43:51.819 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/_/activations/7c2cc431a4de4013acc431a4de5013c1
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:43:52.997 response time in milliseconds: 1177
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 690
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:01 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [pM2AQOcRR9GVD6jxOWkqGCqH1IhvenWT, pM2AQOcRR9GVD6jxOWkqGCqH1IhvenWT]
+1 < X-Request-Id: [pM2AQOcRR9GVD6jxOWkqGCqH1IhvenWT, pM2AQOcRR9GVD6jxOWkqGCqH1IhvenWT]
+{"duration":247,"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","subject":"guest","activationId":"7c2cc431a4de4013acc431a4de5013c1","publish":false,"annotations":[{"key":"path","value":"guest/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7"},{"key":"waitTime","value":-29009},{"key":"kind","value":"nodejs:6"},{"key":"limits","value":{"timeout":60000,"memory":256,"logs":10}},{"key":"initTime","value":240}],"version":"0.0.1","response":{"result":{"payload":"Hello, World!"},"success":true,"status":"success"},"end":1535357612227,"logs":["2018-08-27T08:13:32.226219027Z stdout: hello stdout","2018-08-27T08:13:32.226302948Z stderr: hello stderr"],"start":1535357611980,"namespace":"guest"}
+
+13:43:53.002 [print] Activation ID for the Invoke action(I was here in activation details 7c2cc431a4de4013acc431a4de5013c1
+13:43:53.786 not a js function or feature file: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000) - [type: NULL, value: null]
+13:43:53.787 cached callonce: read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+13:43:53.789 [print] Successfully pulled the activation details
+13:43:53.817 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7?overwrite=true
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 308
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","exec":{"kind":"nodejs:default","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n"}}
+
+13:43:55.068 response time in milliseconds: 1250
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:24 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [gK6e1PdbAz44Oa9W9XiqwIFVTWRJcZHn, gK6e1PdbAz44Oa9W9XiqwIFVTWRJcZHn]
+1 < X-Request-Id: [gK6e1PdbAz44Oa9W9XiqwIFVTWRJcZHn, gK6e1PdbAz44Oa9W9XiqwIFVTWRJcZHn]
+{"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:43:55.073 [print] Action name for the created action Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+13:43:55.074 [print] Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+13:43:55.076 [print] Successfully updated the action
+13:43:55.097 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions?limit=30&skip=0
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:43:56.335 response time in milliseconds: 1236
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 10591
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:05 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [zyqp0slDsk9RZUBAIXDMZjK9QcgfeaZD, zyqp0slDsk9RZUBAIXDMZjK9QcgfeaZD]
+1 < X-Request-Id: [zyqp0slDsk9RZUBAIXDMZjK9QcgfeaZD, zyqp0slDsk9RZUBAIXDMZjK9QcgfeaZD]
+[{"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","updated":1535357642840,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingaf302987-3c52-4d8d-9287-c3770f2e9166","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357605293,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing18f4f1f5-1310-40a1-98ef-9f4c4f220941","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357575538,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingdad4a6c3-c45e-4d19-a219-a63626ef7854","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357570293,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testinga8d509e4-8901-44da-87f1-8c81f85e3c4e","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357563909,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingbaa72785-200f-4793-bcad-eb15139449c2","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357508562,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing5e9b4e36-b354-4b2c-bf66-252b9f984822","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357410798,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing752959ff-786d-4d7e-a8c9-6c2aaefcbd50","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357405799,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testinge413fd5e-e006-4541-b85e-266324c2c592","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357399741,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingcdb27b42-cd00-4634-9897-58ceef70be15","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357394026,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing11e201d3-0167-47ba-8fc9-0f34f96808ae","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357344377,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testinga7a1a4ac-755e-4eb2-83e3-90fae3930db1","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357204516,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingd98317bb-40fa-42e5-8389-269593d0d4e4","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357175269,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingbf007b52-98ba-4f90-921b-0e81c31cc433","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357170245,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing1327d78a-a0b5-4217-bd84-b63d4d1e04ab","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357164221,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing4a711ec5-8c76-491a-9ff4-be35631cd409","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535357109352,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing3e9551c2-ae59-4601-b0c2-9004067c5ca5","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535350219958,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing63af537b-4f83-4382-9558-92213cbc1527","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535350214943,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing9b614790-3986-4263-84ca-4cfcc4e6d629","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535350203727,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingb885dd1f-63ca-4d58-ae8a-5afd02339a10","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535350185975,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing22d83bb8-491b-4b8a-9f93-f3c04f68f9f4","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535350153553,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing05b35c3b-9baf-44fe-8e3c-bca400ab9f41","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349866182,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingd2feeaff-2c4e-41aa-8b01-fe69b8ec01d7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349861082,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing2ad04b9d-6f95-4cdc-a332-c6c998365c4f","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349849752,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing0b78d5da-5398-45a4-94b8-331a4a125e6c","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349831793,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing5787e78d-5fba-4837-a69d-7879d7dcb1a3","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349776018,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testingb5d3c69b-4ec3-48e2-b208-068d309b6333","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349653336,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testinge02023af-f500-499d-aa91-b8b6fad8d29b","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349623935,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testing6d5110c2-a60a-474b-941c-845187020b1d","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349618716,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"},{"name":"Testinga4d24c69-3f4e-4d43-aa81-c23b7d4485ae","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","updated":1535349612345,"exec":{"binary":false},"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}]
+
+13:43:56.341 [print] Successfully pulled up the list of actions
+13:43:56.359 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:43:57.574 response time in milliseconds: 1214
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:14:06 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [IpHXliNrxelnJ0FKKyEhx7khest8J7Rt, IpHXliNrxelnJ0FKKyEhx7khest8J7Rt]
+1 < X-Request-Id: [IpHXliNrxelnJ0FKKyEhx7khest8J7Rt, IpHXliNrxelnJ0FKKyEhx7khest8J7Rt]
+{"name":"Testing0922d10a-ee3e-4a61-b6fc-56df73206fd7","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.2","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:43:57.576 [print] The value of responseStatusCode is: 200
+13:43:57.580 Action got deleted 
+13:43:57.582 [print] Successfully deleted the action

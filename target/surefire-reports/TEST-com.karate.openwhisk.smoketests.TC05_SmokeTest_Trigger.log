@@ -1,0 +1,316 @@
+13:46:49.964 karate.env system property was: null 
+13:46:49.989 [print] Start
+13:46:49.990 >> lock acquired, begin callSingle: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+13:46:50.001 [print] I am here in get-user
+13:46:50.006 request:
+1 > GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:51.028 response time in milliseconds: 1022
+1 < 404
+1 < Cache-Control: must-revalidate
+1 < Content-Length: 41
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:50 GMT
+1 < Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 < Strict-Transport-Security: max-age=31536000
+1 < Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 < X-Cloudant-Backend: bm-cc-us-south-02
+1 < X-Cloudant-Request-Class: lookup
+1 < X-Content-Type-Options: nosniff
+1 < X-Couch-Request-ID: 4e4d65432a
+1 < X-Frame-Options: DENY
+{"error":"not_found","reason":"missing"}
+
+
+13:46:51.029 status code was: 404, expected: 200, response time: 1022, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:51.030 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 1022, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:51.032 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 1022, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:51.045 karate.env system property was: null 
+13:46:51.065 [print] Start
+13:46:51.068 >> lock acquired, begin callSingle: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+13:46:51.102 [print] I am here in get-user
+13:46:51.108 request:
+1 > GET https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic MzY3OGExMmItZmM2NC00Y2VmLWFiOTctZDdiMjhjNzdmYmUxLWJsdWVtaXg6MjMzMjc0NDk5Yjk5NmZiMzlhZTRlODNlMzMyOWZjMzVjYjVjMTk0MzU0ZjMwYzQ5YjE5NWU5N2Q0NjU1YzE3NQ==
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: 3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:53.186 response time in milliseconds: 2078
+1 < 404
+1 < Cache-Control: must-revalidate
+1 < Content-Length: 41
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:52 GMT
+1 < Server: CouchDB/2.1.1 (Erlang OTP/17)
+1 < Strict-Transport-Security: max-age=31536000
+1 < Via: 1.1 lb1.bm-cc-us-south-02 (Glum/1.63.0)
+1 < X-Cloudant-Backend: bm-cc-us-south-02
+1 < X-Cloudant-Request-Class: lookup
+1 < X-Content-Type-Options: nosniff
+1 < X-Couch-Request-ID: 0e23266567
+1 < X-Frame-Options: DENY
+{"error":"not_found","reason":"missing"}
+
+
+13:46:53.187 status code was: 404, expected: 200, response time: 2078, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:53.189 feature call failed: classpath:com/karate/openwhisk/wskadmin/get-user.feature
+arg: null
+
+status code was: 404, expected: 200, response time: 2078, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+13:46:53.190 feature call failed: classpath:com/karate/openwhisk/utils/get-auth.feature
+arg: null
+
+javascript evaluation failed: if (!test_user_key)
+{
+var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
+var test=getNSCreds.Auth; 
+karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+karate.set('guid', getNSCreds.uuid[0]);
+}   
+else
+{
+var getGUID = base64decoding(test_user_key); 
+karate.set('authFunction' , 'Basic '+test_user_key);
+karate.set('guid' , getGUID);
+karate.log('I am here');
+karate.log(getGUID);
+}, 
+
+status code was: 404, expected: 200, response time: 2078, url: https://3678a12b-fc64-4cef-ab97-d7b28c77fbe1-bluemix.cloudant.com:443/whisk_dev_subjects/bladerunner-test, response: {"error":"not_found","reason":"missing"}
+tent-Length: 153
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:04 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [l3lHFVFdmG4kRT5MXundSQ67ssuaJf3y, l3lHFVFdmG4kRT5MXundSQ67ssuaJf3y]
+1 < X-Request-Id: [l3lHFVFdmG4kRT5MXundSQ67ssuaJf3y, l3lHFVFdmG4kRT5MXundSQ67ssuaJf3y]
+{"name":"Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc","publish":false,"annotations":[],"version":"0.0.2","parameters":[],"limits":{},"namespace":"guest"}
+
+13:45:55.605 [print] Trigger name for the created trigger Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc
+13:45:55.607 [print] Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc
+13:45:55.608 [print] Successfully updated the trigger
+13:45:55.618 request:
+1 > GET https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/triggers?limit=30&skip=0
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:56.855 response time in milliseconds: 1237
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 4501
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:25 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [A5UskatbYr2ucsPzGmRHe5cSeozjGm0n, A5UskatbYr2ucsPzGmRHe5cSeozjGm0n]
+1 < X-Request-Id: [A5UskatbYr2ucsPzGmRHe5cSeozjGm0n, A5UskatbYr2ucsPzGmRHe5cSeozjGm0n]
+[{"name":"Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc","publish":false,"annotations":[],"version":"0.0.2","updated":1535357763365,"namespace":"guest"},{"name":"Trigger9f809847-39a8-4e1a-88d9-b4e3f2ce18c8","publish":false,"annotations":[],"version":"0.0.1","updated":1535357606636,"namespace":"guest"},{"name":"Trigger5417c3aa-1786-4946-9dee-200fdabc04b6","publish":false,"annotations":[],"version":"0.0.1","updated":1535357599951,"namespace":"guest"},{"name":"Triggerc9187346-ca73-4a1c-b658-5768ce15bd16","publish":false,"annotations":[],"version":"0.0.1","updated":1535357579525,"namespace":"guest"},{"name":"Trigger2a925696-ccac-4190-8dde-4bfe5223485f","publish":false,"annotations":[],"version":"0.0.1","updated":1535357414716,"namespace":"guest"},{"name":"Trigger44ccb66e-ee54-4ab8-9527-bdbe851b9c32","publish":false,"annotations":[],"version":"0.0.1","updated":1535357395418,"namespace":"guest"},{"name":"Trigger96e1b148-afc4-4185-966e-98fc5f776ab6","publish":false,"annotations":[],"version":"0.0.1","updated":1535357389008,"namespace":"guest"},{"name":"Triggerc3016831-9221-451d-94e6-2471e2f5d77f","publish":false,"annotations":[],"version":"0.0.1","updated":1535357205840,"namespace":"guest"},{"name":"Trigger3ca96030-916f-4850-97d7-e71257831626","publish":false,"annotations":[],"version":"0.0.1","updated":1535357199613,"namespace":"guest"},{"name":"Trigger1e687bb2-ff70-4f96-b086-7b62fb3a7f6a","publish":false,"annotations":[],"version":"0.0.1","updated":1535357179000,"namespace":"guest"},{"name":"Trigger7d11ff99-da2b-4a88-8a20-a9f52fbf26b4","publish":false,"annotations":[],"version":"0.0.1","updated":1535350223887,"namespace":"guest"},{"name":"Triggerf75b2775-0959-4351-9f4e-146a82f21ce5","publish":false,"annotations":[],"version":"0.0.1","updated":1535350205050,"namespace":"guest"},{"name":"Trigger31dc9a08-0564-4cc4-9e94-e9ad5c799e86","publish":false,"annotations":[],"version":"0.0.1","updated":1535350198370,"namespace":"guest"},{"name":"Trigger35c2711e-df89-4056-b722-36cfe496a017","publish":false,"annotations":[],"version":"0.0.1","updated":1535349870179,"namespace":"guest"},{"name":"Trigger472c46e4-15d6-4244-9b73-9dc02ec624a2","publish":false,"annotations":[],"version":"0.0.1","updated":1535349851187,"namespace":"guest"},{"name":"Triggerc483cfe6-9899-4b44-a445-1d469fadde38","publish":false,"annotations":[],"version":"0.0.1","updated":1535349844498,"namespace":"guest"},{"name":"Triggerc2a02971-5380-42ea-b6da-1a9e7844fd0b","publish":false,"annotations":[],"version":"0.0.1","updated":1535349654743,"namespace":"guest"},{"name":"Trigger13458471-aa73-4eb8-8d45-f6d733595bae","publish":false,"annotations":[],"version":"0.0.1","updated":1535349648113,"namespace":"guest"},{"name":"Trigger8b26e835-b75a-479a-ac57-20aad82cd1ca","publish":false,"annotations":[],"version":"0.0.1","updated":1535349627952,"namespace":"guest"},{"name":"Trigger4144df84-0525-4f79-a3f5-939928f08ad7","publish":false,"annotations":[],"version":"0.0.1","updated":1535349148990,"namespace":"guest"},{"name":"Trigger02f06c3a-d768-4007-9e88-b579615afaee","publish":false,"annotations":[],"version":"0.0.1","updated":1535349132479,"namespace":"guest"},{"name":"Triggerb48450cc-ac10-4b9c-a334-7fa4317e540a","publish":false,"annotations":[],"version":"0.0.1","updated":1535349128663,"namespace":"guest"},{"name":"Trigger92ce2f17-8eba-4585-9992-e263df9296d5","publish":false,"annotations":[],"version":"0.0.1","updated":1535348882918,"namespace":"guest"},{"name":"Trigger98d07c63-1c3a-45f0-a871-cb17439b7021","publish":false,"annotations":[],"version":"0.0.1","updated":1535348879110,"namespace":"guest"},{"name":"Trigger124f5aa8-f792-4c58-9828-5aaf36315449","publish":false,"annotations":[],"version":"0.0.1","updated":1535348853584,"namespace":"guest"},{"name":"Triggerc575db9c-1273-4494-92dc-8ec31225e91c","publish":false,"annotations":[],"version":"0.0.1","updated":1535265110437,"namespace":"guest"},{"name":"Triggerdadb695a-da1f-4a55-a285-011be5da3cc8","publish":false,"annotations":[],"version":"0.0.1","updated":1535265106317,"namespace":"guest"},{"name":"Trigger93feb8be-9ec1-42fc-b956-9b255a57123d","publish":false,"annotations":[],"version":"0.0.1","updated":1535265082613,"namespace":"guest"},{"name":"Trigger82c970e0-fd67-4958-b830-e946545985e4","publish":false,"annotations":[],"version":"0.0.1","updated":1535163258814,"namespace":"guest"},{"name":"Triggerfff3a250-0bc0-4404-80fb-077dab426553","publish":false,"annotations":[],"version":"0.0.1","updated":1535163243622,"namespace":"guest"}]
+
+13:45:56.858 [print] Successfully pulled up the list of triggers
+13:45:56.867 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/triggers/Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:45:58.133 response time in milliseconds: 1266
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 153
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:07 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [5An6zyv08i2eBxwOOGMYaN4dv7wR5rCj, 5An6zyv08i2eBxwOOGMYaN4dv7wR5rCj]
+1 < X-Request-Id: [5An6zyv08i2eBxwOOGMYaN4dv7wR5rCj, 5An6zyv08i2eBxwOOGMYaN4dv7wR5rCj]
+{"name":"Trigger0fa51d72-5142-44be-99e5-e9640fdce2fc","publish":false,"annotations":[],"version":"0.0.2","parameters":[],"limits":{},"namespace":"guest"}
+
+13:45:58.134 [print] The value of responseStatusCode is: 200
+13:45:58.137 Trigger got deleted 
+13:45:58.140 [print] Trigger got deleted
+13:45:58.141 [print] Test case completed --> verify create, update, get, fire, list and delete trigger
+13:45:58.150 karate.env system property was: null 
+13:45:58.158 callonce cache hit for: read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+13:45:58.159 [print] Test case started --> verify create and fire a trigger with a rule
+13:45:58.167 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/triggers/Trigger59ba18a5-395d-42df-b026-45e6fad2d66b?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"name":"Trigger59ba18a5-395d-42df-b026-45e6fad2d66b"}
+
+13:45:59.266 response time in milliseconds: 1099
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 153
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:28 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [BwuEUDKyYIMt7NSWN4FG1IK9b2JF6KDb, BwuEUDKyYIMt7NSWN4FG1IK9b2JF6KDb]
+1 < X-Request-Id: [BwuEUDKyYIMt7NSWN4FG1IK9b2JF6KDb, BwuEUDKyYIMt7NSWN4FG1IK9b2JF6KDb]
+{"name":"Trigger59ba18a5-395d-42df-b026-45e6fad2d66b","publish":false,"annotations":[],"version":"0.0.1","parameters":[],"limits":{},"namespace":"guest"}
+
+13:45:59.267 [print] The value of responseStatusCode is: 200
+13:45:59.268 Trigger Created 
+13:45:59.269 [print] Trigger name for the created trigger Trigger59ba18a5-395d-42df-b026-45e6fad2d66b
+13:45:59.270 [print] Successfully Created an trigger
+13:45:59.287 [print] Auth i create-actionBasic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+13:45:59.289 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/actions/Testing7cba0c79-fca5-4a13-a638-7cd5c263e023?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 420
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"namespace":"guest","name":"Testing7cba0c79-fca5-4a13-a638-7cd5c263e023","exec":{"kind":"nodejs:default","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n"},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+13:46:00.437 response time in milliseconds: 1148
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 563
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:09 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [p8T1XLBR8SejnMSMxB6f52KOuu7eHpX3, p8T1XLBR8SejnMSMxB6f52KOuu7eHpX3]
+1 < X-Request-Id: [p8T1XLBR8SejnMSMxB6f52KOuu7eHpX3, p8T1XLBR8SejnMSMxB6f52KOuu7eHpX3]
+{"name":"Testing7cba0c79-fca5-4a13-a638-7cd5c263e023","publish":false,"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key":"exec","value":"nodejs:6"}],"version":"0.0.1","exec":{"kind":"nodejs:6","code":"function main(params) {\n    console.log('hello stdout');\n    console.error('hello stderr');\n    var name = params.name || \"World\";\n    return {payload: \"Hello, \" + name + \"!\"};\n}\n","binary":false},"parameters":[],"limits":{"timeout":60000,"memory":256,"logs":10},"namespace":"guest"}
+
+13:46:00.438 [print] The value of responseStatusCode is: 200
+13:46:00.441 Action Created 
+13:46:00.444 [print] Action name for the created action Testing7cba0c79-fca5-4a13-a638-7cd5c263e023
+13:46:00.447 [print] Successfully Created an action
+13:46:00.465 request:
+1 > PUT https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/rules/Rule992c029b-9e5c-4678-a222-50b8406fcc3f?overwrite=false
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 188
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"name":"Rule992c029b-9e5c-4678-a222-50b8406fcc3f","status":"","trigger":"/guest/Trigger59ba18a5-395d-42df-b026-45e6fad2d66b","action":"/guest/Testing7cba0c79-fca5-4a13-a638-7cd5c263e023"}
+
+13:46:01.810 response time in milliseconds: 1345
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 299
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:30 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [CE1nRnmWY9OeDMJ70etFjRPQVoKKacvT, CE1nRnmWY9OeDMJ70etFjRPQVoKKacvT]
+1 < X-Request-Id: [CE1nRnmWY9OeDMJ70etFjRPQVoKKacvT, CE1nRnmWY9OeDMJ70etFjRPQVoKKacvT]
+{"name":"Rule992c029b-9e5c-4678-a222-50b8406fcc3f","publish":false,"annotations":[],"version":"0.0.1","status":"active","action":{"path":"guest","name":"Testing7cba0c79-fca5-4a13-a638-7cd5c263e023"},"namespace":"guest","trigger":{"path":"guest","name":"Trigger59ba18a5-395d-42df-b026-45e6fad2d66b"}}
+
+13:46:01.811 [print] The value of responseStatusCode is: 200
+13:46:01.814 Rule Created 
+13:46:01.816 [print] Rule name for the created rule Rule992c029b-9e5c-4678-a222-50b8406fcc3f
+13:46:01.818 [print] successfully created the rule
+13:46:01.828 request:
+1 > POST https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/triggers/Trigger59ba18a5-395d-42df-b026-45e6fad2d66b
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Length: 36
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+{"name":"Manoj","place":"Bangalore"}
+
+13:46:03.121 response time in milliseconds: 1293
+1 < 202
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 51
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:32 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: aFVlodS2GVH3ylsOtrmlf1qqYML3Wt3V
+{"activationId":"1552aa6ed8bd4cf192aa6ed8bd0cf182"}
+
+13:46:03.122 [print] The value of responseStatusCode is: 202
+13:46:03.125 Trigger got fired 
+13:46:03.127 [print] Activation ID for the fired trigger 1552aa6ed8bd4cf192aa6ed8bd0cf182
+13:46:03.129 [print]
+13:46:03.137 request:
+1 > DELETE https://controller-a-rtbeta-ue1-a.adobe-runtime.com/api/v1/namespaces/guest/triggers/Trigger59ba18a5-395d-42df-b026-45e6fad2d66b
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Basic NzM4ZTY4NzgtYzA3Zi00YTI3LWExZTAtOGM2NjlmNjAzYjhmOjEyUEgydWFmcWJwS3A3cHI1WDMwN0UyNTRJc2wwNzhKdTNZZXhoZFhFeDYyZkppNDNZRE43M1hJWTgwMjh4MzA=
+1 > Connection: Keep-Alive
+1 > Content-Type: application/json
+1 > Host: controller-a-rtbeta-ue1-a.adobe-runtime.com
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_131)
+
+13:46:04.291 response time in milliseconds: 1153
+1 < 200
+1 < Access-Control-Allow-Headers: Authorization, Content-Type
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Length: 311
+1 < Content-Type: application/json
+1 < Date: Mon, 27 Aug 2018 08:16:13 GMT
+1 < Server: api-gateway/1.9.3.1
+1 < X-Request-ID: [229GMlGmvvxb1LkaR02sMCqQlMYJUiVG, 229GMlGmvvxb1LkaR02sMCqQlMYJUiVG]
+1 < X-Request-Id: [229GMlGmvvxb1LkaR02sMCqQlMYJUiVG, 229GMlGmvvxb1LkaR02sMCqQlMYJUiVG]
+{"name":"Trigger59ba18a5-395d-42df-b026-45e6fad2d66b","publish":false,"annotations":[],"version":"0.0.1","rules":{"guest/Rule992c029b-9e5c-4678-a222-50b8406fcc3f":{"action":{"path":"guest","name":"Testing7cba0c79-fca5-4a13-a638-7cd5c263e023"},"status":"active"}},"parameters":[],"limits":{},"namespace":"guest"}
+
+13:46:04.291 [print] The value of responseStatusCode is: 200
+13:46:04.294 Trigger got deleted 
+13:46:04.296 [print] Trigger got deleted
+13:46:04.297 [print] Test Case completed--> verify create and fire a trigger with a rule
+print] Test Case completed--> verify create and fire a trigger with a rule
+[print] The value of responseStatusCode is: 200
+07:12:07.597 Trigger got deleted 
+07:12:07.599 [print] Trigger got deleted
+07:12:07.600 [print] Test Case completed--> verify create and fire a trigger with a rule
