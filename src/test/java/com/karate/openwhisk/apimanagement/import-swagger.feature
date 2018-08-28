@@ -18,8 +18,7 @@
 Feature: Import Swagger.json
 
  Background: 
-    * configure ssl = true
-    * def nameSpace = 'guest' 
+    * configure ssl = true 
     * def stringify =  read('classpath:com/karate/openwhisk/utils/swagger-stringify.js')
     * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
     

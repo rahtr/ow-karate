@@ -24,6 +24,7 @@ Feature: This feature file will either use the NS credentials provided or get th
   Background: 
     * configure ssl = true
     * def nameSpace = test_user_ns
+    * def base64decoding = read('classpath:com/karate/openwhisk/utils/base64_decode.js')
     * print "Start"
     * eval 
     """
@@ -31,19 +32,23 @@ Feature: This feature file will either use the NS credentials provided or get th
     {
     var getNSCreds = karate.callSingle('classpath:com/karate/openwhisk/wskadmin/get-user.feature');
     var test=getNSCreds.Auth; 
-    karate.set('authFunction',  getNSCreds.Auth);
+    karate.set('authFunction',  'Basic '+getNSCreds.Auth);
+    karate.set('guid', getNSCreds.uuid[0]);
     }   
     else
     {
+    var getGUID = base64decoding(test_user_key); 
     karate.set('authFunction' , 'Basic '+test_user_key);
+    karate.set('guid' , getGUID);
     karate.log('I am here');
-    karate.log(authFunction);
+    karate.log(getGUID);
     }
     """
 
    Scenario: This line is required please do not delete - or the functions cannot be called
      * def Auth = authFunction
-     * print 'In get-auth file' + Auth
+     * def guid = guid
+     * print 'In get-auth file' + guid
 
     
       

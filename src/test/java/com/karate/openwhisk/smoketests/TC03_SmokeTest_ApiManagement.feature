@@ -31,29 +31,30 @@ Feature: This feature file will test the basic API Management Functionality
     * string raw_swagger = read('classpath:com/karate/openwhisk/utils/pet-store-swagger.json')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
+    * def guid = getAuth.guid
     * def webAction = 'true'
        * table apis
     | endpoint   | methodtype |
-    | '/apis/guest/v2/pet/test123'  | 'get'|
-    |'/apis/guest/v2/pet/test123'   |'post'|
-    |'/apis/guest/v2/pet/test123'   |'delete'|
-    |'/apis/guest/v2/pet'   |'post'|
-    |'/apis/guest/v2/pet'   |'put'|
-    |'/apis/guest/v2/pet/findByStatus'   |'get'|
-    |'/apis/guest/v2/store/order'        |'post'|
-    |'/apis/guest/v2/store/order/test234' |'get'|
-    |'/apis/guest/v2/store/order/test234' |'delete'|
-    |'/apis/guest/v2/user/logout'         |'get'|
-    |'/apis/guest/v2/user'                |'post'|
-    |'/apis/guest/v2/user/login'          |'get'|
-    |'/apis/guest/v2/pet/test123/uploadImage'  |'post'|
-    |'/apis/guest/v2/user/createWithArray'    |'post'|
-    |'/apis/guest/v2/pet/findByTags'          |'get'|
-    |'/apis/guest/v2/store/inventory'         |'get'|
-    |'/apis/guest/v2/user/createWithList'     |'post'|
-    |'/apis/guest/v2/user/tester'             |'get'|
-    |'/apis/guest/v2/user/tester'             |'put'|
-    |'/apis/guest/v2/user/tester'             |'delete'|
+    | '/apis/'+nameSpace+'/v2/pet/test123'  | 'get'|
+    |'/apis/'+nameSpace+'/v2/pet/test123'    |'post'|
+    |'/apis/'+nameSpace+'/v2/pet/test123'    |'delete'|
+    |'/apis/'+nameSpace+'/v2/pet'   |'post'|
+    |'/apis/'+nameSpace+'/v2/pet'   |'put'|
+    |'/apis/'+nameSpace+'/v2/pet/findByStatus'   |'get'|
+    |'/apis/'+nameSpace+'/v2/store/order'        |'post'|
+    |'/apis/'+nameSpace+'/v2/store/order/test234' |'get'|
+    |'/apis/'+nameSpace+'/v2/store/order/test234' |'delete'|
+    |'/apis/'+nameSpace+'/v2/user/logout'         |'get'|
+    |'/apis/'+nameSpace+'/v2/user'                |'post'|
+    |'/apis/'+nameSpace+'/v2/user/login'          |'get'|
+    |'/apis/'+nameSpace+'/v2/pet/test123/uploadImage'  |'post'|
+    |'/apis/'+nameSpace+'/v2/user/createWithArray'    |'post'|
+    |'/apis/'+nameSpace+'/v2/pet/findByTags'          |'get'|
+    |'/apis/'+nameSpace+'/v2/store/inventory'         |'get'|
+    |'/apis/'+nameSpace+'/v2/user/createWithList'     |'post'|
+    |'/apis/'+nameSpace+'/v2/user/tester'             |'get'|
+    |'/apis/'+nameSpace+'/v2/user/tester'             |'put'|
+    |'/apis/'+nameSpace+'/v2/user/tester'             |'delete'|
 
     
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  

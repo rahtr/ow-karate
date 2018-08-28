@@ -14,12 +14,11 @@
  #*  limitations under the License.
  #*/
 @apimanagement
-@ignnore
+@ignore
 Feature: The feature gets the list of API's from the input base path.This Feature can be run standalone or in sequence with other tests
 
  Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
 
     
   Scenario: Import Swagger.json from the utils and print the output as a string    
