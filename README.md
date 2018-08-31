@@ -3,7 +3,7 @@ This repository contains all the Test Cases needed to do various forms of automa
 These tests are based on the BDD model and enabled quick on-boarding of the tests.
 It is based of karate (https://github.com/intuit/karate) framework. 
 
-### Structure
+### Structure of Tests
 The project structure is divided into the following packages:
 1. Functions:This package will contain all the test functions needed to Create/Update an action
 2. Utils:This package bundles all the utility functions like sleep,generate test string/number together
