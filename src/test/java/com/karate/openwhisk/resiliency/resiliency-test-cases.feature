@@ -23,8 +23,9 @@ Feature:  This feature file will test all the wsk functions.It will use User3 cr
 
   Background:
 * configure ssl = true
-* def nameSpace = NS_botTester3
-* def Auth = Auth_botTester3
+* def nameSpace = test_user_ns
+* def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+ * def Auth = getAuth.Auth
 * def params = '?blocking=true&result=false'
 * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
 
