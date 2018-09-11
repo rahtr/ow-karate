@@ -20,15 +20,13 @@ Feature: This feature contains negative regression test cases of openwhisk trigg
 
 	Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+    #* def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def nameSpace2 = 'normaluser'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-    #get the Auth
-    * def getNSCreds = callonce read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def Auth = getNSCreds.Auth
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
     
   #@ignore  
   Scenario: As a user i want to verify reject creation of duplicate triggers
@@ -150,7 +148,7 @@ Feature: This feature contains negative regression test cases of openwhisk trigg
     * print "Successfully pulled the activation details"
     * string log = getActivationDetails.activationDetails.logs[1]
     * print 'log is: ' + log
-    * string error = "Rule \'guest/" + ruleName + "\' is inactive"
+    * string error = "Rule \'"+ nameSpace +"/" + ruleName + "\' is inactive"
     * print "error message is: " + error
     * match log contains error
     * print "Test case completed --> verify create and fire a trigger having an active rule and an inactive rule"
