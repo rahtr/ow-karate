@@ -25,7 +25,8 @@ Feature: This feature file will test all the wsk functions
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcodefirst = call read('classpath:com/karate/openwhisk/functions/myAction.js')
-    * def scriptcodesecond = call read('classpath:com/karate/openwhisk/functions/triggerAnotherAction.js')
+    * def scriptcodesecondparams =  read('classpath:com/karate/openwhisk/functions/triggerAnotherAction.js')
+    * def scriptcodesecond = scriptcodesecondparams(nameSpace)
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
 

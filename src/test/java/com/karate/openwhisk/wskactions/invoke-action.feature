@@ -37,7 +37,7 @@ Feature:  Invoke action and return activation ID
     
     * eval 
     """
-    if(responseStatusCode==200){
+    if(responseStatusCode==200||202){
     	 karate.log("Action got invoked");
     	 karate.set('activationId', response.activationId);
     	 }

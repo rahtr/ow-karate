@@ -1,5 +1,5 @@
-function(){
-var triggerAnotherAction = "function main(params) {\n  return new Promise((resolve, reject) => {\nvar openwhisk = require(\"openwhisk\")\t\t\nconsole.log(\"HIIIIII\");\nvar ow = openwhisk({\n  api_key: global.process.env.__OW_API_KEY,\n  apihost: global.process.env.__OW_API_HOST,\n  ignore_certs: true\n});\now.actions.invoke({\nname: \"/guest/myNestedAction\",\n  blocking: true,\n  result: true,\n params: {\n    invoked_from_action: global.process.env.__OW_ACTION_NAME\n  }\n})\n.then(result => {\nconsole.log(\"HIIIIII3\");\n    resolve(result);\n})\n.catch(err => {\n    console.error(\"Could not invoke another action:\",err);\n    console.log(args);\n    reject(err);\n});\n} );\n}\n";
+function(nameSpace){
+var triggerAnotherAction = "function main(params) {\n  return new Promise((resolve, reject) => {\nvar openwhisk = require(\"openwhisk\")\t\t\nconsole.log(\"HIIIIII\");\nvar ow = openwhisk({\n  api_key: global.process.env.__OW_API_KEY,\n  apihost: global.process.env.__OW_API_HOST,\n  ignore_certs: true\n});\now.actions.invoke({\nname: \"/"+nameSpace+"/myNestedAction\",\n  blocking: true,\n  result: true,\n params: {\n    invoked_from_action: global.process.env.__OW_ACTION_NAME\n  }\n})\n.then(result => {\nconsole.log(\"HIIIIII3\");\n    resolve(result);\n})\n.catch(err => {\n    console.error(\"Could not invoke another action:\",err);\n    console.log(args);\n    reject(err);\n});\n} );\n}\n";
 return triggerAnotherAction;
 }
 
