@@ -17,7 +17,6 @@
 #Summary :This feature file will check for any erros in the logs
 @smoketests
 
-
 Feature: This feature file will test for the presence of any error in the logs pulled using the activationID
 
   Background: 
@@ -29,7 +28,7 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def Auth = getAuth.Auth
 
   Scenario: TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID
-    
+    * print "TC04 STARTS"
     # Create an Action .Create an action for the above defined guest name
     #* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName:'Dammyyy'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
@@ -53,3 +52,4 @@ Feature: This feature file will test for the presence of any error in the logs p
     * print activationResponse.logs
     * match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
     * print "Successfully pulled the activation details"
+    * print "TC04 ENDS"

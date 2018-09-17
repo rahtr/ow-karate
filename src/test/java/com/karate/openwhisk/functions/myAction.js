@@ -1,7 +1,8 @@
-function(){
-var deleteResponse = "function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n        body: {env: process.env},\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n";
-return deleteResponse;
+function() {
+var scriptcode ="function main(params) {\n\n    return {\n\n        statusCode: 200,\n\n        body: {env: process.env},\n\n        headers: {\n\n            \"Cache-Control\": \"max-age=60\"\n\n        }\n\n    }\n\n}\n\n";
+return scriptcode;
 }
+//Sample Hello World Functions
 /**
  *  Copyright 2017-2018 Adobe.
  *
