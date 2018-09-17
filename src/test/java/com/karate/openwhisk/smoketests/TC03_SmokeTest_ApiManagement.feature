@@ -60,6 +60,14 @@ Feature: This feature file will test the basic API Management Functionality
 
     
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  
+    # Delete the list of actions if already present
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'getResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'postResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'putResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'deleteResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * print "Successfully deleted all the actions"
+    
+    
     # Create an Action .Create an 4 actions for the above defined guest name.This will be used by the API's
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeget)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'getResponse' , webAction: '#(webAction)'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodepost)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName: 'postResponse' , webAction: '#(webAction)'}
