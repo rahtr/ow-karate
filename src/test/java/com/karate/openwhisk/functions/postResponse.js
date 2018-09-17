@@ -1,7 +1,7 @@
 
 function()
 {
-var postResponse = "function main(params) {\n    return {\n        statusCode: 200,\n        body: params,\n        headers: {\n            \"Cache-Control\": \"max-age=60\"\n        }\n    }\n}\n";
+var postResponse = "function main({name:name='Serverless API'}) {\n    return {\n      body: {payload:`Hello world ${name}`},\n      statusCode: 200,\n        body: {env: process.env},\n      headers:{ 'Content-Type': 'application/json'}\n    };\n}\n";
 return postResponse;
 }
 

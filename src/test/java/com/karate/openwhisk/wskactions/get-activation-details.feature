@@ -32,5 +32,9 @@ Background:
     Then status 200
     And def activationDetails = response
     * print 'Activation ID for the Invoke action(I was here in activation details ' + activationId
+     
+    #Assert nested action is invoked successfully
+    * string nestedActionName = $response.response[*].body[*].__OW_ACTION_NAME
+    * print nestedActionName
    # And match response !contains {"annotations": [{"key": "initTime"}]}
    * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)

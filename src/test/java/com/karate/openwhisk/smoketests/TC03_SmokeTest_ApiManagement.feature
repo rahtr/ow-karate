@@ -17,6 +17,8 @@
 #Summary :This feature file will 1)Import the swagger file 2)Get the list of API's 3)Hit each API and assert on 200 OK
 @smoketests
 
+
+
 Feature: This feature file will test the basic API Management Functionality
 
   Background: 
@@ -62,7 +64,7 @@ Feature: This feature file will test the basic API Management Functionality
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeget)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'getResponse' , webAction: '#(webAction)'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodepost)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName: 'postResponse' , webAction: '#(webAction)'}
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeput)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'putResponse' , webAction: '#(webAction)'}
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodedelete)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName: 'deleteResponse' , webAction: '#(webAction)'}
+    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodedelete)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName: 'deleteResponse' , webAction: '#(webAction)'}s
     * print "Successfully Created the required actions"
     
     # Call the import Swagger feature file and import the swagger
@@ -75,7 +77,7 @@ Feature: This feature file will test the basic API Management Functionality
     * def sleepsometime = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'15'}
      * print "Got the List of APIs Hurray!"
    
-   #Hit the imnported APIs and asset the response
+      #Hit the imnported APIs and asset the response
       * def result = callonce read('classpath:com/karate/openwhisk/apimanagement/hit-api.feature') apis
    
    

@@ -45,6 +45,5 @@ Feature:  Invoke action and return activation ID
        karate.log("The requested Action does not exist.");
        }
     """
-    #And def activationId = response.activationId
-    * print 'Activation ID for the Invoke action ' + activationId
-    #* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+    * print response.activationId
+  

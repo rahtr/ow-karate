@@ -17,23 +17,24 @@
 #Summary :This feature file will check for the containers
 @smoketests
 
-
 Feature: This feature file will test all the wsk functions
 
   Background: 
     * configure ssl = true
+    * configure readTimeout = 1200000
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
-    * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
+    * def scriptcodefirst = call read('classpath:com/karate/openwhisk/functions/myAction.js')
+    * def scriptcodesecond = call read('classpath:com/karate/openwhisk/functions/triggerAnotherAction.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
 
   Scenario: TC01-As a user I want to all the wsk functions available to the user and check if they give the proper response
-     # Create an Action .Create an action for the above defined guest name
-    #* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName:'Dammyyy'}
-    * print 'I am inn TC01-' + Auth
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = createAction.actName
+     # Create an Action .Create an action for the above defined guest name.The action code with invoke another action
+    * print 'TC01 STARTS'
+    * def createFirstAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodefirst)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'myNestedAction'}
+    * def createSecondAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodesecond)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def actionName = createSecondAction.actName
     * print actionName
     * print "Successfully Created an action"
     
@@ -41,7 +42,7 @@ Feature: This feature file will test all the wsk functions
     * def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
     * print "Successfully got the action details"
     
-    #Invoke Action
+    #Invoke Action+ Nested Action Code
     * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
     * def actID = invokeAction.activationId
     * print  = "Successfully invoked the action"
@@ -49,11 +50,12 @@ Feature: This feature file will test all the wsk functions
     
     #Get Activation details
     * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
+    * match getActivationDetails.nestedActionName == '["/'+test_user_ns+'/myNestedAction"]'
     * print "Successfully pulled the activation details"
     
     # Update Action
-    * def updateAction = call read('classpath:com/karate/openwhisk/wskactions/update-action.feature') {actionName:'#(actionName)',script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = createAction.actName
+    * def updateAction = call read('classpath:com/karate/openwhisk/wskactions/update-action.feature') {actionName:'#(actionName)',script:'#(scriptcodesecond)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def actionName = createSecondAction.actName
     * print actionName
     * print "Successfully updated the action"
     
@@ -63,4 +65,7 @@ Feature: This feature file will test all the wsk functions
     
     # Delete Action
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'myNestedAction' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * print "Successfully deleted the action"
+    
+    * print 'TC01 ENDS'
