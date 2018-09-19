@@ -2,7 +2,7 @@ function() {
     var env = karate.env; // get system property 'karate.env'
     var adminauth = karate.properties['adminauth'];
     var adminbaseurl = karate.properties['adminbaseurl'];
-    var controller_url = karate.properties['controller_url'];
+    var baseurl = karate.properties['baseurl'];
     var test_user_ns = karate.properties['test_user_ns'];
     var test_user_key = karate.properties['test_user_key'];
     
@@ -19,9 +19,9 @@ function() {
         adminbaseurl='http://localhost:5984'
 
     }
-    if (!controller_url) {
+    if (!baseurl) {
 
-        controller_url='https://localhost:443'
+        baseurl='https://localhost:443'
 
     }
     
@@ -33,7 +33,7 @@ function() {
     var config = {
             env: env,
             adminauth:adminauth,
-            controller_url:controller_url,
+            baseurl:baseurl,
             adminbaseurl:adminbaseurl,
             test_user_ns:test_user_ns,
             test_user_key:test_user_key
@@ -44,7 +44,7 @@ function() {
         // Admin Config
         config.AdminAuth="Basic " +adminauth,
         config.AdminBaseUrl=adminbaseurl,
-        config.BaseUrl=controller_url
+        config.BaseUrl=baseurl
 
         return config;
 }
