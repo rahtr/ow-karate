@@ -18,7 +18,6 @@
 @smoketests
 
 
-
 Feature: This feature file will test the basic API Management Functionality
 
   Background: 
@@ -60,7 +59,7 @@ Feature: This feature file will test the basic API Management Functionality
 
     
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  
-    # Delete the list of actions if already present
+    # Delete the list of actions if already presents
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'getResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'postResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'putResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}

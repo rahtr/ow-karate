@@ -17,7 +17,6 @@
 #Summary :This feature file will check for any erros in the logs
 @smoketests
 
-
 Feature: This feature file will test for the presence of any error in the logs pulled using the activationID
 
   Background: 
