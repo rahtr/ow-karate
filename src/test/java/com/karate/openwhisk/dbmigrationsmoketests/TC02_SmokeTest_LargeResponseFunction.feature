@@ -16,7 +16,7 @@
 #Author: rtripath@adobe.com
 # Summary :This feature file will check for the containers
 @dbmigrationsmoketests
-
+@ignore
 
 Feature:  This feature file will download a large image from cc storage
 

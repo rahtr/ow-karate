@@ -17,6 +17,7 @@
 #Keywords Summary : This feature is all about smoke test cases of Triggers
 @dbmigrationsmoketests
 
+
 Feature: This feature contains smoke test cases of openwhisk triggers
 
 	Background: 
@@ -26,7 +27,7 @@ Feature: This feature contains smoke test cases of openwhisk triggers
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
-    * def triggerName = 'Triggerd521ff28-0291-47c1-8d21-a5a8ea91ddc1'
+    * def triggerName = 'Trigger3f9cbb51-511b-4113-afe9-e3e2a78aa713'
  
 
 Scenario: As a user i want to verify create, update, get, fire, list and delete trigger

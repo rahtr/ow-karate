@@ -17,7 +17,6 @@
 #Summary :This feature file will check for the containers
 @dbmigrationsmoketests
 
-
 Feature: This feature file will test all the wsk functions
 
   Background: 
@@ -30,7 +29,7 @@ Feature: This feature file will test all the wsk functions
     * def scriptcodesecond = scriptcodesecondparams(nameSpace)
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
-    * def actionName = 'Testing8ec0cf84-1972-417a-a0dc-fda6bb96554f'
+    * def actionName = 'Testinge60fb3ca-a865-44ce-a0aa-866e472a67ed'
   
 
 

@@ -27,7 +27,7 @@ Feature: This feature contains smoke test cases of openwhisk triggers
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
-    * def ruleName = 'Rule8f289590-a40d-404b-8278-c8d4b4780122'
+    * def ruleName = 'Ruleef720c9e-709b-44dd-bccb-1ab4f866913b'
     * def triggerName1 = ''
     * def actionName1 = ''
     * def trgrName1 = ''
@@ -37,7 +37,7 @@ Feature: This feature contains smoke test cases of openwhisk triggers
   Scenario: As a user i want to verify create rule, get rule, update rule,list rule and delete rule
    	* print "Test case started --> verify create rule, get rule, update rule,list rule and delete rule" 
     #get the rule
-    * def getRule = call read('classpath:com/karate/openwhisk/wskrules/get-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'Rule8f289590-a40d-404b-8278-c8d4b4780122'}
+    * def getRule = call read('classpath:com/karate/openwhisk/wskrules/get-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'Ruleef720c9e-709b-44dd-bccb-1ab4f866913b'}
     * match getRule.responseStatusCode == 200
     * def actualRuleName = getRule.rulName
     * match actualRuleName == ruleName
