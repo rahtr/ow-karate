@@ -17,6 +17,7 @@
 #Summary :This feature file will check for the containers
 @dbmigrationsmoketests
 
+
 Feature: This feature file will test all the wsk functions
 
   Background: 
@@ -29,8 +30,8 @@ Feature: This feature file will test all the wsk functions
     * def scriptcodesecond = scriptcodesecondparams(nameSpace)
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
-    * def actionName = 'Testingb63b1c76-1573-43fc-b387-732322780f16'
-    * def actOldID = '95759d094d33479eb59d094d33b79e34'
+    * def actionName = 'Testing8ec0cf84-1972-417a-a0dc-fda6bb96554f'
+  
 
 
   Scenario: TC01-As a user I want to all the wsk functions available to the user and check if they give the proper response
@@ -45,19 +46,10 @@ Feature: This feature file will test all the wsk functions
     * print  = "Successfully invoked the action"
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     
-    #Get Activation details
-    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actOldID)' ,Auth:'#(Auth)'}
-    * match getActivationDetails.nestedActionName == '["/'+test_user_ns+'/myNestedAction"]'
-    * print "Successfully pulled the old activation details"
-    
-     #Get Activation details
-    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
-    * match getActivationDetails.nestedActionName == '["/'+test_user_ns+'/myNestedAction"]'
-    * print "Successfully pulled the new activation details"
-    
+
     # Update Action
     * def updateAction = call read('classpath:com/karate/openwhisk/wskactions/update-action.feature') {actionName:'#(actionName)',script:'#(scriptcodesecond)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = createSecondAction.actName
+    * def actionName = updateAction.actName
     * print actionName
     * print "Successfully updated the action"
     
@@ -68,6 +60,6 @@ Feature: This feature file will test all the wsk functions
     # Delete Action
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'#(actionName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'myNestedAction' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * print "Successfully deleted the action"
+   * print "Successfully deleted the action"
     
     * print 'TC01 ENDS'

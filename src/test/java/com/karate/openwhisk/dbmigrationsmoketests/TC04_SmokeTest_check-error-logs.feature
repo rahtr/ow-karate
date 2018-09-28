@@ -27,8 +27,9 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
-    * def actionName = 'Testing238eb73d-4054-47f3-b95e-15fa7ddf10b6'
-    * def actOldID = 'abc3ba94d7d7409083ba94d7d75090c1'
+    * def actionName = 'Testingfe4d8501-d51d-49d3-9b98-05d3ca46af25'
+    * def actOldID = '29e7f5014dac4037a7f5014dac303782'
+    
 
   Scenario: TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID
     * print "TC04 STARTS"

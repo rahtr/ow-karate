@@ -17,8 +17,6 @@
 #Summary :This feature file will 1)Import the swagger file 2)Get the list of API's 3)Hit each API and assert on 200 OK
 @dbmigrationsmoketests
 
-
-
 Feature: This feature file will test the basic API Management Functionality
 
   Background: 
