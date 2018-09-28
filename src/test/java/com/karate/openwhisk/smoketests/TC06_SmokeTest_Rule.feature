@@ -84,10 +84,7 @@ Feature: This feature contains smoke test cases of openwhisk triggers
     # List rules
     * def listRules = call read('classpath:com/karate/openwhisk/wskrules/list-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * print "Successfully pulled up the list of rules"
-    # Delete the Rule
-    * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/delete-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
-    * match deleteRule.responseStatusCode == 200
-    * print "Test case completed --> verify create rule, get rule, update rule,list rule and delete rule"
+   
     
     #@ignore 
   Scenario: As a user i want to verify create rule, get rule, ensure rule is enabled by default

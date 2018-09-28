@@ -15,7 +15,7 @@
  #*/
 #Author: rtripath@adobe.com
 #Summary :This feature file will check for any erros in the logs
-@smoketests
+@dbmigrationsmoketests
 
 
 Feature: This feature file will test for the presence of any error in the logs pulled using the activationID
@@ -27,16 +27,11 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
+    * def actionName = 'Testing238eb73d-4054-47f3-b95e-15fa7ddf10b6'
+    * def actOldID = 'abc3ba94d7d7409083ba94d7d75090c1'
 
   Scenario: TC04-As a user I want verify that there are no errors in the logs pulled using the ActivationID
     * print "TC04 STARTS"
-    # Create an Action .Create an action for the above defined guest name
-    #* def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName:'Dammyyy'}
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = createAction.actName
-    * print actionName
-    * print "Successfully Created an action"
-    
     # Get Action Details
     * def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
     * print "Successfully got the action details"
@@ -47,6 +42,14 @@ Feature: This feature file will test for the presence of any error in the logs p
     * print  = "Successfully invoked the action"
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     
+    #Get OLD Activation details
+    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actOldID)' ,Auth:'#(Auth)'}
+    * def activationResponse = getActivationDetails.response
+    * print activationResponse.logs
+    * match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
+    * print "Successfully pulled the activation details"
+    
+    
     #Get Activation details
     * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
     * def activationResponse = getActivationDetails.response
@@ -54,3 +57,6 @@ Feature: This feature file will test for the presence of any error in the logs p
     * match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
     * print "Successfully pulled the activation details"
     * print "TC04 ENDS"
+
+
+    

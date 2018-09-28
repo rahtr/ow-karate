@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 // Copyright 2017-2018 Adobe.
-package com.karate.openwhisk.smoketests;
+package com.karate.openwhisk.dbmigrationsmoketests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -39,8 +39,8 @@ import net.masterthought.cucumber.ReportBuilder;
  *
  */
 
-@CucumberOptions(tags = {"~@ignore","~@driver","~@reliability","~@resiliency","~@concurrent","~@wskfunctions","~@dbmigrationsmoketests"})
-public class SmokeTestRunner {
+@CucumberOptions(tags = {"~@ignore","~@driver","~@reliability","~@resiliency","~@concurrent","~@wskfunctions"})
+public class DBMigrationSmokeTestRunner {
     @Test
     public void testwskFunctions() {
 

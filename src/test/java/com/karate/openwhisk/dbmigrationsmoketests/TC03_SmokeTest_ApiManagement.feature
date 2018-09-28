@@ -15,7 +15,7 @@
  #*/
 #Author: rtripath@adobe.com
 #Summary :This feature file will 1)Import the swagger file 2)Get the list of API's 3)Hit each API and assert on 200 OK
-@smoketests
+@dbmigrationsmoketests
 
 
 
@@ -60,25 +60,7 @@ Feature: This feature file will test the basic API Management Functionality
 
     
   Scenario: TC03-As a user I want to import my swagger.json and see if my API gives a Two Hundred OK response  
-    # Delete the list of actions if already presents
-    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'getResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'postResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'putResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'deleteResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * print "Successfully deleted all the actions"
-    
-    
-    # Create an Action .Create an 4 actions for the above defined guest name.This will be used by the API's
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeget)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'getResponse' , webAction: '#(webAction)'}
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodepost)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', actionName: 'postResponse' , webAction: '#(webAction)'}
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeput)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' , actionName: 'putResponse' , webAction: '#(webAction)'}
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodedelete)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)' ,actionName: 'deleteResponse' , webAction: '#(webAction)'}s
-    * print "Successfully Created the required actions"
-    
-    # Call the import Swagger feature file and import the swagger
-    * def importSwagger = call read('classpath:com/karate/openwhisk/apimanagement/import-swagger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',guid:'#(guid)' , raw_swagger: '#(raw_swagger)'}
-    * print "Successfully imported the swagger"
-    
+ 
     #Call the get-api-list swagger to get the list of the imported swagger
     * def getSwaggerList = call read('classpath:com/karate/openwhisk/apimanagement/get-api-list.feature') {guid:'#(guid)' ,Auth:'#(Auth)'}
     * print  = "Successfully got the List of API's"
@@ -89,5 +71,15 @@ Feature: This feature file will test the basic API Management Functionality
       * def result = callonce read('classpath:com/karate/openwhisk/apimanagement/hit-api.feature') apis
    
    
+      # Call the Delete API feature file to delete the imported API List
+    * def deleteSwagger = call read('classpath:com/karate/openwhisk/apimanagement/delete-api-list.feature') {guid:'#(guid)' ,Auth:'#(Auth)'}
+    * print "Successfully imported the swagger"
+    
+    # Delete the list of actions
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'getResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'postResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'putResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def deleteAction = call read('classpath:com/karate/openwhisk/wskactions/delete-action.feature') {actionName:'deleteResponse' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * print "Successfully deleted all the actions"
     
     

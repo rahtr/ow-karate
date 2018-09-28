@@ -15,7 +15,7 @@
  #*/
 #Author: mamishra@adobe.com
 #Keywords Summary : This feature is all about smoke test cases of Triggers
-@smoketests
+@dbmigrationsmoketests
 
 Feature: This feature contains smoke test cases of openwhisk triggers
 
@@ -26,15 +26,11 @@ Feature: This feature contains smoke test cases of openwhisk triggers
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
     * def Auth = getAuth.Auth
+    * def triggerName = 'Triggera067dc9a-0496-4e95-8453-f275104eac8f'
+    * def triggerRuleName = 'Trigger2880b845-8620-4caf-acf4-686d527f2a29'
 
 Scenario: As a user i want to verify create, update, get, fire, list and delete trigger
 		* print "Test case started --> verify create, update, get, fire, list and delete trigger"
-    #create a trigger
-    * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def triggerName = createTrigger.trgrName
-    * match createTrigger.responseStatusCode == 200
-    * print "Successfully Created an trigger"
-    
     #fire a trigger
     * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
     * def actID = fireTrigger.activationId
@@ -55,29 +51,23 @@ Scenario: As a user i want to verify create, update, get, fire, list and delete 
     # List Triggers
     * def listRules = call read('classpath:com/karate/openwhisk/wsktriggers/list-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * print "Successfully pulled up the list of triggers"
-   
+    
+    #Delete the trigger
+    * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+  	* match deleteTrigger.responseStatusCode == 200
+  	*  print "Trigger got deleted"
+  	* print "Test case completed --> verify create, update, get, fire, list and delete trigger"
+  	
   #@ignore  
   Scenario: As a user i want to verify create and fire a trigger with a rule
     * print "Test case started --> verify create and fire a trigger with a rule" 
-    #create a trigger
-    * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def triggerName = createTrigger.trgrName
-    * match createTrigger.responseStatusCode == 200
-    * print "Successfully Created an trigger" 
-    #create a action
-    * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * def actionName = createAction.actName
-    * match createAction.responseStatusCode == 200
-    * print "Successfully Created an action"
-    #create a rule
-    * def trgrName = '/'+nameSpace +'/'+triggerName
-    * def actName = '/'+nameSpace +'/'+actionName
-    * def createRule = call read('classpath:com/karate/openwhisk/wskrules/create-rule.feature') {triggerName:'#(trgrName)', actionName:'#(actName)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
-    * match createRule.responseStatusCode == 200
-    * print 'successfully created the rule'
     #fire the trigger
-    * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerName)'}
+    * def fireTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/fire-trigger.feature') {requestBody:'{"name":"Manoj","place":"Bangalore"}',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerRuleName)'}
     * def actID = fireTrigger.activationId
     * print  = "Successfully fired the trigger"
-
+    #Delete the trigger
+    * def deleteTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/delete-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',triggerName:'#(triggerRuleName)'}
+  	* match deleteTrigger.responseStatusCode == 200
+  	*  print "Trigger got deleted"
+  	* print 'Test Case completed--> verify create and fire a trigger with a rule'
     
