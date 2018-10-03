@@ -20,22 +20,16 @@ Feature: This feature contains basic test cases of openwhisks actions
 
   Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+     * def nameSpace = test_user_ns
     * def nameSpace2 = 'normaluser'
     * def params = '?blocking=true&result=false'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-    * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
 	#@ignore
   Scenario: As a user i want to verify the creation of duplicate entity
-  	* print 'Test case started--> verify the creation of duplicate entity'
-    # Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
+  	* print 'Test case started--> verify the creation of duplicate entity'    
     #create action. Create an action for the above defined guest name
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcode)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
@@ -50,13 +44,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     
 		
     Scenario: As a user is want to verify the creation the same action twice with different case letters
-    * print 'Test case started--> verify the creation the same action twice with different case letters'
-    # Get User Auth for guest
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * print 'Test case started--> verify the creation the same action twice with different case letters
     #create action. Create an action
     * def UUID = java.util.UUID.randomUUID()
     * def fullName = 'Testing'+ UUID
@@ -90,12 +78,6 @@ Feature: This feature contains basic test cases of openwhisks actions
    #@ignore
    Scenario: As a user i want to Verify reject delete of action that does not exist
    	* print 'Test case started--> Verify reject delete of action that does not exist'
-   	* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
     * def actionName = 'Testing'+java.util.UUID.randomUUID()
     
     # Delete Action
@@ -106,12 +88,6 @@ Feature: This feature contains basic test cases of openwhisks actions
     #@ignore
     Scenario: As a user i want to verify reject invocation of action that does not exist
     * print 'Test case started--> verify reject invocation of action that does not exist'
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
     * def actionName = 'Testing'+java.util.UUID.randomUUID()
     #Invoke the action
     * def invokeAction = call read('classpath:com/karate/openwhisk/wskactions/invoke-action.feature') {params:'#(params)',requestBody:'',nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
@@ -122,12 +98,6 @@ Feature: This feature contains basic test cases of openwhisks actions
     #@ignore
     Scenario: As a user i want to verify reject get of an action that does not exist
     * print 'Test case started--> verify reject get of an action that does not exist'
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
     * def actionName = 'Testing'+java.util.UUID.randomUUID()
     #Get action details
     * def actionDetails = call read('classpath:com/karate/openwhisk/wskactions/get-action.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'#(actionName)'}
@@ -137,12 +107,7 @@ Feature: This feature contains basic test cases of openwhisks actions
     #@ignore
     Scenario: As a user i want to verify create, and invoke an action using a parameter file
     * print 'Test case started--> verify create, and invoke an action using a parameter file'
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
-    
+ 
     # create action with param
     * def createAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodeWithParam)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * def actionName = createAction.actName
@@ -159,11 +124,7 @@ Feature: This feature contains basic test cases of openwhisks actions
    #@ignore
     Scenario: As a user i want to verify create an action with a name that contains spaces
     * print 'Test case started--> verify create an action with a name that contains spaces'
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+
     #Create the action with name having space
     * def UUID = java.util.UUID.randomUUID()
     * def actionNameWithSpce = 'Testing%20'+ UUID

@@ -20,26 +20,16 @@ Feature: This feature contains positive regression test cases of openwhisk rules
 
 	Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def nameSpace2 = 'normaluser'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-    * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
-    #get the Auth
-    #* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    #* def Auth = getNSCreds.Auth
-    #* print "Got the Creds for the guest user"
-    #* print Auth
+   * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
     
   #@ignore  
   Scenario: As a user i want to verify create a rule, and get its individual fields
    	* print "Test case started --> verify create a rule, and get its individual fields" 
-   	# Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
     #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * match createTrigger.responseStatusCode == 200
