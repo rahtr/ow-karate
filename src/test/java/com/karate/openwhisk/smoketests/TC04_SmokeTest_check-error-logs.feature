@@ -50,6 +50,6 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def getActivationLogs = call read('classpath:com/karate/openwhisk/wskactions/get-activation-logs.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
     * def activationLogsResponse = getActivationLogs.response
     * print activationLogsResponse
-    * match activationLogsResponse == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
+    * match activationLogsResponse.logs contains ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
     * print "Successfully pulled the activation logs"
     * print "TC04 ENDS"
