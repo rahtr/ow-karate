@@ -20,21 +20,18 @@ Feature: This feature contains negative regression test cases of openwhisk rules
 
 	Background: 
     * configure ssl = true
-    * def nameSpace = 'guest'
+    #* def nameSpace = 'guest'
+    * def nameSpace = test_user_ns
     * def nameSpace2 = 'normaluser'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
-    * def base64encoding = read('classpath:com/karate/openwhisk/utils/base64.js')
+    * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
+    * def Auth = getAuth.Auth
     
   #@ignore  
   Scenario: As user i want to verify reject creation of duplicate rules  
     * print "Test case started --> verify reject creation of duplicate rules"
-    # Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * print 'The Auth is- ' + Auth
      #create a trigger
     * def createTrigger = call read('classpath:com/karate/openwhisk/wsktriggers/create-trigger.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
     * match createTrigger.responseStatusCode == 200
@@ -62,11 +59,7 @@ Feature: This feature contains negative regression test cases of openwhisk rules
   Scenario: As user i want to verify reject delete of rule that does not exist
     * print "Test case Started --> Verify reject delete of rule that does not exist" 
     # Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * print 'The Auth is-' + Auth
     * def ruleName = 'Rule'+java.util.UUID.randomUUID()
     * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/delete-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
     * match deleteRule.responseStatusCode == 404
@@ -77,11 +70,7 @@ Feature: This feature contains negative regression test cases of openwhisk rules
   Scenario: As user i want to verify reject enable of rule that does not exist
   	* print "Test case Started --> verify reject enable of rule that does not exist"
   	# Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * print 'The Auth is-' + Auth
     * def ruleName = 'Rule'+java.util.UUID.randomUUID()
     * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/delete-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
     * match deleteRule.responseStatusCode == 404
@@ -91,11 +80,12 @@ Feature: This feature contains negative regression test cases of openwhisk rules
   Scenario: As user i want to verify reject disable of rule that does not exist 
    	* print "Test case Started --> verify reject disable of rule that does not exist" 
    	# Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    #* def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
+    #* def result = getNSCreds.result
+    #* def Auth = base64encoding(result)
+    #* print "Got the Creds for the guest user"
+    #* print Auth
+    * print 'The Auth is-' + Auth
     * def ruleName = 'Rule'+java.util.UUID.randomUUID()
     * def deleteRule = call read('classpath:com/karate/openwhisk/wskrules/disable-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
     * match deleteRule.responseStatusCode == 404
@@ -105,11 +95,7 @@ Feature: This feature contains negative regression test cases of openwhisk rules
   Scenario: As user i want to verify reject get of rule that does not exist
    	* print "Test case Started --> verify reject get of rule that does not exist"  
    	# Get User Auth
-    * def getNSCreds = call read('classpath:com/karate/openwhisk/wskadmin/get-user.feature') {nameSpace:'#(nameSpace)'}
-    * def result = getNSCreds.result
-    * def Auth = base64encoding(result)
-    * print "Got the Creds for the guest user"
-    * print Auth
+    * print 'The Auth is-' + Auth
     * def ruleName = 'Rule'+java.util.UUID.randomUUID() 
     #get the rule
     * def getRule = call read('classpath:com/karate/openwhisk/wskrules/get-rule.feature') {nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',ruleName:'#(ruleName)'}
