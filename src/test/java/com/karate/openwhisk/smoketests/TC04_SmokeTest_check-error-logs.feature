@@ -47,9 +47,9 @@ Feature: This feature file will test for the presence of any error in the logs p
     * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
     
     #Get Activation details
-    * def getActivationDetails = call read('classpath:com/karate/openwhisk/wskactions/get-activation-details.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
-    * def activationResponse = getActivationDetails.response
-    * print activationResponse.logs
-    * match activationResponse.logs == ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
-    * print "Successfully pulled the activation details"
+    * def getActivationLogs = call read('classpath:com/karate/openwhisk/wskactions/get-activation-logs.feature') { activationId: '#(actID)' ,Auth:'#(Auth)'}
+    * def activationLogsResponse = getActivationLogs.response
+    * print activationLogsResponse
+    * match activationLogsResponse.logs contains ['#regex .* stdout: hello stdout','#regex .* stderr: hello stderr']
+    * print "Successfully pulled the activation logs"
     * print "TC04 ENDS"
