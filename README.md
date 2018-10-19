@@ -15,9 +15,9 @@ The project structure is divided into the following packages:
 ### How to run the functional test
 1. Clone/Download the repo
 2. Pick up the suite to run.For example if you want to run the smoke test navigate root path and run the below given command.
-2. Use the following command to run the above selected suite: `mvn test -Dadminauth=<base64-enconded-admin-auth> -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dadminbaseurl=<Admin/CouchDB URL> -Dbaseurl=<Base Url of Controller>` (This will run all the tests in com.karate.openwhisk.smoketests package.
+3. Use the following command to run the above selected suite: `mvn test -Dadminauth=<base64-enconded-admin-auth> -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dadminbaseurl=<Admin/CouchDB URL> -Dbaseurl=<Base Url of Controller>` (This will run all the tests in com.karate.openwhisk.smoketests package.
 Example : `mvn test -Dadminauth='d2hpc2tfYWRtaW5PcHM=' -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dadminbaseurl=https://whisk-couchdb.test.com:443 -Dbaseurl=https://controller-test.com`
-
+4. Or if you already have a test user namespace: `mvn test -Dtest=com.karate.openwhisk.smoketests.SmokeTestRunner -Dbaseurl=https://controller-test.com -Dtest_user_ns=my_test_user -Dtest_user_key=MYBASE64ENCODEDKEY`
 
 ### How to run the performance test
 1. Navigate to the root path.Check out the performance test package (/ow-karate/src/test/java/com/karate/openwhisk/performance)
@@ -50,8 +50,8 @@ The variables in karate.config
 * adminauth-->Admin Auth,Used for Admin API's
 * baseurl-->Target URL(SUT)
 * adminbaseurl-->Database Url
-* NS_botTester[i]=Namespace of the bot testers
-* Auth_botTester[i]=Auth of the bot testers(Base64 decode of the credentials)
+* test_user_ns=Namespace of the bot testers
+* test_user_key=Auth of the bot testers(Base64 decode of the credentials)
 * MarathonAPIURL=URL of the environment where marathon is hosted.
 * Marathon Auth Token=Auth token to use the marathon API's.Links on how to optain and use Marathon API's
 1. https://docs.mesosphere.com/1.10/security/ent/iam-api/#/obtaining-an-authentication-token
