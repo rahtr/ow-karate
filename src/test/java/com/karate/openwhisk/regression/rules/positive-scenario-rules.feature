@@ -22,7 +22,7 @@ Feature: This feature contains positive regression test cases of openwhisk rules
     * configure ssl = true
     #* def nameSpace = 'guest'
     * def nameSpace = test_user_ns
-    * def nameSpace2 = 'normaluser'
+   # * def nameSpace2 = 'normaluser'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
     * def getAuth = callonce read('classpath:com/karate/openwhisk/utils/get-auth.feature')
