@@ -21,6 +21,8 @@ Feature: This feature file will test for the presence of any error in the logs p
 
   Background: 
     * configure ssl = true
+    * configure connectTimeout = 6000000
+    * configure readTimeout = 6000000
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')

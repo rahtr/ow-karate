@@ -8,6 +8,7 @@ function() {
     
     karate.log('karate.env system property was:', env);
 
+
     if (!adminauth) {
 
         adminauth='d2hpc2tfYWRtaW46c29tZV9wYXNzdzByZA=='

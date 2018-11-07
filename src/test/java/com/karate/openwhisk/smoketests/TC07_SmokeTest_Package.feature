@@ -21,6 +21,8 @@ Feature: This feature contains smoke test cases of openwhisk package
 
 	Background: 
     * configure ssl = true
+      * configure connectTimeout = 6000000
+      * configure readTimeout = 6000000
     * def nameSpace = test_user_ns
     * def scriptcode = call read('classpath:com/karate/openwhisk/functions/hello-world.js')
     * def scriptcodeWithParam = call read('classpath:com/karate/openwhisk/functions/greetings.js')
