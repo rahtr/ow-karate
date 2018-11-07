@@ -21,7 +21,8 @@ Feature: This feature file will test all the wsk functions
 
   Background: 
     * configure ssl = true
-    * configure readTimeout = 1200000
+    * configure connectTimeout = 6000000
+    * configure readTimeout = 6000000
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcodefirst = call read('classpath:com/karate/openwhisk/functions/myAction.js')

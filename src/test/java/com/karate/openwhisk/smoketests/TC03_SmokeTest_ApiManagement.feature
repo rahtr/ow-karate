@@ -22,6 +22,8 @@ Feature: This feature file will test the basic API Management Functionality
 
   Background: 
     * configure ssl = true
+    * configure connectTimeout = 6000000
+    * configure readTimeout = 6000000
     * def nameSpace = test_user_ns
     * def params = '?blocking=true&result=false'
     * def scriptcodeget = call read('classpath:com/karate/openwhisk/functions/getResponse.js')
