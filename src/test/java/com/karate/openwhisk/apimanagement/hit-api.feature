@@ -22,7 +22,8 @@ Feature: Hit the End Points and Assert for Success
     * configure ssl = true
   
     
-  Scenario: Hit the End Points and assert of they give a two hundred OK 
+  Scenario: Hit the End Points and assert of they give a two hundred OK
+    * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'10'}
      Given url BaseUrl + endpoint
      And header Authorization = Auth
      And header Content-Type = 'application/json'
@@ -44,4 +45,3 @@ Feature: Hit the End Points and Assert for Success
       * match jsonResponse.env.__OW_API_KEY == '#notnull'
        * match jsonResponse.env.__OW_DEADLINE == '#notnull'
         * match jsonResponse.env.__OW_NAMESPACE == '#notnull'
-   * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'10'}

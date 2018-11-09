@@ -37,4 +37,3 @@ Background:
     * string nestedActionName = $response.response[*].body[*].__OW_ACTION_NAME
     * print nestedActionName
    # And match response !contains {"annotations": [{"key": "initTime"}]}
-   #* def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
