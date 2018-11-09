@@ -33,4 +33,4 @@ Background:
     And def activationLogs = response
 
    # And match response !contains {"annotations": [{"key": "initTime"}]}
-   * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.js')(1000)
+    * def webhooks = callonce read('classpath:com/karate/openwhisk/utils/sleep.feature') {sheepCount:'20'}
