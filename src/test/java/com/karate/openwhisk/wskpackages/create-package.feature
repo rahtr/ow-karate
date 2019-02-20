@@ -19,13 +19,13 @@
 @ignore
 Feature: Create a Package
   I want to use this template for my feature file
-  
+
   Background:
 	* configure ssl = true
-
-
+    * def defaultPayload = {"name":'#(packageName)',"namespace":"#(nameSpace)"}
+    * print "default payload is: " + defaultPayload
   Scenario: As a user I want to create a package
-  * eval
+    * eval
  		 """
 					if (typeof packageName == 'undefined') {
 					    karate.set('packageName', 'Package'+java.util.UUID.randomUUID());
@@ -33,7 +33,14 @@ Feature: Create a Package
 							karate.set('packageName', packageName);
 					}
  		 """
- 		* def requestBody = {"name":'#(packageName)',"namespace":"#(nameSpace)"}
+    * eval
+ 		 """
+					if (typeof requestBody == 'undefined') {
+					    karate.set('requestBody', defaultPayload);
+					} else {
+							karate.set('requestBody', requestBody);
+					}
+ 		 """
     * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/packages/'+packageName+'?overwrite=false'
     And header Authorization = Auth

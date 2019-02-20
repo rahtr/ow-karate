@@ -21,13 +21,14 @@ Feature: Create an Action
   I want to use this template for my feature file
   
   Background:
-* configure ssl = true
+    * configure ssl = true
+    * def defaultPayload = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
 
 
   Scenario: As a user I want to create an action
     
  #Create an Action
- 		* eval
+    * eval
  		 """
 					if (typeof actionName == 'undefined') {
 					    karate.set('actionName', 'Testing'+java.util.UUID.randomUUID());
@@ -36,7 +37,7 @@ Feature: Create an Action
 					}
  		 """
  		 
- 			* eval
+    * eval
  		 """
 					if (typeof webAction == 'undefined') {
 					    karate.set('webAction', 'false');
@@ -44,8 +45,16 @@ Feature: Create an Action
 							karate.set('webAction', 'true');
 					}
  		 """
- 		 
-    * def requestBody = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+
+    * eval
+ 		 """
+					if (typeof requestBody == 'undefined') {
+					    karate.set('requestBody', defaultPayload);
+					} else {
+							karate.set('requestBody', requestBody);
+					}
+ 		 """
+
     * string payload = requestBody
     Given url BaseUrl+'/api/v1/namespaces/'+nameSpace+'/actions/'+actionName+'?overwrite=false'
     And header Authorization = Auth
