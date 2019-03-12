@@ -35,7 +35,7 @@ Feature: This feature file will test all the wsk functions
      # Create an Action .Create an action for the above defined guest name.The action code with invoke another action
     * print 'TC01 STARTS'
     * def createFirstAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodefirst)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)',actionName:'myNestedAction'}
-    * def createSecondAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodesecond)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)'}
+    * def createSecondAction = call read('classpath:com/karate/openwhisk/wskactions/create-action.feature') {script:'#(scriptcodesecond)' ,nameSpace:'#(nameSpace)' ,Auth:'#(Auth)', provideApiKey: true}
     * def actionName = createSecondAction.actName
     * print actionName
     * print "Successfully Created an action"
