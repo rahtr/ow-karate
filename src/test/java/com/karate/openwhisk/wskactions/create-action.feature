@@ -22,7 +22,7 @@ Feature: Create an Action
   
   Background:
     * configure ssl = true
-    * def defaultPayload = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true}]}
+    * def defaultPayload = {"namespace":'#(nameSpace)',"name":'#(actionName)',"exec":{"kind":"nodejs:default","code":'#(script)'},"annotations":[{"key":"web-export","value":true},{"key":"raw-http","value":false},{"key":"final","value":true},{"key": "provide-api-key","value": '#(provideApiKey)'}]}
 
 
   Scenario: As a user I want to create an action
@@ -52,6 +52,15 @@ Feature: Create an Action
 					    karate.set('requestBody', defaultPayload);
 					} else {
 							karate.set('requestBody', requestBody);
+					}
+ 		 """
+
+    * eval
+ 		 """
+					if (typeof provideApiKey == 'undefined') {
+					    karate.set('provideApiKey', 'false');
+					} else {
+							karate.set('provideApiKey', provideApiKey);
 					}
  		 """
 
