@@ -42,6 +42,5 @@ Feature: Hit the End Points and Assert for Success
    * match jsonResponse.env.__OW_ACTION_NAME == '#notnull'
     * match jsonResponse.env.__OW_ACTIVATION_ID == '#notnull'
      * match jsonResponse.env.__OW_API_HOST == '#notnull'
-      * match jsonResponse.env.__OW_API_KEY == '#notnull'
        * match jsonResponse.env.__OW_DEADLINE == '#notnull'
         * match jsonResponse.env.__OW_NAMESPACE == '#notnull'
